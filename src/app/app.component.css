@@ -1,0 +1,40 @@
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+#window2 {
+  width: 99%;
+  font-weight: bold;
+  color: white;
+  font-size: 46px;
+  margin: 7px auto;
+  border: 2px solid #000;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  padding: 4px 9px 0px 1px;
+  background: #0d1f42;
+  box-shadow: 6px 6px 5px #444;
+  -moz-box-shadow: 6px 6px 5px #444;
+  -webkit-box-shadow: 6px 6px 5px #444;
+}
+user agent stylesheet
+div {
+  display: block;
+}
+Inherited from body
+
+body {
+  background: #e7f3f7;
+  color: white;
+  font-size: 14px;
+  margin: 0;
+  padding: 1%;
+  min-width: 71em;
+  max-width: 71em;
+  min-height: 52em;
+  max-height: 52em;
+  font-size: 100.01%;
+  font-family: "Arial";
+}

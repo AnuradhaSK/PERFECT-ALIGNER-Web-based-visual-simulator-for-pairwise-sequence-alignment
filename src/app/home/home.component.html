@@ -1,0 +1,21 @@
+
+<h3>Sequence Alignment Algorithms</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let algo of algos" class="col-1-4"
+     routerLink={{algo.rlink}}>
+    <div class="module hero">
+
+
+      <h4>{{algo.name}}</h4>
+      <mat-card class="example-card" >
+        <img mat-card-image src={{algo.path}}>
+        <mat-card-content>
+          <p >
+            {{algo.text}}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </a>
+</div>
+

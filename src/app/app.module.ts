@@ -3,14 +3,32 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+import { FormsModule } from '@angular/forms';
+import {MatGridListModule} from '@angular/material/grid-list'
+import { HomeComponent } from './home/home.component';
+import { FaqComponent } from './faq/faq.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { NwalgoComponent } from './nwalgo/nwalgo.component';
+import { SwalgoComponent } from './swalgo/swalgo.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    FaqComponent,
+    NwalgoComponent,
+    SwalgoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    FormsModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
