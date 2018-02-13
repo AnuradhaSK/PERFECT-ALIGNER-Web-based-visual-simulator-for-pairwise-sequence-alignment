@@ -1,6 +1,6 @@
 .example-card {
   max-width: 500px;
-  min-height: 650px;
+  min-height: 250px;
 
 }
 
@@ -30,6 +30,7 @@ a {
 p{
   font-family: "Arial";
   text-align: center;
+  color: #607d8b;
 
 }
 h3 {
