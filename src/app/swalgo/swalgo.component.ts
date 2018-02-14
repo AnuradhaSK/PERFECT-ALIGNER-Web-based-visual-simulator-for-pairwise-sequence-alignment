@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./swalgo.component.css']
 })
 export class SwalgoComponent implements OnInit {
-
+  title = 'smith-waterman';
+  Stringone: '';
+  Stringtwo: '';
   constructor() {
   }
 

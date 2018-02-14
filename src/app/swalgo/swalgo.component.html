@@ -1,1 +1,61 @@
 
+<br>
+<div class="container color-dark">
+  <div class="col">
+    <h3>Selected Algorithm: {{title|uppercase}}</h3>
+  </div>
+</div>
+<br>
+<div class="container color-light">
+  <div class="col">
+
+    <div class="example-container">
+
+      <mat-form-field>
+        <textarea matInput [(ngModel)]=" Stringone" placeholder="String 1 (i.e CCATGTA)"></textarea>
+      </mat-form-field>
+      <input type="file" id="loadfile1"  onclick="document.getElementById()" >
+      <mat-form-field>
+        <textarea matInput [(ngModel)]=" Stringtwo" placeholder="String 2 (i.e CAATGAA)"></textarea>
+      </mat-form-field>
+      <input type="file" id="loadfile2"  onclick="document.getElementById()" >
+
+      <mat-form-field>
+        <mat-select placeholder="Score of match">
+          <mat-option value="option1">1</mat-option>
+          <mat-option value="option2">2</mat-option>
+          <mat-option value="option3">3</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Score of mismatch">
+          <mat-option value="option0">0</mat-option>
+          <mat-option value="option-1">-1</mat-option>
+          <mat-option value="option-2">-2</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Gap penalty">
+          <mat-option value="option0">0</mat-option>
+          <mat-option value="option-1">-1</mat-option>
+          <mat-option value="option-2">-2</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
+
+  </div>
+  <div class="col">
+    <h2 >Matrix</h2>
+    <br>
+    <mat-grid-list cols="6" rowHeight="1:1">
+      <mat-grid-tile>1</mat-grid-tile>
+      <mat-grid-tile>2</mat-grid-tile>
+      <mat-grid-tile>3</mat-grid-tile>
+      <mat-grid-tile>4</mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>
