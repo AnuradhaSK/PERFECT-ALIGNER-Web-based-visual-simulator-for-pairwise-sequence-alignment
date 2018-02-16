@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NwalgoComponent implements OnInit {
   title = 'needleman-wunsch';
-  Stringone: '';
-  Stringtwo: '';
-
+  btnText = 'Align';
+  Stringone: ' ';
+  Stringtwo: ' ';
+  Null: '';
+  coulmns: number;
+  String1array = [];
+  String2array = [];
   constructor(
 
   ) {
@@ -17,6 +21,15 @@ export class NwalgoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.coulmns = 0;
+  }
+
+  showGrid() {
+    this.Stringone = this.Stringone;
+    this.String1array = this.Stringone.split('', this.Stringone.length);
+    this.Stringtwo = this.Stringtwo;
+    this.String2array = this.Stringtwo.split('', this.Stringtwo.length);
+    this.coulmns = this.Stringone.length + 2;
   }
 
 }

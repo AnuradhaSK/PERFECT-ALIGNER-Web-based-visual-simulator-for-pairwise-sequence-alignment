@@ -83,3 +83,18 @@ h4{
     min-width: 60px;
   }
 }
+.parallax {
+  /* The image used */
+  background-image: url("http://blog.oncofertility.northwestern.edu/wp-content/uploads/2010/07/DNA-sequence.jpg");
+
+  /* Set a specific height */
+  min-height: 300px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width:100%;
+
+}
