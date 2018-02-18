@@ -11,21 +11,25 @@
       <form  method="POST" action="#" autocomplete="off">
         <input type="text" name="Stringone" [(ngModel)]=" Stringone" placeholder="String 1 (i.e CCATGTA)" required/>
         <input type="text" name="Stringtwo" [(ngModel)]=" Stringtwo" placeholder="String 2 (i.e CAATGAA)" required/>
-        <mat-select placeholder="Score of match">
+
+        <input type="text" name="a" [(ngModel)]=" a" placeholder="match" required/>
+        <input type="text" name="b" [(ngModel)]="b" placeholder="mismatch" required/>
+        <input type="text" name="c" [(ngModel)]=" c" placeholder="gap" required/>
+        <!--<mat-select  [(ngModel)]="a" placeholder="Score of match">
           <mat-option value="option1">1</mat-option>
           <mat-option value="option2">2</mat-option>
           <mat-option value="option3">3</mat-option>
         </mat-select>
-        <mat-select placeholder="Score of mismatch">
+        <mat-select  [(ngModel)]=" b" placeholder="Score of mismatch">
           <mat-option value="option0">0</mat-option>
           <mat-option value="option-1">-1</mat-option>
           <mat-option value="option-2">-2</mat-option>
         </mat-select>
-        <mat-select placeholder="Gap penalty">
+        <mat-select  [(ngModel)]=" c" placeholder="Gap penalty">
           <mat-option value="option0">0</mat-option>
           <mat-option value="option-1">-1</mat-option>
           <mat-option value="option-2">-2</mat-option>
-        </mat-select>
+        </mat-select>-->
         <input type="submit" class="btn" [value]="btnText" (click)="showGrid()" >
       </form>
 
@@ -34,7 +38,7 @@
 
   <div >
     <h2 >Matrix</h2>
-
+    <span>{{str}}</span>
     <br>
     <input type="submit" class="btn" [value]="stepBtn" (click)="nextStep()" >
     <input type="submit" class="btn" [value]="finalBtn" >

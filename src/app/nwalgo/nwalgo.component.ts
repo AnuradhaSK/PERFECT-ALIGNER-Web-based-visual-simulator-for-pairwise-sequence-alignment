@@ -23,7 +23,11 @@ export class NwalgoComponent implements OnInit {
   col = 0;
   table: any;
   newRow: any;
-
+ a: '';
+ b: '';
+  c: '';
+  str: any;
+  private xmlHttp: XMLHttpRequest;
   constructor() {
 
   }
@@ -32,6 +36,12 @@ export class NwalgoComponent implements OnInit {
     this.columns = 0;
     this.Finalarray = [[0, 1, 2], [3, 4, 5], [6, 7, 8]];
   }
+  httpGet(theUrl) {
+    this.xmlHttp = new XMLHttpRequest();
+    this.xmlHttp.open( 'GET', theUrl, false ); // false for synchronous request
+    this.xmlHttp.send( null );
+    return this.xmlHttp.responseText;
+  }
 
   showGrid() {
     this.Stringone = this.Stringone;
@@ -39,6 +49,15 @@ export class NwalgoComponent implements OnInit {
     this.Stringtwo = this.Stringtwo;
     this.String2array = this.Stringtwo.split('', this.Stringtwo.length);
     this.columns = this.Stringone.length + 2;
+    this.a = this.a;
+    this.b = this.b;
+    this.c = this.c;
+    this.str = this.httpGet('http://localhost:8080/perfectaligner/test?sequence1=' + this.Stringone +
+      '&sequence2=' + this.Stringtwo +
+      '&match=' + this.a + '&mismatch=' + this.b + '&gap=' + this.c );
+``
+    console.log(this.str);
+
 
     this.table =  document.getElementById('myTable');
     for (this.row ; this.row < this.Stringtwo.length + 2; this.row++) {
@@ -76,8 +95,8 @@ export class NwalgoComponent implements OnInit {
 
   nextStep() {
     console.log('Implement next step');
-    document.getElementById('myTable').rows[2].cells[2].innerHTML = '5';
-    document.getElementById('myTable').rows[3].cells[3].innerHTML = '2';
+    //document.getElementById('myTable').rows[2].cells[2].innerHTML = '5';
+    //document.getElementById('myTable').rows[3].cells[3].innerHTML = '2';
   }
 
   clearall() {
