@@ -73,3 +73,9 @@ h3{
 mat-grid-tile {
   background: white;
 }
+
+table, td {
+  border: 1px solid black;
+  min-width: 10px;
+  min-height: 10px;
+}

@@ -8,9 +8,9 @@
 <div class="container color-light">
   <div class="col">
     <div class="example-container">
-      <form>
-        <input type="text" name="Stringone" [(ngModel)]=" Stringone" placeholder="String 1 (i.e CCATGTA)">
-        <input type="text" name="Stringtwo" [(ngModel)]=" Stringtwo" placeholder="String 2 (i.e CAATGAA)">
+      <form  method="POST" action="#" autocomplete="off">
+        <input type="text" name="Stringone" [(ngModel)]=" Stringone" placeholder="String 1 (i.e CCATGTA)" required/>
+        <input type="text" name="Stringtwo" [(ngModel)]=" Stringtwo" placeholder="String 2 (i.e CAATGAA)" required/>
         <mat-select placeholder="Score of match">
           <mat-option value="option1">1</mat-option>
           <mat-option value="option2">2</mat-option>
@@ -36,26 +36,35 @@
     <h2 >Matrix</h2>
 
     <br>
+    <input type="submit" class="btn" [value]="stepBtn" (click)="nextStep()" >
+    <input type="submit" class="btn" [value]="finalBtn" >
+    <input type="submit" class="btn" [value]="clearBtn" (click)="clearall()" >
 
-    <table class="table table-bordered">
-      <tr>
-        <th>{{Null}}</th>
-        <th>{{Null}}</th>
-        <th *ngFor="let letter of String1array">{{letter}}</th>
+    <table id="myTable" cellspacing="10">
+
+    </table>
+
+    <!--<table class="table table-bordered">
+
+      <tr >
+        <td style.background="green">{{Null}}</td>
+        <td style.background="green">{{Null}}</td>
+        <td *ngFor="let letter of String1array">{{letter}}</td>
       </tr>
       <tr>
-        <th>{{Null}}</th>
-        <th>{{Null}}</th>
-        <th *ngFor="let letter of String1array">{{Null}}</th>
+        <td>{{Null}}</td>
+        <td>{{Null}}</td>
+        <td *ngFor="let letter of String1array">{{Null}}</td>
       </tr>
       <tr *ngFor="let letter2 of String2array">
-        <th>{{letter2}}</th>
-        <th>{{Null}}</th>
-        <th *ngFor="let letter of String1array">{{Null}}</th>
+        <td>{{letter2}}</td>
+        <td>{{Null}}</td>
+        <td *ngFor="let letter of String1array">{{Null}}</td>
       </tr>
-    </table>
+    </table>-->
   </div>
 
 </div>
+
 
 
