@@ -1,71 +1,103 @@
 <br>
 <div class="container color-dark">
-  <div class="col">
+  <div class="col-lg-12">
     <h3>Selected Algorithm: {{title|uppercase}}</h3>
   </div>
 </div>
 <br>
+
 <div class="container color-light">
   <div class="col">
-    <div class="example-container">
-      <form  method="POST" action="#" autocomplete="off">
-        <input type="text" name="Stringone" [(ngModel)]=" Stringone" placeholder="String 1 (i.e CCATGTA)" required/>
-        <input type="text" name="Stringtwo" [(ngModel)]=" Stringtwo" placeholder="String 2 (i.e CAATGAA)" required/>
+    <div class="example-container container-fluid">
 
-        <input type="text" name="a" [(ngModel)]=" a" placeholder="match" required/>
-        <input type="text" name="b" [(ngModel)]="b" placeholder="mismatch" required/>
-        <input type="text" name="c" [(ngModel)]=" c" placeholder="gap" required/>
-        <!--<mat-select  [(ngModel)]="a" placeholder="Score of match">
-          <mat-option value="option1">1</mat-option>
-          <mat-option value="option2">2</mat-option>
-          <mat-option value="option3">3</mat-option>
-        </mat-select>
-        <mat-select  [(ngModel)]=" b" placeholder="Score of mismatch">
-          <mat-option value="option0">0</mat-option>
-          <mat-option value="option-1">-1</mat-option>
-          <mat-option value="option-2">-2</mat-option>
-        </mat-select>
-        <mat-select  [(ngModel)]=" c" placeholder="Gap penalty">
-          <mat-option value="option0">0</mat-option>
-          <mat-option value="option-1">-1</mat-option>
-          <mat-option value="option-2">-2</mat-option>
-        </mat-select>-->
-        <input type="submit" class="btn" [value]="btnText" (click)="showGrid()" >
+      <div class="col-lg-12">
+      <form  method="POST" action="#" autocomplete="off">
+        <div class="form-group row">
+          <div class="col-lg-4">
+        <label>String 1</label>
+          </div>
+          <div class="col-lg-4">
+        <input type="text" style="text-transform:uppercase" name="Stringone" [(ngModel)]=" Stringone" placeholder="String 1 (i.e CCATGTA)" required>
+          </div>
+        <br>
+
+        </div>
+
+        <div class="form-group row">
+          <div class="col-lg-4">
+        <label>String 2</label>
+          </div>
+          <div class="col-lg-4">
+        <input type="text" style="text-transform:uppercase" name="Stringtwo" [(ngModel)]=" Stringtwo" placeholder="String 2 (i.e CAATGAA)" required>
+          </div>
+        <br>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-lg-4">
+        <label>Match Score</label>
+          </div>
+          <div class="col-lg-4">
+        <input type="text" name="a" ng-pattern= "/^[0-9]+$/" [(ngModel)]="match" placeholder="match" required>
+          </div>
+        <br>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-lg-4">
+        <label>Mismatch Score</label>
+          </div>
+          <div class="col-lg-4">
+        <input type="text" name="b" [(ngModel)]="mismatch" placeholder="mismatch" required>
+          </div>
+        <br>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-lg-4">
+        <label>Gap Penalty</label>
+          </div>
+          <div class="col-lg-4">
+        <input type="text" name="c" [(ngModel)]="gap" placeholder="gap" required>
+          </div>
+        <br>
+        </div>
+
+        <input type="submit" class="btn" [value]="btnText" [disabled]= "alignStop" (click)="showGrid()" >
+
       </form>
+      </div>
+
 
     </div>
+
   </div>
 
   <div >
     <h2 >Matrix</h2>
-    <span>{{str}}</span>
     <br>
-    <input type="submit" class="btn" [value]="stepBtn" (click)="nextStep()" >
-    <input type="submit" class="btn" [value]="finalBtn" >
+    <input type="submit" class="btn" [value]="stepBtn" [disabled] = "stepStop" (click)="nextStep()" >
+    <input type="submit" class="btn" [value]="finalBtn" [disabled] = "finalStop"(click)="finalResult()">
     <input type="submit" class="btn" [value]="clearBtn" (click)="clearall()" >
 
-    <table id="myTable" cellspacing="10">
 
+    <mat-spinner align="center" [style.display]=" showSpinner ?'block':'none'"></mat-spinner>
+    <div style="overflow:auto; height: 500px;  width: 490px;" >
+    <table class="table table-bordered" cellspacing="10">
+      <tr *ngFor="let rowArray of gridArray">
+        <td  *ngFor="let colData of rowArray"
+             [ngClass]='{highlight : (colData.color), highlight2 : (colData.datacolor), highlight3 : (colData.refcolor)}'>
+          {{colData.cellvalue}}
+        </td>
+      </tr>
     </table>
+    </div>
 
-    <!--<table class="table table-bordered">
-
-      <tr >
-        <td style.background="green">{{Null}}</td>
-        <td style.background="green">{{Null}}</td>
-        <td *ngFor="let letter of String1array">{{letter}}</td>
-      </tr>
-      <tr>
-        <td>{{Null}}</td>
-        <td>{{Null}}</td>
-        <td *ngFor="let letter of String1array">{{Null}}</td>
-      </tr>
-      <tr *ngFor="let letter2 of String2array">
-        <td>{{letter2}}</td>
-        <td>{{Null}}</td>
-        <td *ngFor="let letter of String1array">{{Null}}</td>
-      </tr>
-    </table>-->
+    <div class="example-container" *ngIf="final">
+      <span><h4>S1:{{resSeq1}}</h4></span>
+      <br>
+      <span><h4>S2:{{resSeq2}}</h4></span>
+    </div>
   </div>
 
 </div>

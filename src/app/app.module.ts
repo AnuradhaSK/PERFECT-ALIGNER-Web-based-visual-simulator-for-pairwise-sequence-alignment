@@ -32,7 +32,7 @@ import { SwalgoComponent } from './swalgo/swalgo.component';
     MaterialModule,
     FormsModule,
     MatGridListModule,
-    AppBootstrapModule
+    AppBootstrapModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
