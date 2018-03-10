@@ -1,0 +1,57 @@
+<!--form-->
+
+<form  method="POST" action="#" autocomplete="off">
+  <div class="form-group row">
+    <div class="col-lg-4">
+      <label>String 1</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="text" style="text-transform:uppercase" name="Stringone" [(ngModel)]=" Stringone" placeholder="String 1 (i.e CCATGTA)" required>
+    </div>
+    <br>
+
+  </div>
+
+  <div class="form-group row">
+    <div class="col-lg-4">
+      <label>String 2</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="text" style="text-transform:uppercase" name="Stringtwo" [(ngModel)]=" Stringtwo" placeholder="String 2 (i.e CAATGAA)" required>
+    </div>
+    <br>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-lg-4">
+      <label>Match Score</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="text" name="a" ng-pattern= "/^[0-9]+$/" [(ngModel)]="match" placeholder="match" required>
+    </div>
+    <br>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-lg-4">
+      <label>Mismatch Score</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="text" name="b" [(ngModel)]="mismatch" placeholder="mismatch" required>
+    </div>
+    <br>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-lg-4">
+      <label>Gap Penalty</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="text" name="c" [(ngModel)]="gap" placeholder="gap" required>
+    </div>
+    <br>
+  </div>
+
+  <input type="submit" class="btn" [value]="btnText" [disabled]= "alignStop" (click)="showGrid()" >
+
+</form>

@@ -11,6 +11,7 @@
     <div class="example-container container-fluid">
 
       <div class="col-lg-12">
+        <!--Form-->
       <form  method="POST" action="#" autocomplete="off">
         <div class="form-group row">
           <div class="col-lg-4">
@@ -74,6 +75,7 @@
   </div>
 
   <div >
+    <!--Matrix-->
     <h2 >Matrix</h2>
     <br>
     <input type="submit" class="btn" [value]="stepBtn" [disabled] = "stepStop" (click)="nextStep()" >
@@ -83,6 +85,7 @@
 
     <mat-spinner align="center" [style.display]=" showSpinner ?'block':'none'"></mat-spinner>
     <div style="overflow:auto; height: 500px;  width: 490px;" >
+      <!--Grid-->
     <table class="table table-bordered" cellspacing="10">
       <tr *ngFor="let rowArray of gridArray">
         <td  *ngFor="let colData of rowArray"
@@ -93,6 +96,7 @@
     </table>
     </div>
 
+    <!--Final output-->
     <div class="example-container" *ngIf="final">
       <span><h4>S1:{{resSeq1}}</h4></span>
       <br>

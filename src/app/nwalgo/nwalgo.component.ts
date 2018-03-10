@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
+import { Cell } from '../cell'; // import cell class
 
 @Component({
   selector: 'app-nwalgo',
@@ -7,16 +8,37 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
   styleUrls: ['./nwalgo.component.css']
 })
 export class NwalgoComponent implements OnInit {
-  title = 'needleman-wunsch'; btnText = 'Align'; stepBtn = 'NextStep'; finalBtn = 'FinalAlignment'; clearBtn = 'Clear';
-  Stringone: ' '; Stringtwo: ' '; columns: number; String1array = []; String2array = []; StringOffsetArray = ['' , ''];
-  colCount = 0; rowCount = 0; gridArray: Cell[][];
-  nextRowIndex = 2; nextColIndex = 2; nextDataArrayIndex = 0; dataArray: any;
-  alignStop: boolean; stepStop = true; finalStop = true; final: boolean;
-  match: ''; mismatch: ''; gap: ''; str: any;
+  title = 'needleman-wunsch';
+  btnText = 'Align';
+  stepBtn = 'NextStep';
+  finalBtn = 'FinalAlignment';
+  clearBtn = 'Clear';
+  Stringone: ' ';
+  Stringtwo: ' ';
+  columns: number;
+  String1array = [];
+  String2array = [];
+  StringOffsetArray = ['', ''];
+  colCount = 0;
+  rowCount = 0;
+  gridArray: Cell[][];
+  nextRowIndex = 2;
+  nextColIndex = 2;
+  nextDataArrayIndex = 0;
+  dataArray: any;
+  alignStop: boolean;
+  stepStop = true;
+  finalStop = true;
+  final: boolean;
+  match: '';
+  mismatch: '';
+  gap: '';
+  str: any;
   private xmlHttp: XMLHttpRequest;
   resSeq1: ' ';
   resSeq2: ' ';
   showSpinner: boolean = false;
+
   constructor() {
   }
 
@@ -26,11 +48,12 @@ export class NwalgoComponent implements OnInit {
 
   httpGet(theUrl) {
     this.xmlHttp = new XMLHttpRequest();
-    this.xmlHttp.open( 'GET', theUrl, false ); // false for synchronous request
-    this.xmlHttp.send( null );
+    this.xmlHttp.open('GET', theUrl, false); // false for synchronous request
+    this.xmlHttp.send(null);
     return this.xmlHttp.responseText;
   }
 
+  // This method is called when the align button clicks
   showGrid() {
     this.showSpinner = true;
     this.nextDataArrayIndex = 0;
@@ -49,10 +72,10 @@ export class NwalgoComponent implements OnInit {
 
       this.str = this.httpGet('http://localhost:8080/perfectaligner/test?sequence1=' + this.Stringone +
         '&sequence2=' + this.Stringtwo +
-        '&match=' + this.match + '&mismatch=' + this.mismatch + '&gap=' + this.gap );
-      this.dataArray = JSON.parse( this.str );
+        '&match=' + this.match + '&mismatch=' + this.mismatch + '&gap=' + this.gap);
+      this.dataArray = JSON.parse(this.str);
       this.showSpinner = false;
-    }, 2000)
+    }, 2000);
     console.log(this.str);
     this.alignStop = true;
   }
@@ -77,32 +100,35 @@ export class NwalgoComponent implements OnInit {
     }
     this.gridArray[1][1].cellvalue = '0';
     for (let cp = 2; cp < this.colCount; cp++) {
-      this.gridArray[1][cp].cellvalue = ( parseInt(this.gap, 10 ) * ( cp - 1 ) ).toString();
+      this.gridArray[1][cp].cellvalue = (parseInt(this.gap, 10) * (cp - 1)).toString();
     }
     for (let rp = 2; rp < this.rowCount; rp++) {
-      this.gridArray[rp][1].cellvalue = ( parseInt(this.gap, 10 ) * ( rp - 1 ) ).toString();
+      this.gridArray[rp][1].cellvalue = (parseInt(this.gap, 10) * (rp - 1)).toString();
     }
   }
 
-
+  // next step button function
   nextStep() {
     console.log('Implement next step');
-      this.resetColor();
-      this.updateMatrix(this.nextRowIndex, this.nextColIndex, this.dataArray[this.nextDataArrayIndex].score,
-        this.dataArray[this.nextDataArrayIndex].preRow + 1, this.dataArray[this.nextDataArrayIndex].preCol + 1);
-      if (this.nextColIndex + 1 < this.colCount) {
-        this.nextColIndex += 1;
-      } else {
-        this.nextColIndex = 2;
-        this.nextRowIndex += 1;
-      }
-      this.nextDataArrayIndex += 1;
-      if (this.nextDataArrayIndex === this.Stringone.length * this.Stringtwo.length) {
-        console.log('Next step came to final');
-        this.stepStop = true;
-      }
+    // reset exisiting colors
+    this.resetColor();
+    // update the next step values,colors
+    this.updateMatrix(this.nextRowIndex, this.nextColIndex, this.dataArray[this.nextDataArrayIndex].score,
+      this.dataArray[this.nextDataArrayIndex].preRow + 1, this.dataArray[this.nextDataArrayIndex].preCol + 1);
+    if (this.nextColIndex + 1 < this.colCount) {
+      this.nextColIndex += 1;
+    } else {
+      this.nextColIndex = 2;
+      this.nextRowIndex += 1;
+    }
+    this.nextDataArrayIndex += 1;
+    if (this.nextDataArrayIndex === this.Stringone.length * this.Stringtwo.length) {
+      console.log('Next step came to final');
+      this.stepStop = true;
+    }
   }
 
+  // reset colors of cells
   resetColor() {
     for (let row of this.gridArray) {
       for (let col of row) {
@@ -113,6 +139,7 @@ export class NwalgoComponent implements OnInit {
     }
   }
 
+  // update the next step values,colors
   updateMatrix(row, col, val, prerow, precol) {
     this.gridArray[row][col].cellvalue = val;
     this.gridArray[0][col].color = true;
@@ -121,32 +148,29 @@ export class NwalgoComponent implements OnInit {
     this.gridArray[prerow][precol].refcolor = true;
   }
 
+  // final button's function
   finalResult() {
     this.resetColor();
-    for (let x = this.Stringone.length * this.Stringtwo.length; x < this.dataArray.length - 1; x++ ) {
-        this.colorTraceback(x);
+    for (let x = this.Stringone.length * this.Stringtwo.length; x < this.dataArray.length - 1; x++) {
+      this.colorTraceback(x);
     }
     this.final = true;
-    this.resSeq1 = this.dataArray[ this.dataArray.length - 1].sequence1;
-    this.resSeq2 = this.dataArray[ this.dataArray.length - 1].sequence2;
+    this.resSeq1 = this.dataArray[this.dataArray.length - 1].sequence1;
+    this.resSeq2 = this.dataArray[this.dataArray.length - 1].sequence2;
     console.log(this.resSeq1);
     console.log(this.resSeq2);
   }
 
+  // color cells related to final simulation
   colorTraceback(x) {
     this.gridArray[this.dataArray[x].row + 1][this.dataArray[x].col + 1].datacolor = true;
   }
 
+  // clear button's function
   clearall() {
     location.reload();
   }
-  
+
 
 }
 
-export class Cell {
-  cellvalue = ' ';
-  color = false;
-  datacolor = false;
-  refcolor = false;
-}

@@ -1,61 +1,52 @@
-
 <br>
 <div class="container color-dark">
-  <div class="col">
+  <div class="col-lg-12">
     <h3>Selected Algorithm: {{title|uppercase}}</h3>
   </div>
 </div>
 <br>
+
 <div class="container color-light">
   <div class="col">
+    <div class="example-container container-fluid">
 
-    <div class="example-container">
+      <div class="col-lg-12">
+        <app-sw-form></app-sw-form>
+      </div>
 
-      <mat-form-field>
-        <textarea matInput [(ngModel)]=" Stringone" placeholder="String 1 (i.e CCATGTA)"></textarea>
-      </mat-form-field>
-      <input type="file" id="loadfile1"  onclick="document.getElementById()" >
-      <mat-form-field>
-        <textarea matInput [(ngModel)]=" Stringtwo" placeholder="String 2 (i.e CAATGAA)"></textarea>
-      </mat-form-field>
-      <input type="file" id="loadfile2"  onclick="document.getElementById()" >
 
-      <mat-form-field>
-        <mat-select placeholder="Score of match">
-          <mat-option value="option1">1</mat-option>
-          <mat-option value="option2">2</mat-option>
-          <mat-option value="option3">3</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-select placeholder="Score of mismatch">
-          <mat-option value="option0">0</mat-option>
-          <mat-option value="option-1">-1</mat-option>
-          <mat-option value="option-2">-2</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-select placeholder="Gap penalty">
-          <mat-option value="option0">0</mat-option>
-          <mat-option value="option-1">-1</mat-option>
-          <mat-option value="option-2">-2</mat-option>
-        </mat-select>
-      </mat-form-field>
     </div>
 
-
-
   </div>
-  <div class="col">
+
+  <div >
     <h2 >Matrix</h2>
     <br>
-    <mat-grid-list cols="6" rowHeight="1:1">
-      <mat-grid-tile>1</mat-grid-tile>
-      <mat-grid-tile>2</mat-grid-tile>
-      <mat-grid-tile>3</mat-grid-tile>
-      <mat-grid-tile>4</mat-grid-tile>
-    </mat-grid-list>
+    <input type="submit" class="btn" [value]="stepBtn" [disabled] = "stepStop" (click)="nextStep()" >
+    <input type="submit" class="btn" [value]="finalBtn" [disabled] = "finalStop"(click)="finalResult()">
+    <input type="submit" class="btn" [value]="clearBtn" (click)="clearall()" >
+
+
+    <mat-spinner align="center" [style.display]=" showSpinner ?'block':'none'"></mat-spinner>
+    <div style="overflow:auto; height: 500px;  width: 490px;" >
+      <table class="table table-bordered" cellspacing="10">
+        <tr *ngFor="let rowArray of gridArray">
+          <td  *ngFor="let colData of rowArray"
+               [ngClass]='{highlight : (colData.color), highlight2 : (colData.datacolor), highlight3 : (colData.refcolor)}'>
+            {{colData.cellvalue}}
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="example-container" *ngIf="final">
+      <span><h4>S1:{{resSeq1}}</h4></span>
+      <br>
+      <span><h4>S2:{{resSeq2}}</h4></span>
+    </div>
   </div>
+
 </div>
+
+
+
