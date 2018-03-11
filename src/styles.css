@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~bootstrap/dist/css/bootstrap.min.css";
+/*@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');*/
 body{
   background-image: url(http://blog.oncofertility.northwestern.edu/wp-content/uploads/2010/07/DNA-sequence.jpg);
   background: rgba(128, 84, 100, 0.07);

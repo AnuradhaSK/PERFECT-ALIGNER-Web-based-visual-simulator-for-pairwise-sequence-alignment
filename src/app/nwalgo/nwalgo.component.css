@@ -90,3 +90,7 @@ table, td {
 .highlight3{
   background-color: lightgreen;
 }
+
+.borderless td, .borderless th {
+  border: none;
+}

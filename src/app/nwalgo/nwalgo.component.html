@@ -8,11 +8,11 @@
 
 <div class="container color-light">
   <div class="col">
-    <div class="example-container container-fluid">
+    <div [hidden]="submitted" class="example-container container-fluid">
 
       <div class="col-lg-12">
         <!--Form-->
-      <form  method="POST" action="#" autocomplete="off">
+      <form (ngSubmit)="onSubmit()" #nwalgoForm="ngForm">
         <div class="form-group row">
           <div class="col-lg-4">
         <label>String 1</label>
@@ -64,11 +64,34 @@
         <br>
         </div>
 
-        <input type="submit" class="btn" [value]="btnText" [disabled]= "alignStop" (click)="showGrid()" >
+        <input type="submit" class="btn btn-success" [disabled]="!nwalgoForm.form.valid" class="btn" [value]="btnText" [disabled]= "alignStop"
+               (click)="onSubmit();showGrid()" >
 
       </form>
       </div>
-
+    </div>
+    <div [hidden]="!submitted" >
+      <h4>Simulation for following:</h4>
+      <div class="row">
+        <div class="col-lg-4">String 1    : </div>
+        <div class="col-lg-4">{{Stringone}}</div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">String 2    : </div>
+        <div class="col-lg-4">{{Stringtwo}}</div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">Match Score     : </div>
+        <div class="col-lg-4">{{match}}</div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">Mismatch Score    : </div>
+        <div class="col-lg-4">{{mismatch}}</div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">Gap Penalty     : </div>
+        <div class="col-lg-4">{{gap}}</div>
+      </div>
 
     </div>
 
@@ -80,7 +103,7 @@
     <br>
     <input type="submit" class="btn" [value]="stepBtn" [disabled] = "stepStop" (click)="nextStep()" >
     <input type="submit" class="btn" [value]="finalBtn" [disabled] = "finalStop"(click)="finalResult()">
-    <input type="submit" class="btn" [value]="clearBtn" (click)="clearall()" >
+    <input type="submit" class="btn" [value]="clearBtn" (click)="nwalgoForm.reset();clearall()" >
 
 
     <mat-spinner align="center" [style.display]=" showSpinner ?'block':'none'"></mat-spinner>
@@ -97,10 +120,20 @@
     </div>
 
     <!--Final output-->
-    <div class="example-container" *ngIf="final">
-      <span><h4>S1:{{resSeq1}}</h4></span>
+    <div *ngIf="final">
+      <table class="table borderless" cellspacing="10">
+      <tr>
+        <td>S1:</td>
+        <td *ngFor="let char of resSeq1Array" >{{char}}</td>
+      </tr>
+      <tr>
+        <td>S2:</td>
+        <td *ngFor="let char2 of resSeq2Array" >{{char2}}</td>
+      </tr>
+      </table>
+     <!-- <span><h4>S1:{{resSeq1}}</h4></span>
       <br>
-      <span><h4>S2:{{resSeq2}}</h4></span>
+      <span><h4>S2:{{resSeq2}}</h4></span> -->
     </div>
   </div>
 

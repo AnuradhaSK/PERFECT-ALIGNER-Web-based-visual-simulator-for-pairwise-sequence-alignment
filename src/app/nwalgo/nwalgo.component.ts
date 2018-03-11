@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
-import { Cell } from '../cell'; // import cell class
+import {Cell} from '../cell'; // import cell class
 
 @Component({
   selector: 'app-nwalgo',
@@ -13,8 +13,8 @@ export class NwalgoComponent implements OnInit {
   stepBtn = 'NextStep';
   finalBtn = 'FinalAlignment';
   clearBtn = 'Clear';
-  Stringone: ' ';
-  Stringtwo: ' ';
+  Stringone: string;
+  Stringtwo: string;
   columns: number;
   String1array = [];
   String2array = [];
@@ -37,7 +37,10 @@ export class NwalgoComponent implements OnInit {
   private xmlHttp: XMLHttpRequest;
   resSeq1: ' ';
   resSeq2: ' ';
-  showSpinner: boolean = false;
+  showSpinner = false;
+  submitted = false;
+  resSeq1Array = [];
+  resSeq2Array = [];
 
   constructor() {
   }
@@ -53,10 +56,16 @@ export class NwalgoComponent implements OnInit {
     return this.xmlHttp.responseText;
   }
 
+  onSubmit() {
+    this.submitted = true;
+  }
+
   // This method is called when the align button clicks
   showGrid() {
     this.showSpinner = true;
     this.nextDataArrayIndex = 0;
+    this.Stringone = this.Stringone.toUpperCase();
+    this.Stringtwo = this.Stringtwo.toUpperCase();
     this.String1array = this.StringOffsetArray.concat(this.Stringone.split('', this.Stringone.length));
     this.String2array = this.StringOffsetArray.concat(this.Stringtwo.split('', this.Stringtwo.length));
     this.columns = this.Stringone.length + 2;
@@ -70,8 +79,8 @@ export class NwalgoComponent implements OnInit {
     this.createGridArray();
     setTimeout(() => {
 
-      this.str = this.httpGet('http://localhost:8080/perfectaligner/test?sequence1=' + this.Stringone +
-        '&sequence2=' + this.Stringtwo +
+      this.str = this.httpGet('http://localhost:8080/perfectaligner/test?sequence1=' + this.Stringone.toUpperCase() +
+        '&sequence2=' + this.Stringtwo.toUpperCase() +
         '&match=' + this.match + '&mismatch=' + this.mismatch + '&gap=' + this.gap);
       this.dataArray = JSON.parse(this.str);
       this.showSpinner = false;
@@ -130,8 +139,8 @@ export class NwalgoComponent implements OnInit {
 
   // reset colors of cells
   resetColor() {
-    for (let row of this.gridArray) {
-      for (let col of row) {
+    for (const row of this.gridArray) {
+      for (const col of row) {
         col.color = false;
         col.datacolor = false;
         col.refcolor = false;
@@ -151,14 +160,29 @@ export class NwalgoComponent implements OnInit {
   // final button's function
   finalResult() {
     this.resetColor();
+    this.fillin();
     for (let x = this.Stringone.length * this.Stringtwo.length; x < this.dataArray.length - 1; x++) {
       this.colorTraceback(x);
     }
     this.final = true;
     this.resSeq1 = this.dataArray[this.dataArray.length - 1].sequence1;
     this.resSeq2 = this.dataArray[this.dataArray.length - 1].sequence2;
+    this.resSeq1Array = this.resSeq1.split('', this.resSeq1.length);
+    this.resSeq2Array = this.resSeq2.split('', this.resSeq2.length);
     console.log(this.resSeq1);
     console.log(this.resSeq2);
+  }
+
+  fillin() {
+    let count = 0;
+    for (let i = 2; i < this.Stringone.length + 2; i++) {
+      for (let j = 2; j < this.Stringtwo.length + 2; j++) {
+        this.gridArray[i][j].cellvalue = this.dataArray[count].score;
+        console.log(count);
+        console.log('Score:' + this.dataArray[count].score);
+        count += 1;
+      }
+    }
   }
 
   // color cells related to final simulation
