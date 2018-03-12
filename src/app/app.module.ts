@@ -17,6 +17,8 @@ import { NwalgoComponent } from './nwalgo/nwalgo.component';
 import { SwalgoComponent } from './swalgo/swalgo.component';
 import { SwGridComponent } from './swalgo/sw-grid/sw-grid.component';
 import { SwFormComponent } from './swalgo/sw-form/sw-form.component';
+import { TcoffeeComponent } from './tcoffee/tcoffee.component';
+import { DialignComponent } from './dialign/dialign.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { SwFormComponent } from './swalgo/sw-form/sw-form.component';
     NwalgoComponent,
     SwalgoComponent,
     SwGridComponent,
-    SwFormComponent
+    SwFormComponent,
+    TcoffeeComponent,
+    DialignComponent
   ],
   imports: [
     BrowserModule,

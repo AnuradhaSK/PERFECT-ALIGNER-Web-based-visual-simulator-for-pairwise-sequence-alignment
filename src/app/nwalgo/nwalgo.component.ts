@@ -1,16 +1,19 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {Cell} from '../cell'; // import cell class
+import {NwalgoService} from '../services/nwalgo.service'; // import Nwalgoservice
 
 @Component({
   selector: 'app-nwalgo',
   templateUrl: './nwalgo.component.html',
-  styleUrls: ['./nwalgo.component.css']
+  styleUrls: ['./nwalgo.component.css'],
+  providers: [NwalgoService]
 })
 export class NwalgoComponent implements OnInit {
   title = 'needleman-wunsch';
   btnText = 'Align';
   stepBtn = 'NextStep';
+  backBtn = 'PreviousStep';
   finalBtn = 'FinalAlignment';
   clearBtn = 'Clear';
   Stringone: string;
@@ -39,14 +42,24 @@ export class NwalgoComponent implements OnInit {
   resSeq2: ' ';
   showSpinner = false;
   submitted = false;
+  noback = true;
   resSeq1Array = [];
   resSeq2Array = [];
 
-  constructor() {
+  constructor(protected nwalgoService: NwalgoService) {
+    this.str = '';
   }
 
   ngOnInit() {
+    // this._get();
     this.columns = 0;
+  }
+
+  public _get() {
+    this.nwalgoService._get(this.Stringone, this.Stringtwo, this.match, this.mismatch, this.gap).subscribe(data => {
+      this.str = data;
+    });
+    console.log(this.str);
   }
 
   httpGet(theUrl) {
@@ -78,7 +91,9 @@ export class NwalgoComponent implements OnInit {
     this.finalStop = false;
     this.createGridArray();
     setTimeout(() => {
+       //this._get();
 
+      // console.log(this.str);
       this.str = this.httpGet('http://localhost:8080/perfectaligner/test?sequence1=' + this.Stringone.toUpperCase() +
         '&sequence2=' + this.Stringtwo.toUpperCase() +
         '&match=' + this.match + '&mismatch=' + this.mismatch + '&gap=' + this.gap);
@@ -118,7 +133,8 @@ export class NwalgoComponent implements OnInit {
 
   // next step button function
   nextStep() {
-    console.log('Implement next step');
+    this.noback = false;
+    console.log('next step ' + this.nextDataArrayIndex + 'next row ' + this.nextRowIndex + 'next col ' + this.nextColIndex);
     // reset exisiting colors
     this.resetColor();
     // update the next step values,colors
@@ -134,6 +150,43 @@ export class NwalgoComponent implements OnInit {
     if (this.nextDataArrayIndex === this.Stringone.length * this.Stringtwo.length) {
       console.log('Next step came to final');
       this.stepStop = true;
+      this.resetColor();
+    }
+
+
+  }
+
+  // functionality of the previous step
+  previousStep() {
+    this.stepStop = false;
+    this.nextDataArrayIndex -= 1;
+    if (this.nextDataArrayIndex < 1) {
+      this.noback = true;
+    }
+    if (this.nextColIndex - 1 < 2) {
+      this.nextColIndex = this.colCount - 1;
+      this.nextRowIndex -= 1;
+    } else {
+      this.nextColIndex -= 1;
+    }
+    console.log('previous step ' + this.nextDataArrayIndex + 'next row ' + this.nextRowIndex + 'next col ' + this.nextColIndex);
+    this.undoMatrix(this.nextRowIndex, this.nextColIndex, '',
+      this.dataArray[this.nextDataArrayIndex].preRow + 1, this.dataArray[this.nextDataArrayIndex].preCol + 1);
+  }
+
+  undoMatrix(row, col, val, prerow, precol) {
+    this.gridArray[row][col].cellvalue = val;
+    this.gridArray[0][col].color = false;
+    this.gridArray[row][0].color = false;
+    this.gridArray[row][col].datacolor = false;
+    this.gridArray[prerow][precol].refcolor = false;
+    if (this.nextDataArrayIndex > 0) {
+      let point;
+      point = this.dataArray[this.nextDataArrayIndex - 1];
+      this.gridArray[0][point.col + 1].color = true;
+      this.gridArray[point.row + 1][0].color = true;
+      this.gridArray[point.row + 1][point.col + 1].datacolor = true;
+      this.gridArray[point.preRow + 1][point.preCol + 1].refcolor = true;
     }
   }
 
@@ -159,6 +212,8 @@ export class NwalgoComponent implements OnInit {
 
   // final button's function
   finalResult() {
+    this.stepStop = true;
+    this.noback = true;
     this.resetColor();
     this.fillin();
     for (let x = this.Stringone.length * this.Stringtwo.length; x < this.dataArray.length - 1; x++) {
@@ -173,12 +228,15 @@ export class NwalgoComponent implements OnInit {
     console.log(this.resSeq2);
   }
 
+  // fill all values in the grid
   fillin() {
     let count = 0;
-    for (let i = 2; i < this.Stringone.length + 2; i++) {
-      for (let j = 2; j < this.Stringtwo.length + 2; j++) {
+    console.log(this.String1array.length);
+    console.log(this.String2array.length);
+    for (let i = 2; i < this.String2array.length; i++) {
+      for (let j = 2; j < this.String1array.length; j++) {
         this.gridArray[i][j].cellvalue = this.dataArray[count].score;
-        console.log(count);
+        console.log(count + ' ' + i + ' ' + j);
         console.log('Score:' + this.dataArray[count].score);
         count += 1;
       }
