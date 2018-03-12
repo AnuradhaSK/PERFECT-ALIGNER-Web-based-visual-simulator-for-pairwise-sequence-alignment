@@ -19,10 +19,10 @@ export class HomeComponent implements OnInit {
       'multiple sequence alignment software using a progressive approach.' +
       ' It generates a library of pairwise alignments to guide the multiple sequence alignment.' +
       ' It can also combine multiple sequences alignments obtained previously and in the latest versions can use structural ' +
-      'information from PDB files (3D-Coffee)', rlink: ''},
+      'information from PDB files (3D-Coffee)', rlink: 'tcoffee'},
     {name: 'DIALIGN', text: 'DIALIGN is an alignment program that relies on comparison of ' +
       'whole segments of the sequences instead of comparison of single residue. Several versions available are Anchored DIALIGN,' +
-      'CHAOS-DIALIGN, DIALIGN-TX, DIALIGN-PFAM' , rlink: ''}
+      'CHAOS-DIALIGN, DIALIGN-TX, DIALIGN-PFAM' , rlink: 'dialign'}
   ];
   constructor() { }
 

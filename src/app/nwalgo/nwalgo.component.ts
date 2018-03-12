@@ -36,8 +36,8 @@ export class NwalgoComponent implements OnInit {
   match: '';
   mismatch: '';
   gap: '';
-  str: any;
-  private xmlHttp: XMLHttpRequest;
+  // str: any;
+  // private xmlHttp: XMLHttpRequest;
   resSeq1: ' ';
   resSeq2: ' ';
   showSpinner = false;
@@ -47,26 +47,10 @@ export class NwalgoComponent implements OnInit {
   resSeq2Array = [];
 
   constructor(protected nwalgoService: NwalgoService) {
-    this.str = '';
   }
 
   ngOnInit() {
-    // this._get();
     this.columns = 0;
-  }
-
-  public _get() {
-    this.nwalgoService._get(this.Stringone, this.Stringtwo, this.match, this.mismatch, this.gap).subscribe(data => {
-      this.str = data;
-    });
-    console.log(this.str);
-  }
-
-  httpGet(theUrl) {
-    this.xmlHttp = new XMLHttpRequest();
-    this.xmlHttp.open('GET', theUrl, false); // false for synchronous request
-    this.xmlHttp.send(null);
-    return this.xmlHttp.responseText;
   }
 
   onSubmit() {
@@ -91,17 +75,24 @@ export class NwalgoComponent implements OnInit {
     this.finalStop = false;
     this.createGridArray();
     setTimeout(() => {
-       //this._get();
+      this._get();
 
       // console.log(this.str);
-      this.str = this.httpGet('http://localhost:8080/perfectaligner/test?sequence1=' + this.Stringone.toUpperCase() +
+      /*this.str = this.httpGet('http://localhost:8080/perfectaligner/test?sequence1=' + this.Stringone.toUpperCase() +
         '&sequence2=' + this.Stringtwo.toUpperCase() +
-        '&match=' + this.match + '&mismatch=' + this.mismatch + '&gap=' + this.gap);
-      this.dataArray = JSON.parse(this.str);
+        '&match=' + this.match + '&mismatch=' + this.mismatch + '&gap=' + this.gap);*/
+
       this.showSpinner = false;
     }, 2000);
-    console.log(this.str);
+    // console.log(this.str);
     this.alignStop = true;
+  }
+
+  // call the service
+  public _get() {
+    this.nwalgoService._get(this.Stringone, this.Stringtwo, this.match, this.mismatch, this.gap).subscribe((data) => {
+      this.dataArray = data;
+    });
   }
 
   createGridArray() {
@@ -253,6 +244,12 @@ export class NwalgoComponent implements OnInit {
     location.reload();
   }
 
+  /* httpGet(theUrl) {
+   this.xmlHttp = new XMLHttpRequest();
+   this.xmlHttp.open('GET', theUrl, false); // false for synchronous request
+   this.xmlHttp.send(null);
+   return this.xmlHttp.responseText;
+ }*/
 
 }
 
