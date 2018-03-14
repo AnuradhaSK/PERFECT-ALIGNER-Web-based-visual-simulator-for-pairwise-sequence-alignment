@@ -11,7 +11,7 @@
     <div class="example-container container-fluid">
 
       <div class="col-lg-12">
-        <app-sw-form></app-sw-form>
+        <app-sw-form ></app-sw-form>
       </div>
 
 
@@ -19,33 +19,8 @@
 
   </div>
 
-  <div >
-    <h2 >Matrix</h2>
-    <br>
-    <input type="submit" class="btn" [value]="stepBtn" [disabled] = "stepStop" (click)="nextStep()" >
-    <input type="submit" class="btn" [value]="finalBtn" [disabled] = "finalStop"(click)="finalResult()">
-    <input type="submit" class="btn" [value]="clearBtn" (click)="clearall()" >
-
-
-    <mat-spinner align="center" [style.display]=" showSpinner ?'block':'none'"></mat-spinner>
-    <div style="overflow:auto; height: 500px;  width: 490px;" >
-      <table class="table table-bordered" cellspacing="10">
-        <tr *ngFor="let rowArray of gridArray">
-          <td  *ngFor="let colData of rowArray"
-               [ngClass]='{highlight : (colData.color), highlight2 : (colData.datacolor), highlight3 : (colData.refcolor)}'>
-            {{colData.cellvalue}}
-          </td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="example-container" *ngIf="final">
-      <span><h4>S1:{{resSeq1}}</h4></span>
-      <br>
-      <span><h4>S2:{{resSeq2}}</h4></span>
-    </div>
-  </div>
-
+  <div [hidden]="!dataArrived">
+    <app-sw-grid ></app-sw-grid>
 </div>
 
 

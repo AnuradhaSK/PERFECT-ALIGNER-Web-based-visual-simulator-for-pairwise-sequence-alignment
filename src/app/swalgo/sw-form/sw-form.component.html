@@ -1,12 +1,10 @@
-<!--form-->
-
-<form  method="POST" action="#" autocomplete="off">
+<form (ngSubmit)="onSubmit()" #swalgoForm="ngForm">
   <div class="form-group row">
     <div class="col-lg-4">
       <label>String 1</label>
     </div>
     <div class="col-lg-4">
-      <input type="text" style="text-transform:uppercase" name="Stringone" [(ngModel)]=" Stringone" placeholder="String 1 (i.e CCATGTA)" required>
+      <input type="text" style="text-transform:uppercase" name="Stringone" [(ngModel)]=" stringOne" placeholder="String 1 (i.e CCATGTA)" required>
     </div>
     <br>
 
@@ -17,7 +15,7 @@
       <label>String 2</label>
     </div>
     <div class="col-lg-4">
-      <input type="text" style="text-transform:uppercase" name="Stringtwo" [(ngModel)]=" Stringtwo" placeholder="String 2 (i.e CAATGAA)" required>
+      <input type="text" style="text-transform:uppercase" name="Stringtwo" [(ngModel)]=" stringTwo" placeholder="String 2 (i.e CAATGAA)" required>
     </div>
     <br>
   </div>
@@ -27,7 +25,7 @@
       <label>Match Score</label>
     </div>
     <div class="col-lg-4">
-      <input type="text" name="a" ng-pattern= "/^[0-9]+$/" [(ngModel)]="match" placeholder="match" required>
+      <input type="text"  name="a" ng-pattern= "/^[0-9]+$/" [(ngModel)]="match" placeholder="match" required>
     </div>
     <br>
   </div>
@@ -52,6 +50,32 @@
     <br>
   </div>
 
-  <input type="submit" class="btn" [value]="btnText" [disabled]= "alignStop" (click)="showGrid()" >
+  <input type="submit" class="btn btn-success" [disabled]="!swalgoForm.form.valid" class="btn" [value]="btnText" [disabled]= "alignStop"
+         (click)="onSubmit();showGrid()" >
 
 </form>
+
+<div [hidden]="!submitted" >
+  <h4>Simulation for following:</h4>
+  <div class="row">
+    <div class="col-lg-4">String 1    : </div>
+    <div class="col-lg-4">{{stringOne}}</div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">String 2    : </div>
+    <div class="col-lg-4">{{stringTwo}}</div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">Match Score     : </div>
+    <div class="col-lg-4">{{match}}</div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">Mismatch Score    : </div>
+    <div class="col-lg-4">{{mismatch}}</div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">Gap Penalty     : </div>
+    <div class="col-lg-4">{{gap}}</div>
+  </div>
+
+</div>

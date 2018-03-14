@@ -60,7 +60,6 @@ export class NwalgoComponent implements OnInit {
   // This method is called when the align button clicks
   showGrid() {
     this.showSpinner = true;
-    this.nextDataArrayIndex = 0;
     this.Stringone = this.Stringone.toUpperCase();
     this.Stringtwo = this.Stringtwo.toUpperCase();
     this.String1array = this.StringOffsetArray.concat(this.Stringone.split('', this.Stringone.length));
@@ -76,15 +75,12 @@ export class NwalgoComponent implements OnInit {
     this.createGridArray();
     setTimeout(() => {
       this._get();
-
       // console.log(this.str);
       /*this.str = this.httpGet('http://localhost:8080/perfectaligner/test?sequence1=' + this.Stringone.toUpperCase() +
         '&sequence2=' + this.Stringtwo.toUpperCase() +
         '&match=' + this.match + '&mismatch=' + this.mismatch + '&gap=' + this.gap);*/
-
       this.showSpinner = false;
     }, 2000);
-    // console.log(this.str);
     this.alignStop = true;
   }
 
@@ -143,8 +139,6 @@ export class NwalgoComponent implements OnInit {
       this.stepStop = true;
       this.resetColor();
     }
-
-
   }
 
   // functionality of the previous step

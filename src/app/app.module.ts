@@ -19,6 +19,8 @@ import { SwGridComponent } from './swalgo/sw-grid/sw-grid.component';
 import { SwFormComponent } from './swalgo/sw-form/sw-form.component';
 import { TcoffeeComponent } from './tcoffee/tcoffee.component';
 import { DialignComponent } from './dialign/dialign.component';
+import {SharingService} from './services/sharing.service';
+
 
 
 @NgModule({
@@ -44,7 +46,7 @@ import { DialignComponent } from './dialign/dialign.component';
     AppBootstrapModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [SharingService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

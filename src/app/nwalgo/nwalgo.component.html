@@ -39,7 +39,7 @@
         <label>Match Score</label>
           </div>
           <div class="col-lg-4">
-        <input type="text" name="a" ng-pattern= "/^[0-9]+$/" [(ngModel)]="match" placeholder="match" required>
+        <input type="text"  name="a" ng-pattern= "/^[0-9]+$/" [(ngModel)]="match" placeholder="match" required>
           </div>
         <br>
         </div>
@@ -59,7 +59,7 @@
         <label>Gap Penalty</label>
           </div>
           <div class="col-lg-4">
-        <input type="text" name="c" [(ngModel)]="gap" placeholder="gap" required>
+        <input type="text" name= "c" [(ngModel)]="gap" placeholder="gap" required>
           </div>
         <br>
         </div>
@@ -132,9 +132,7 @@
         <td *ngFor="let char2 of resSeq2Array" >{{char2}}</td>
       </tr>
       </table>
-     <!-- <span><h4>S1:{{resSeq1}}</h4></span>
-      <br>
-      <span><h4>S2:{{resSeq2}}</h4></span> -->
+
     </div>
   </div>
 

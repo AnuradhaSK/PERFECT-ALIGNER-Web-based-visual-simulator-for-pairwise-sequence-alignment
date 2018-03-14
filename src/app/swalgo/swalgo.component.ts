@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {SharingService} from '../services/sharing.service';
 
 @Component({
   selector: 'app-swalgo',
@@ -7,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SwalgoComponent implements OnInit {
   title = 'smith-waterman';
+  dataArray: any;
+  dataArrived = false;
 
-  constructor() {
+  constructor(private sharingService: SharingService) {
   }
 
   ngOnInit() {
   }
+
 }
