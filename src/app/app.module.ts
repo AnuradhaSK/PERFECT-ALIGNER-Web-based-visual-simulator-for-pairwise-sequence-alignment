@@ -44,7 +44,7 @@ import {SharingService} from './services/sharing.service';
     FormsModule,
     MatGridListModule,
     AppBootstrapModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [SharingService ],
   bootstrap: [AppComponent]
