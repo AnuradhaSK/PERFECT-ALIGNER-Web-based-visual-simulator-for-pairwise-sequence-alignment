@@ -55,7 +55,7 @@
 
 </form>
 
-<div [hidden]="!submitted" >
+<div *ngIf="submitted">
   <h4>Simulation for following:</h4>
   <div class="row">
     <div class="col-lg-4">String 1    : </div>
@@ -77,5 +77,6 @@
     <div class="col-lg-4">Gap Penalty     : </div>
     <div class="col-lg-4">{{gap}}</div>
   </div>
+
 
 </div>

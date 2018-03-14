@@ -19,8 +19,8 @@
 
   </div>
 
-  <div [hidden]="!dataArrived">
-    <app-sw-grid ></app-sw-grid>
+  <div >
+    <app-sw-grid *ngIf="!dataArrived" ></app-sw-grid>
 </div>
 
 

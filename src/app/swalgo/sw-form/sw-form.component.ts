@@ -17,7 +17,6 @@ export class SwFormComponent implements OnInit {
   gap: '';
   alignStop: boolean;
   dataArray: any;
-  showSpinner = false;
   submitted = false;
 
   constructor(private sharingService: SharingService,
@@ -34,7 +33,6 @@ export class SwFormComponent implements OnInit {
 
   // This method is called when the align button clicks
   showGrid() {
-    // this.showSpinner = true;
     this.stringOne = this.stringOne.toUpperCase();
     this.stringTwo = this.stringTwo.toUpperCase();
     this.match = this.match;
@@ -42,10 +40,10 @@ export class SwFormComponent implements OnInit {
     this.gap = this.gap;
     setTimeout(() => {
       this._get();
-      this.showSpinner = false;
     }, 2000);
     this.sharingService.setData(this.dataArray, this.stringOne, this.stringTwo);
     this.alignStop = true;
+    console.log(this.dataArray);
   }
 
   // call the service
