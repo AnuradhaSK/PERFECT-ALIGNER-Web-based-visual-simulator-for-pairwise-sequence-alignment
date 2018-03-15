@@ -9,11 +9,21 @@ export class SharingService {
   private data: any = undefined;
   private strinOne: string;
   private stringTwo: string;
+  private visible: boolean;
 
   setData(data: any, stringOne: string, stringTwo: string) {
     this.data = data;
     this.strinOne = stringOne;
     this.stringTwo = stringTwo;
+    console.log('came to sharing');
+  }
+
+  setVisibility(visible: boolean) {
+    this.visible = visible;
+  }
+
+  getVisibility(): boolean {
+    return this.visible;
   }
 
   getData(): any {

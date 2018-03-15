@@ -14,7 +14,6 @@ export class SwGridComponent implements OnInit {
   finalBtn = 'FinalAlignment';
   clearBtn = 'Clear';
   dataArray: any;
-  nextDataArrayIndex: number;
   stepStop = false;
   finalStop = false;
   String1array = [];
@@ -35,12 +34,12 @@ export class SwGridComponent implements OnInit {
   resSeq1Array = [];
   resSeq2Array = [];
   dataArrived: boolean;
+  nextDataArrayIndex = 0;
 
   constructor(private sharingService: SharingService) {
   }
 
   ngOnInit() {
-    this.nextDataArrayIndex = 0;
     this.dataArray = this.sharingService.getData();
     this.stringOne = this.sharingService.getStringOne();
     this.stringTwo = this.sharingService.getStringTwo();
@@ -49,11 +48,11 @@ export class SwGridComponent implements OnInit {
     this.columns = this.stringOne.length + 2;
     this.rowCount = this.stringTwo.length + 2;
     this.colCount = this.stringOne.length + 2;
-    this.dataArrived = false;
     this.createGridArray();
   }
 
   createGridArray() {
+    console.log("come to create grid array");
     this.gridArray = [];
     for (let r = 0; r < this.rowCount; r++) {
       this.gridArray[r] = [];
@@ -78,6 +77,7 @@ export class SwGridComponent implements OnInit {
     for (let rp = 2; rp < this.rowCount; rp++) {
       this.gridArray[rp][1].cellvalue = (parseInt('0', 10) * (rp - 1)).toString();
     }
+    console.log('created grid');
   }
 
   // next step button function
@@ -122,6 +122,7 @@ export class SwGridComponent implements OnInit {
   }
 
   undoMatrix(row, col, val, prerow, precol) {
+    console.log('update matrix');
     this.gridArray[row][col].cellvalue = val;
     this.gridArray[0][col].color = false;
     this.gridArray[row][0].color = false;
@@ -139,6 +140,7 @@ export class SwGridComponent implements OnInit {
 
   // reset colors of cells
   resetColor() {
+    console.log('reset colors');
     for (const row of this.gridArray) {
       for (const col of row) {
         col.color = false;
