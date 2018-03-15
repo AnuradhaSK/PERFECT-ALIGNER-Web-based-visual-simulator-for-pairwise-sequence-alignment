@@ -1,13 +1,28 @@
-<!--<form class="md-form">
-  <div class="file-field">
-    <div class="btn btn-outline-success btn-rounded waves-effect btn-sm float-left">
-      <span>Choose file</span>
-      <input type="file">
-    </div>
-    <div class="file-path-wrapper">
-      <input class="file-path validate" type="text" placeholder="Upload your file">
-    </div>
-  </div>
-</form> -->
+<!--<div *ngIf="currentFileUpload" class="progress">
+  <div class="progress-bar progress-bar-info progress-bar-striped"
+       role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+       aria-valuemin="0" aria-valuemax="100"
+       [ngStyle]="{width:progress.percentage+'%'}">
+    {{progress.percentage}}%</div>
+</div>
 
-<input type="submit" class="btn" (click)="display()">
+<label class="btn btn-default">
+  <input type="file" (change)="selectFile($event)">
+</label>
+
+<button class="btn btn-success" [disabled]="!selectedFiles"
+        (click)="upload()">Upload</button>
+-->
+<button class="btn btn-success" (click)="upload()">Upload</button>
+<div *ngIf="dataArray">
+  <tr *ngFor="let rowArray of dataArray">
+    <th> </th>
+    <th>
+      {{rowArray.id}}
+    </th>
+      <td>
+        {{rowArray.seq}}
+      </td>
+  </tr>
+
+</div>
