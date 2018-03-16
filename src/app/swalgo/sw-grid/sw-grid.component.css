@@ -53,22 +53,44 @@ h3{
   background-color:darkslategray;
   color:white; padding:14px 20px;
   margin:8px 0; border:none; cursor: pointer;
-  width:25%;
+  width:30%;
 
 }
+
 .btn:hover{opacity:0.6;}
-
-
 .example-container {
   border-radius:5px;
   display: flex;
   flex-direction: column;
   background: white;
+
 }
 
 .example-container > * {
   width: 100%;
+
 }
 mat-grid-tile {
   background: white;
+}
+
+table, td {
+  border: 1px solid black;
+  width: 30px;
+  height: 30px;
+}
+
+.highlight{
+  background-color: lightpink;
+}
+
+.highlight2{
+  background-color: lightgoldenrodyellow;
+}
+.highlight3{
+  background-color: lightgreen;
+}
+
+.borderless td, .borderless th {
+  border: none;
 }

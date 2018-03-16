@@ -87,8 +87,12 @@ export class SwGridComponent implements OnInit {
     // reset exisiting colors
     this.resetColor();
     // update the next step values,colors
-    this.updateMatrix(this.nextRowIndex, this.nextColIndex, this.dataArray[this.nextDataArrayIndex].score,
-      this.dataArray[this.nextDataArrayIndex].preRow + 1, this.dataArray[this.nextDataArrayIndex].preCol + 1);
+    if (this.dataArray[this.nextDataArrayIndex].preRow != null) {
+      this.updateMatrix(this.nextRowIndex, this.nextColIndex, this.dataArray[this.nextDataArrayIndex].score,
+        this.dataArray[this.nextDataArrayIndex].preRow + 1, this.dataArray[this.nextDataArrayIndex].preCol + 1);
+    } else {
+      this.updateMatrixWithoutpre(this.nextRowIndex, this.nextColIndex, this.dataArray[this.nextDataArrayIndex].score);
+    }
     if (this.nextColIndex + 1 < this.colCount) {
       this.nextColIndex += 1;
     } else {
@@ -117,10 +121,15 @@ export class SwGridComponent implements OnInit {
       this.nextColIndex -= 1;
     }
     console.log('previous step ' + this.nextDataArrayIndex + 'next row ' + this.nextRowIndex + 'next col ' + this.nextColIndex);
-    this.undoMatrix(this.nextRowIndex, this.nextColIndex, '',
-      this.dataArray[this.nextDataArrayIndex].preRow + 1, this.dataArray[this.nextDataArrayIndex].preCol + 1);
+    if (this.dataArray[this.nextDataArrayIndex].preRow != null) {
+      this.undoMatrix(this.nextRowIndex, this.nextColIndex, '',
+        this.dataArray[this.nextDataArrayIndex].preRow + 1, this.dataArray[this.nextDataArrayIndex].preCol + 1);
+    } else {
+      this.undoMatrixWithoutpre(this.nextRowIndex, this.nextColIndex, '');
+    }
   }
 
+  // undow a step which has a pre. ref. cell
   undoMatrix(row, col, val, prerow, precol) {
     console.log('update matrix');
     this.gridArray[row][col].cellvalue = val;
@@ -134,7 +143,28 @@ export class SwGridComponent implements OnInit {
       this.gridArray[0][point.col + 1].color = true;
       this.gridArray[point.row + 1][0].color = true;
       this.gridArray[point.row + 1][point.col + 1].datacolor = true;
-      this.gridArray[point.preRow + 1][point.preCol + 1].refcolor = true;
+      if (point.preRow != null) {
+        this.gridArray[point.preRow + 1][point.preCol + 1].refcolor = true;
+      }
+    }
+  }
+
+  // undo the step which do not have a pre. ref. cell
+  undoMatrixWithoutpre(row, col, val) {
+    console.log('update matrix');
+    this.gridArray[row][col].cellvalue = val;
+    this.gridArray[0][col].color = false;
+    this.gridArray[row][0].color = false;
+    this.gridArray[row][col].datacolor = false;
+    if (this.nextDataArrayIndex > 0) {
+      let point;
+      point = this.dataArray[this.nextDataArrayIndex - 1];
+      this.gridArray[0][point.col + 1].color = true;
+      this.gridArray[point.row + 1][0].color = true;
+      this.gridArray[point.row + 1][point.col + 1].datacolor = true;
+      if (point.preRow != null) {
+        this.gridArray[point.preRow + 1][point.preCol + 1].refcolor = true;
+      }
     }
   }
 
@@ -150,13 +180,21 @@ export class SwGridComponent implements OnInit {
     }
   }
 
-  // update the next step values,colors
+  // update the next step values,colors wich have precell
   updateMatrix(row, col, val, prerow, precol) {
     this.gridArray[row][col].cellvalue = val;
     this.gridArray[0][col].color = true;
     this.gridArray[row][0].color = true;
     this.gridArray[row][col].datacolor = true;
     this.gridArray[prerow][precol].refcolor = true;
+  }
+
+  // update the next step values,colors which do not have a pre cell
+  updateMatrixWithoutpre(row, col, val) {
+    this.gridArray[row][col].cellvalue = val;
+    this.gridArray[0][col].color = true;
+    this.gridArray[row][0].color = true;
+    this.gridArray[row][col].datacolor = true;
   }
 
   // final button's function

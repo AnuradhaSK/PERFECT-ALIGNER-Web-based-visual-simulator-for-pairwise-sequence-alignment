@@ -18,7 +18,6 @@ export class SwFormComponent implements OnInit {
   alignStop: boolean;
   dataArray: any;
   submitted = false;
-  setData = true;
 
   constructor(protected sharingService: SharingService,
               protected swalgoService: SwalgoService) {
