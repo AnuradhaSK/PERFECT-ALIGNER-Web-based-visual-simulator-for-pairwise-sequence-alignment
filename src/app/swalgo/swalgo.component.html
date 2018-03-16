@@ -20,6 +20,8 @@
   </div>
 
   <div >
+    <mat-spinner align="center" [style.display]=" showSpinner ?'block':'none'"></mat-spinner>
+    <div style="overflow:auto; height: 500px;  width: 490px;" >
     <app-sw-grid *ngIf="sharingService.getVisibility()" ></app-sw-grid>
 </div>
 

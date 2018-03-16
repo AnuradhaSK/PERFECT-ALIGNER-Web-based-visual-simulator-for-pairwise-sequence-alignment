@@ -7,7 +7,8 @@
 <input type="submit" class="btn" [value]="finalBtn" [disabled] = "finalStop"(click)="finalResult()">
 <input type="submit" class="btn" [value]="clearBtn" (click)="clearall()" >
 
-
+<br>
+Current Step : {{nextDataArrayIndex}}
 <!--<mat-spinner align="center" [style.display]=" showSpinner ?'block':'none'"></mat-spinner>-->
 <div style="overflow:auto; height: 500px;  width: 490px;" >
   <table class="table table-bordered" cellspacing="10">

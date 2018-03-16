@@ -20,6 +20,8 @@ import { SwFormComponent } from './swalgo/sw-form/sw-form.component';
 import { TcoffeeComponent } from './tcoffee/tcoffee.component';
 import { DialignComponent } from './dialign/dialign.component';
 import {SharingService} from './services/sharing.service';
+import { NwFormComponent } from './nwalgo/nw-form/nw-form.component';
+import { NwGridComponent } from './nwalgo/nw-grid/nw-grid.component';
 
 
 
@@ -33,7 +35,9 @@ import {SharingService} from './services/sharing.service';
     SwGridComponent,
     SwFormComponent,
     TcoffeeComponent,
-    DialignComponent
+    DialignComponent,
+    NwFormComponent,
+    NwGridComponent
   ],
   imports: [
     BrowserModule,

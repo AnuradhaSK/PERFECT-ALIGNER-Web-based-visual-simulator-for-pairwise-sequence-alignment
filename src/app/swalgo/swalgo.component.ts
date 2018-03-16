@@ -10,7 +10,7 @@ import {Observable} from 'rxjs/Observable';
 })
 export class SwalgoComponent implements OnInit {
   title = 'smith-waterman';
-  dataArray: any;
+  showSpinner = false;
 
   constructor(protected sharingService: SharingService) {
   }
@@ -19,6 +19,5 @@ export class SwalgoComponent implements OnInit {
     this.sharingService.setVisibility(false);
 
   }
- // this.dataArrived.subscribe(this.sharingService.getVisibility());
 
 }

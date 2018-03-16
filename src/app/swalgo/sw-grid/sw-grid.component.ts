@@ -33,7 +33,6 @@ export class SwGridComponent implements OnInit {
   final: boolean;
   resSeq1Array = [];
   resSeq2Array = [];
-  dataArrived: boolean;
   nextDataArrayIndex = 0;
 
   constructor(private sharingService: SharingService) {
@@ -199,8 +198,11 @@ export class SwGridComponent implements OnInit {
 
   // final button's function
   finalResult() {
+    this.nextDataArrayIndex = this.stringOne.length * this.stringTwo.length;
+    this.nextRowIndex = this.stringTwo.length + 2;
+    this.nextColIndex = this.stringOne.length + 2;
     this.stepStop = true;
-    this.noback = true;
+    // this.noback = true;
     this.resetColor();
     this.fillin();
     for (let x = this.stringOne.length * this.stringTwo.length; x < this.dataArray.length - 1; x++) {
@@ -217,6 +219,7 @@ export class SwGridComponent implements OnInit {
 
   // fill all values in the grid
   fillin() {
+
     let count = 0;
     console.log(this.String1array.length);
     console.log(this.String2array.length);
