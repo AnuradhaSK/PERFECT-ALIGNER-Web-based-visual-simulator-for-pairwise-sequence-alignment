@@ -8,132 +8,13 @@
 
 <div class="container color-light">
   <div class="col">
-    <div [hidden]="submitted" class="example-container container-fluid">
-
-      <div class="col-lg-12">
-        <!--Form-->
-      <form (ngSubmit)="onSubmit()" #nwalgoForm="ngForm">
-        <div class="form-group row">
-          <div class="col-lg-4">
-        <label>String 1</label>
-          </div>
-          <div class="col-lg-4">
-        <input type="text" style="text-transform:uppercase" name="Stringone" [(ngModel)]=" Stringone" placeholder="String 1 (i.e CCATGTA)" required>
-          </div>
-        <br>
-
-        </div>
-
-        <div class="form-group row">
-          <div class="col-lg-4">
-        <label>String 2</label>
-          </div>
-          <div class="col-lg-4">
-        <input type="text" style="text-transform:uppercase" name="Stringtwo" [(ngModel)]=" Stringtwo" placeholder="String 2 (i.e CAATGAA)" required>
-          </div>
-        <br>
-        </div>
-
-        <div class="form-group row">
-          <div class="col-lg-4">
-        <label>Match Score</label>
-          </div>
-          <div class="col-lg-4">
-        <input type="text"  name="a" ng-pattern= "/^[0-9]+$/" [(ngModel)]="match" placeholder="match" required>
-          </div>
-        <br>
-        </div>
-
-        <div class="form-group row">
-          <div class="col-lg-4">
-        <label>Mismatch Score</label>
-          </div>
-          <div class="col-lg-4">
-        <input type="text" name="b" [(ngModel)]="mismatch" placeholder="mismatch" required>
-          </div>
-        <br>
-        </div>
-
-        <div class="form-group row">
-          <div class="col-lg-4">
-        <label>Gap Penalty</label>
-          </div>
-          <div class="col-lg-4">
-        <input type="text" name= "c" [(ngModel)]="gap" placeholder="gap" required>
-          </div>
-        <br>
-        </div>
-
-        <input type="submit" class="btn btn-success" [disabled]="!nwalgoForm.form.valid" class="btn" [value]="btnText" [disabled]= "alignStop"
-               (click)="onSubmit();showGrid()" >
-
-      </form>
-      </div>
-    </div>
-    <div [hidden]="!submitted" >
-      <h4>Simulation for following:</h4>
-      <div class="row">
-        <div class="col-lg-4">String 1    : </div>
-        <div class="col-lg-4">{{Stringone}}</div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4">String 2    : </div>
-        <div class="col-lg-4">{{Stringtwo}}</div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4">Match Score     : </div>
-        <div class="col-lg-4">{{match}}</div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4">Mismatch Score    : </div>
-        <div class="col-lg-4">{{mismatch}}</div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4">Gap Penalty     : </div>
-        <div class="col-lg-4">{{gap}}</div>
-      </div>
-
-    </div>
-
+    <app-nw-form></app-nw-form>
   </div>
 
   <div >
-    <!--Matrix-->
-    <h2 >Matrix</h2>
-    <br>
-    <input type="submit" class="btn" [value]="stepBtn" [disabled] = "stepStop" (click)="nextStep()" >
-    <input type="submit" class="btn" [value]="backBtn" [disabled] = "noback" (click)="previousStep()" >
-    <input type="submit" class="btn" [value]="finalBtn" [disabled] = "finalStop"(click)="finalResult()">
-    <input type="submit" class="btn" [value]="clearBtn" (click)="nwalgoForm.reset();clearall()" >
-
 
     <mat-spinner align="center" [style.display]=" showSpinner ?'block':'none'"></mat-spinner>
-    <div style="overflow:auto; height: 500px;  width: 490px;" >
-      <!--Grid-->
-    <table class="table table-bordered" cellspacing="10">
-      <tr *ngFor="let rowArray of gridArray">
-        <td  *ngFor="let colData of rowArray"
-             [ngClass]='{highlight : (colData.color), highlight2 : (colData.datacolor), highlight3 : (colData.refcolor)}'>
-          {{colData.cellvalue}}
-        </td>
-      </tr>
-    </table>
-    </div>
-
-    <!--Final output-->
-    <div *ngIf="final">
-      <table class="table borderless" cellspacing="10">
-      <tr>
-        <td>S1:</td>
-        <td *ngFor="let char of resSeq1Array" >{{char}}</td>
-      </tr>
-      <tr>
-        <td>S2:</td>
-        <td *ngFor="let char2 of resSeq2Array" >{{char2}}</td>
-      </tr>
-      </table>
-
-    </div>
+    <app-nw-grid *ngIf="sharingService.getVisibility()"></app-nw-grid>
   </div>
 
 </div>

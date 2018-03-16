@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {SharingService} from '../services/sharing.service';
-import {Observable} from 'rxjs/Observable';
 
 
 @Component({
