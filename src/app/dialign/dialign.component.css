@@ -1,1 +1,10 @@
+.stage{
+  cursor: default;
+  line-height: normal;
+  font-family: Helvetica;
+}
 
+.header{
+  white-space: nowrap;
+  text-align: left;
+}
