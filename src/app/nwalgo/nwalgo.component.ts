@@ -88,10 +88,13 @@ export class NwalgoComponent implements OnInit {
   public _get() {
     this.nwalgoService._get(this.Stringone, this.Stringtwo, this.match, this.mismatch, this.gap).subscribe((data) => {
       this.dataArray = data;
+      console.log(this.dataArray);
     });
+
   }
 
   createGridArray() {
+
     this.gridArray = [];
     for (let r = 0; r < this.rowCount; r++) {
       this.gridArray[r] = [];

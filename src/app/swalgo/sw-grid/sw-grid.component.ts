@@ -52,7 +52,7 @@ export class SwGridComponent implements OnInit {
   }
 
   createGridArray() {
-    console.log("come to create grid array");
+    console.log('come to create grid array');
     this.gridArray = [];
     for (let r = 0; r < this.rowCount; r++) {
       this.gridArray[r] = [];

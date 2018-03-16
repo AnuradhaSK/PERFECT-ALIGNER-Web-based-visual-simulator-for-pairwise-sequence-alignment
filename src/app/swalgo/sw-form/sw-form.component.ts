@@ -18,6 +18,7 @@ export class SwFormComponent implements OnInit {
   alignStop: boolean;
   dataArray: any;
   submitted = false;
+  setData = true;
 
   constructor(protected sharingService: SharingService,
               protected swalgoService: SwalgoService) {
@@ -39,18 +40,19 @@ export class SwFormComponent implements OnInit {
     this.mismatch = this.mismatch;
     this.gap = this.gap;
     setTimeout(() => {
-      this._get();
-    }, 3000);
+        this._get();
+      }, 3000);
     this.alignStop = true;
     this.onSubmit();
-    this.sharingService.setData(this.dataArray, this.stringOne, this.stringTwo);
-    this.sharingService.setVisibility(true);
   }
 
   // call the service
   public _get() {
     this.swalgoService._get(this.stringOne, this.stringTwo, this.match, this.mismatch, this.gap).subscribe((data) => {
       this.dataArray = data;
+      this.sharingService.setData(this.dataArray, this.stringOne, this.stringTwo);
+      this.sharingService.setVisibility(true);
+      console.log(this.dataArray);
     });
-    }
+  }
 }

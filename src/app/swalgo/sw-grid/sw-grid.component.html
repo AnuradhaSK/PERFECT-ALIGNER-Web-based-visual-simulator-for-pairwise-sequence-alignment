@@ -20,9 +20,18 @@
   </table>
 </div>
 
-<div class="example-container" *ngIf="final">
-  <span><h4>S1:{{resSeq1}}</h4></span>
-  <br>
-  <span><h4>S2:{{resSeq2}}</h4></span>
+<!--Final output-->
+<div *ngIf="final">
+  <table class="table borderless" cellspacing="10">
+    <tr>
+      <td>S1:</td>
+      <td *ngFor="let char of resSeq1Array" >{{char}}</td>
+    </tr>
+    <tr>
+      <td>S2:</td>
+      <td *ngFor="let char2 of resSeq2Array" >{{char2}}</td>
+    </tr>
+  </table>
+
 </div>
 
