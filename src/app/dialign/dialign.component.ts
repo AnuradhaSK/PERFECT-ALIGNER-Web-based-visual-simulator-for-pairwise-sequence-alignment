@@ -14,9 +14,8 @@ import {Gene} from '../gene';
 export class DialignComponent implements OnInit {
   dataArray: any;
   geneArray: any;
-  file: any;
-  private JSONArray: any;
 
+  file: any;
   /*selectedFiles: FileList;
   currentFileUpload: File;
   progress: { percentage: number } = { percentage: 0 };*/
@@ -33,44 +32,44 @@ export class DialignComponent implements OnInit {
   }
 
   uploadDocument(file) {
-    const fileReader = new FileReader();
+    let fileReader = new FileReader();
+    fileReader.readAsText(this.file);
     fileReader.onload = (e) => {
       this.dataArray = fileReader.result.split('\n');
+      this.read();
     };
-    fileReader.readAsText(this.file);
-    this.read();
   }
 
   read() {
+    this.geneArray = new Array();
     let counter = 0;
     let id = '';
     let sequence = '';
     let first = true;
-    for (const i in this.dataArray) {
+    for (let i in this.dataArray) {
       if (counter === 0 && this.dataArray[i].charAt(0) !== '>') {
         console.log('This file is not in fasta format');
         break;
       }
       if (this.dataArray[i].charAt(0) === '>') {
         if (counter > 0) {
-          // this.geneArray.push(new Gene(id, sequence));
+          this.geneArray.push(new Gene(id, sequence));
           console.log('id:'.concat(id));
           console.log('sequence:'.concat(sequence));
         }
         if (first) {
           first = false;
-        } else {
-          id = this.dataArray[i].substring(1);
-          sequence = '';
-        }
+        }id = this.dataArray[i].substring(1);
+        sequence = '';
       } else {
         sequence += this.dataArray[i];
       }
       counter += 1;
     }
-    // this.geneArray.push(new Gene(id, sequence));
+    this.geneArray.push(new Gene(id, sequence));
     console.log('id:'.concat(id));
     console.log('sequence:'.concat(sequence));
+
   }
 
   // call the service
