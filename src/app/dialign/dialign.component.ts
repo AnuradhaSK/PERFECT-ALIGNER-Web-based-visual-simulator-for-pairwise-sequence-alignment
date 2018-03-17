@@ -3,7 +3,7 @@ import {HttpEventType} from '@angular/common/http';
 import {DialignService} from '../services/dialign.service';
 import * as FastaFileReader from 'bionode-fasta';
 import * as Fasta from 'biojs-io-fasta';
-import {Gene} from '../gene';
+import {MsaSharingService} from '../services/msa-sharing.service';
 
 @Component({
   selector: 'app-dialign',
@@ -12,66 +12,19 @@ import {Gene} from '../gene';
   providers: [DialignService]
 })
 export class DialignComponent implements OnInit {
-  dataArray: any;
-  geneArray: any;
 
-  file: any;
+
   /*selectedFiles: FileList;
   currentFileUpload: File;
   progress: { percentage: number } = { percentage: 0 };*/
 
 
-  constructor(protected dialignService: DialignService) {
+  constructor(protected msasharingService: MsaSharingService) {
   }
 
   ngOnInit() {
+    this.msasharingService.setVisibility(false);
   }
-
-  fileChanged(e) {
-    this.file = e.target.files[0];
-  }
-
-  uploadDocument(file) {
-    let fileReader = new FileReader();
-    fileReader.readAsText(this.file);
-    fileReader.onload = (e) => {
-      this.dataArray = fileReader.result.split('\n');
-      this.read();
-    };
-  }
-
-  read() {
-    this.geneArray = new Array();
-    let counter = 0;
-    let id = '';
-    let sequence = '';
-    let first = true;
-    for (let i in this.dataArray) {
-      if (counter === 0 && this.dataArray[i].charAt(0) !== '>') {
-        console.log('This file is not in fasta format');
-        break;
-      }
-      if (this.dataArray[i].charAt(0) === '>') {
-        if (counter > 0) {
-          this.geneArray.push(new Gene(id, sequence));
-          console.log('id:'.concat(id));
-          console.log('sequence:'.concat(sequence));
-        }
-        if (first) {
-          first = false;
-        }id = this.dataArray[i].substring(1);
-        sequence = '';
-      } else {
-        sequence += this.dataArray[i];
-      }
-      counter += 1;
-    }
-    this.geneArray.push(new Gene(id, sequence));
-    console.log('id:'.concat(id));
-    console.log('sequence:'.concat(sequence));
-
-  }
-
   // call the service
   /*public _get(file) {
     this.dialignService._get(file).subscribe((data) => {

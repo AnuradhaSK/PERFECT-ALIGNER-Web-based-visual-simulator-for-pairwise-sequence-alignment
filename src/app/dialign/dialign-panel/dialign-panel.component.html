@@ -1,0 +1,18 @@
+<div >
+  <tr *ngFor="let gene of geneArray">
+    <th> </th>
+    <th>
+      {{gene.id}}
+    </th>
+    <td *ngFor="let char of gene.sequence.split('')">
+      {{char}}
+    </td>
+  </tr>
+</div>
+<br>
+
+<div class="stage">
+  <div class="header">
+
+  </div>
+</div>

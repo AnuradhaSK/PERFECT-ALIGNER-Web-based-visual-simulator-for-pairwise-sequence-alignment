@@ -19,10 +19,12 @@ import { SwGridComponent } from './swalgo/sw-grid/sw-grid.component';
 import { SwFormComponent } from './swalgo/sw-form/sw-form.component';
 import { TcoffeeComponent } from './tcoffee/tcoffee.component';
 import { DialignComponent } from './dialign/dialign.component';
-import {SharingService} from './services/sharing.service';
+import { SharingService } from './services/sharing.service';
 import { NwFormComponent } from './nwalgo/nw-form/nw-form.component';
 import { NwGridComponent } from './nwalgo/nw-grid/nw-grid.component';
-
+import { DialignMenuComponent } from './dialign/dialign-menu/dialign-menu.component';
+import { DialignPanelComponent } from './dialign/dialign-panel/dialign-panel.component';
+import { MsaSharingService } from './services/msa-sharing.service';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { NwGridComponent } from './nwalgo/nw-grid/nw-grid.component';
     TcoffeeComponent,
     DialignComponent,
     NwFormComponent,
-    NwGridComponent
+    NwGridComponent,
+    DialignMenuComponent,
+    DialignPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,8 @@ import { NwGridComponent } from './nwalgo/nw-grid/nw-grid.component';
     AppBootstrapModule,
     HttpClientModule,
   ],
-  providers: [SharingService ],
+  providers: [SharingService,
+    MsaSharingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

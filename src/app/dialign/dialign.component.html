@@ -14,31 +14,9 @@
         (click)="upload()">Upload</button>
 -->
 <!--<button class="btn btn-success" (click)="upload()">Upload</button>-->
-<!--menu-->
-<br>
-<div class="Block">
+<!--Menu-->
+<app-dialign-menu></app-dialign-menu>
 
-  <label id="lbl">Fasta file :</label>
-  <input type='file' (change)="fileChanged($event)">
+<!--panel-->
+<app-dialign-panel *ngIf="msasharingService.getVisibility()"></app-dialign-panel>
 
-<button type="button" class="btn btn-primary"
-        (click)="uploadDocument();">Upload File</button>
-</div>
-<!--testing-->
-<div *ngIf="dataArray">
-  <tr *ngFor="let gene of geneArray">
-    <th> </th>
-    <th>
-      {{gene.id}}
-    </th>
-   <td>
-      {{gene.sequence}}
-    </td>
-  </tr>
-</div>
-<br>
-<div class="stage">
- <div class="header">
-
- </div>
-</div>
