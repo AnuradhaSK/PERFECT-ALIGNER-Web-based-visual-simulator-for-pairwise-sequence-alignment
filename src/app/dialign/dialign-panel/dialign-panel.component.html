@@ -1,18 +1,38 @@
-<div >
-  <tr *ngFor="let gene of geneArray">
-    <th> </th>
-    <th>
-      {{gene.id}}
-    </th>
-    <td *ngFor="let char of gene.sequence.split('')">
-      {{char}}
-    </td>
-  </tr>
-</div>
+
 <br>
 
 <div class="stage">
   <div class="header">
+    <div class="id_lable_header">
+      <span style="width: 20px; display: inline-block;">ID</span>
+      <span style="display: inline-block;">Sequence Label</span>
+    </div>
+    <div class="logo_header" style="margin-left: 0px; overflow-x: auto; display: inline-block; width: 1230px;">
+        <div class="logo_container" style="height: 100px; margin-left: 0px;">
+          <div class="logo_graphic" width="2355px" style="width: 2355px;">
+            <canvas class="canvas_logo" id="canv_0" height="100" width="2355" style="left:0px"></canvas>
+          </div>
+        </div>
+      <div class="marker" style="font-size: 10px;">
+        <span>
+          <span *ngFor="let sequence of this.getSequenceLength(); let j=index; let e=even;let o=odd;" class="col-header" style="width: 15px; display: inline-block;">
+            <span *ngIf="e">{{j+1}}</span>
+            <span *ngIf="o">.</span>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
 
+  <div class="panel_body"  style="white-space: nowrap; height: 225px; width: 1350px;">
+    <div class="labelblock" style="display: inline-block; vertical-align: top; overflow-y: auto; overflow-x: hidden; font-size: 13px; line-height: 13px; height: 225px;">
+      <div *ngFor="let gene of geneArray; let i= index" class="labelrow" style="height: 15px; font-weight: normal;">
+        <div class="labels" style="width: 120px; font-size: 13px;">
+          <span style="width: 20px; display: inline-block;">{{i+1}}</span>
+          <span style="width: 100px;">{{gene.id}}</span>
+        </div>
+      </div>
+    </div>
+    <canvas class="seqblock" height="225px" width="1230" style="display: inline-block; overflow: hidden;"></canvas>
   </div>
 </div>

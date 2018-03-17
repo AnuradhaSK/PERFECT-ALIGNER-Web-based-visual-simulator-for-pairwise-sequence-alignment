@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DialignService} from '../../services/dialign.service';
 import {MsaSharingService} from '../../services/msa-sharing.service';
 
@@ -8,13 +8,17 @@ import {MsaSharingService} from '../../services/msa-sharing.service';
   styleUrls: ['./dialign-panel.component.css']
 })
 export class DialignPanelComponent implements OnInit {
-   geneArray: any;
+  geneArray: any;
 
   constructor(protected dialignService: DialignService,
-              protected msasharingService: MsaSharingService) { }
+              protected msasharingService: MsaSharingService) {
+  }
 
   ngOnInit() {
     this.geneArray = this.msasharingService.getPanelData();
   }
 
+  getSequenceLength() {
+    return this.geneArray[0].sequence.split('');
+  }
 }
