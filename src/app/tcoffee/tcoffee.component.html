@@ -1,3 +1,6 @@
-<p>
-  tcoffee works!
-</p>
+<!--Menu-->
+<app-tcoffee-menu></app-tcoffee-menu>
+
+<!--panel-->
+<app-tcoffee-panel *ngIf="msasharingService.getVisibility()"></app-tcoffee-panel>
+

@@ -25,6 +25,8 @@ import { NwGridComponent } from './nwalgo/nw-grid/nw-grid.component';
 import { DialignMenuComponent } from './dialign/dialign-menu/dialign-menu.component';
 import { DialignPanelComponent } from './dialign/dialign-panel/dialign-panel.component';
 import { MsaSharingService } from './services/msa-sharing.service';
+import { TcoffeeMenuComponent } from './tcoffee/tcoffee-menu/tcoffee-menu.component';
+import { TcoffeePanelComponent } from './tcoffee/tcoffee-panel/tcoffee-panel.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { MsaSharingService } from './services/msa-sharing.service';
     NwFormComponent,
     NwGridComponent,
     DialignMenuComponent,
-    DialignPanelComponent
+    DialignPanelComponent,
+    TcoffeeMenuComponent,
+    TcoffeePanelComponent
   ],
   imports: [
     BrowserModule,

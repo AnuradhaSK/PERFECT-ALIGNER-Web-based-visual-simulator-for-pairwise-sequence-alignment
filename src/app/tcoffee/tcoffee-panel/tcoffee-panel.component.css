@@ -11,8 +11,8 @@
 
 .id_lable_header
 {width: 120px;
-display: inline-block;
-font-size: 12px;}
+  display: inline-block;
+  font-size: 12px;}
 
 .marker {
   color: #999;

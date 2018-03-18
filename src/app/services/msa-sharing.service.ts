@@ -13,7 +13,7 @@ export class MsaSharingService {
     this.geneArray = dataArray;
   }
 
-  public getPanelData() {
+  getPanelData() {
     return this.geneArray;
   }
 
