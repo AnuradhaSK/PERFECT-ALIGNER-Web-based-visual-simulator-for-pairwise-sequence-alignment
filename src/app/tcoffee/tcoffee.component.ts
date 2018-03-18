@@ -11,6 +11,7 @@ import {TcoffeeService} from '../services/tcoffee.service';
 })
 export class TcoffeeComponent implements OnInit {
 
+  title = 'T-coffee';
   constructor(protected msasharingService: MsaSharingService) { }
 
   ngOnInit() {

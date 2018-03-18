@@ -13,7 +13,7 @@ import {MsaSharingService} from '../services/msa-sharing.service';
 })
 export class DialignComponent implements OnInit {
 
-
+  title='Dialign';
   /*selectedFiles: FileList;
   currentFileUpload: File;
   progress: { percentage: number } = { percentage: 0 };*/

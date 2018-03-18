@@ -21,6 +21,7 @@ export class DialignMenuComponent implements OnInit {
   }
 
   uploadDocument(file) {
+    this.msasharingService.setVisibility(false);
     let fileReader = new FileReader();
     fileReader.readAsText(this.file);
     fileReader.onload = (e) => {
