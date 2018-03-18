@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DialignService} from '../../services/dialign.service';
 import {MsaSharingService} from '../../services/msa-sharing.service';
 
@@ -11,11 +11,15 @@ export class DialignMenuComponent implements OnInit {
   dataArray: any;
   geneArray: any;
   file: any;
+  message = '';
+
   constructor(protected dialignService: DialignService,
-              protected msasharingService: MsaSharingService) { }
+              protected msasharingService: MsaSharingService) {
+  }
 
   ngOnInit() {
   }
+
   fileChanged(e) {
     this.file = e.target.files[0];
   }
@@ -29,7 +33,13 @@ export class DialignMenuComponent implements OnInit {
       // console.log(this.dataArray);
       this.geneArray = this.dialignService.getGeneArray(this.dataArray);
       this.msasharingService.setPanelData(this.geneArray);
-      this.msasharingService.setVisibility(true);
+      if (!(this.msasharingService.getPanelData().length === 1 && this.msasharingService.getPanelData()[0].id === '')) {
+        this.msasharingService.setVisibility(true);
+        this.message = '';
+      } else {
+        this.message = 'Sorry :( Uploaded file is not in FASTA format';
+      }
+
     };
 
   }

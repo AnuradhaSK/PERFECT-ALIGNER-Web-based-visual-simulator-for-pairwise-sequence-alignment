@@ -11,6 +11,8 @@ export class TcoffeeMenuComponent implements OnInit {
   dataArray: any;
   geneArray: any;
   file: any;
+  message = '';
+
   constructor(protected tcoffeeService: TcoffeeService,
               protected msasharingService: MsaSharingService) { }
 
@@ -29,7 +31,12 @@ export class TcoffeeMenuComponent implements OnInit {
       // console.log(this.dataArray);
       this.geneArray = this.tcoffeeService.getGeneArray(this.dataArray);
       this.msasharingService.setPanelData(this.geneArray);
-      this.msasharingService.setVisibility(true);
+      if (!(this.msasharingService.getPanelData().length === 1 && this.msasharingService.getPanelData()[0].id === '')) {
+        this.msasharingService.setVisibility(true);
+        this.message = '';
+      } else {
+        this.message = 'Sorry :( Uploaded file is not in FASTA format';
+      }
     };
 
   }
