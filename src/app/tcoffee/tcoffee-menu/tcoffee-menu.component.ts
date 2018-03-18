@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MsaSharingService} from '../../services/msa-sharing.service';
 import {TcoffeeService} from '../../services/tcoffee.service';
 
@@ -14,14 +14,18 @@ export class TcoffeeMenuComponent implements OnInit {
   message = '';
 
   constructor(protected tcoffeeService: TcoffeeService,
-              protected msasharingService: MsaSharingService) { }
+              protected msasharingService: MsaSharingService) {
+  }
 
   ngOnInit() {
   }
+
+  // choose a file
   fileChanged(e) {
     this.file = e.target.files[0];
   }
 
+  // upload the file and read
   uploadDocument(file) {
     this.msasharingService.setVisibility(false);
     let fileReader = new FileReader();

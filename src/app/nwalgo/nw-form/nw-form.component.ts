@@ -9,6 +9,7 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
   styleUrls: ['./nw-form.component.css'],
   providers: [NwalgoService]
 })
+
 export class NwFormComponent implements OnInit {
   stringOne: string;
   stringTwo: string;

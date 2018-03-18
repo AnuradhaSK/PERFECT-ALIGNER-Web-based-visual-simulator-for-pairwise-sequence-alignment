@@ -14,6 +14,7 @@ export class DialignService {
   constructor() {
   }
 
+  // return the geneArray which contains gene objects. Gene object has a id and a sequence
   getGeneArray(dataArray) {
     this.dataArray = dataArray;
     this.geneArray = new Array();

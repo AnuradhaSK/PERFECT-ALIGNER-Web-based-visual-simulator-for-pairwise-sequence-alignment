@@ -20,10 +20,12 @@ export class DialignMenuComponent implements OnInit {
   ngOnInit() {
   }
 
+  // choose file
   fileChanged(e) {
     this.file = e.target.files[0];
   }
 
+  // upload and read the file
   uploadDocument(file) {
     this.msasharingService.setVisibility(false);
     let fileReader = new FileReader();
@@ -33,10 +35,13 @@ export class DialignMenuComponent implements OnInit {
       // console.log(this.dataArray);
       this.geneArray = this.dialignService.getGeneArray(this.dataArray);
       this.msasharingService.setPanelData(this.geneArray);
+      // visualize if the file is a fasta file
       if (!(this.msasharingService.getPanelData().length === 1 && this.msasharingService.getPanelData()[0].id === '')) {
         this.msasharingService.setVisibility(true);
         this.message = '';
-      } else {
+      }
+      // show an rror message if the file is not in fasta format
+      else {
         this.message = 'Sorry :( Uploaded file is not in FASTA format';
       }
 

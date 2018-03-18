@@ -16,6 +16,7 @@ export class TcoffeePanelComponent implements OnInit {
     this.geneArray = this.msasharingService.getPanelData();
   }
 
+  // get the maximum length sequence
   getMaxSequenceLength() {
     let maxlength = 0;
     let max = [];

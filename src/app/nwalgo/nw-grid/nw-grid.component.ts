@@ -13,6 +13,7 @@ export class NwGridComponent implements OnInit {
   backBtn = 'PreviousStep';
   finalBtn = 'FinalAlignment';
   clearBtn = 'Clear';
+  reloadBtn = 'GoBack';
   dataArray: any;
   stepStop = false;
   finalStop = false;
@@ -39,6 +40,22 @@ export class NwGridComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.createGridArray();
+  }
+
+  createGridArray() {
+    this.String1array = [];
+    this.String2array = [];
+    this.StringOffsetArray = ['', ''];
+    this.colCount = 0;
+    this.rowCount = 0;
+    this.nextRowIndex = 2;
+    this.nextColIndex = 2;
+    this.resSeq1Array = [];
+    this.resSeq2Array = [];
+    this.nextDataArrayIndex = 0;
+    this.noback = true;
+    this.stepStop = false;
     this.dataArray = this.sharingService.getData();
     this.stringOne = this.sharingService.getStringOne();
     this.stringTwo = this.sharingService.getStringTwo();
@@ -47,10 +64,6 @@ export class NwGridComponent implements OnInit {
     this.columns = this.stringOne.length + 2;
     this.rowCount = this.stringTwo.length + 2;
     this.colCount = this.stringOne.length + 2;
-    this.createGridArray();
-  }
-
-  createGridArray() {
     console.log('come to create grid array');
     this.gridArray = [];
     for (let r = 0; r < this.rowCount; r++) {
@@ -196,9 +209,14 @@ export class NwGridComponent implements OnInit {
     this.gridArray[this.dataArray[x].row + 1][this.dataArray[x].col + 1].datacolor = true;
   }
 
-  // clear button's function
+  // clear grid
   clearall() {
-    location.reload();
+    this.ngOnInit();
+
   }
 
+  // reload the form for new alignment
+  goBack() {
+    location.reload();
+  }
 }

@@ -12,10 +12,18 @@ export class SwGridComponent implements OnInit {
   stepBtn = 'NextStep';
   backBtn = 'PreviousStep';
   finalBtn = 'FinalAlignment';
-  clearBtn = 'Clear';
+  clearBtn = 'ClearGrid';
+  reloadBtn = 'GoBack'
   dataArray: any;
   stepStop = false;
   finalStop = false;
+  columns: number;
+  stringOne: string;
+  stringTwo: string;
+  noback = true;
+  final: boolean;
+  resSeq1: ' ';
+  resSeq2: ' ';
   String1array = [];
   String2array = [];
   StringOffsetArray = ['', ''];
@@ -24,13 +32,6 @@ export class SwGridComponent implements OnInit {
   gridArray: Cell[][];
   nextRowIndex = 2;
   nextColIndex = 2;
-  columns: number;
-  stringOne: string;
-  stringTwo: string;
-  resSeq1: ' ';
-  resSeq2: ' ';
-  noback = true;
-  final: boolean;
   resSeq1Array = [];
   resSeq2Array = [];
   nextDataArrayIndex = 0;
@@ -39,6 +40,22 @@ export class SwGridComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.createGridArray();
+  }
+
+  createGridArray() {
+    this.String1array = [];
+    this.String2array = [];
+    this.StringOffsetArray = ['', ''];
+    this.colCount = 0;
+    this.rowCount = 0;
+    this.nextRowIndex = 2;
+    this.nextColIndex = 2;
+    this.resSeq1Array = [];
+    this.resSeq2Array = [];
+    this.nextDataArrayIndex = 0;
+    this.noback = true;
+    this.stepStop = false;
     this.dataArray = this.sharingService.getData();
     this.stringOne = this.sharingService.getStringOne();
     this.stringTwo = this.sharingService.getStringTwo();
@@ -47,10 +64,6 @@ export class SwGridComponent implements OnInit {
     this.columns = this.stringOne.length + 2;
     this.rowCount = this.stringTwo.length + 2;
     this.colCount = this.stringOne.length + 2;
-    this.createGridArray();
-  }
-
-  createGridArray() {
     console.log('come to create grid array');
     this.gridArray = [];
     for (let r = 0; r < this.rowCount; r++) {
@@ -238,8 +251,14 @@ export class SwGridComponent implements OnInit {
     this.gridArray[this.dataArray[x].row + 1][this.dataArray[x].col + 1].datacolor = true;
   }
 
-  // clear button's function
+  // clear grid
   clearall() {
+    this.ngOnInit();
+
+  }
+
+  // reload the form for new alignment
+  goBack() {
     location.reload();
   }
 
