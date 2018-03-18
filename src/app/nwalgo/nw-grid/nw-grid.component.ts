@@ -121,6 +121,7 @@ export class NwGridComponent implements OnInit {
   }
 
   undoMatrix(row, col, val, prerow, precol) {
+
     this.gridArray[row][col].cellvalue = val;
     this.gridArray[0][col].color = false;
     this.gridArray[row][0].color = false;
@@ -158,6 +159,7 @@ export class NwGridComponent implements OnInit {
 
   // final button's function
   finalResult() {
+    this.nextDataArrayIndex = this.stringOne.length * this.stringTwo.length;
     this.stepStop = true;
     this.noback = true;
     this.resetColor();

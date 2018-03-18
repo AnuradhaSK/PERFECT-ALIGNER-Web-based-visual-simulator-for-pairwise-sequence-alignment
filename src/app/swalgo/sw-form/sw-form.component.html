@@ -1,4 +1,4 @@
-<div *ngIf="!submitted" class="example-container container-fluid">
+ <div *ngIf="!submitted" class="example-container container-fluid">
   <div class="col-lg-12">
 <form (ngSubmit)="onSubmit()" #swalgoForm="ngForm">
   <div class="form-group row">
@@ -27,7 +27,7 @@
       <label>Match Score</label>
     </div>
     <div class="col-lg-4">
-      <input type="text"  name="a" ng-pattern= "/^[0-9]+$/" [(ngModel)]="match" placeholder="match" required>
+      <input type="number"  name="a" ng-pattern= "/^[0-9]+$/" [(ngModel)]="match" placeholder="match" min="0" required>
     </div>
     <br>
   </div>
@@ -37,7 +37,7 @@
       <label>Mismatch Score</label>
     </div>
     <div class="col-lg-4">
-      <input type="text" name="b" [(ngModel)]="mismatch" placeholder="mismatch" required>
+      <input type="number" name="b" [(ngModel)]="mismatch" placeholder="mismatch" max="0" required>
     </div>
     <br>
   </div>
@@ -47,7 +47,7 @@
       <label>Gap Penalty</label>
     </div>
     <div class="col-lg-4">
-      <input type="text" name="c" [(ngModel)]="gap" placeholder="gap" required>
+      <input type="number" name="c" [(ngModel)]="gap" max="0"placeholder="gap" required>
     </div>
     <br>
   </div>

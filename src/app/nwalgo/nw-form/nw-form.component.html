@@ -29,7 +29,8 @@
           <label>Match Score</label>
         </div>
         <div class="col-lg-4">
-          <input type="text"  name="a" ng-pattern= "/^[0-9]+$/" [(ngModel)]="match" placeholder="match" required>
+          <input id="match" type="number"  min="0" name="a" pattern= "[0-9]+" [(ngModel)]="match" placeholder="match" required>
+
         </div>
         <br>
       </div>
@@ -39,7 +40,7 @@
           <label>Mismatch Score</label>
         </div>
         <div class="col-lg-4">
-          <input type="text" name="b" [(ngModel)]="mismatch" placeholder="mismatch" required>
+          <input type="number" name="b" max="0" [(ngModel)]="mismatch" placeholder="mismatch" required>
         </div>
         <br>
       </div>
@@ -49,7 +50,7 @@
           <label>Gap Penalty</label>
         </div>
         <div class="col-lg-4">
-          <input type="text" name= "c" [(ngModel)]="gap" placeholder="gap" required>
+          <input type="number" max="0" name= "c" [(ngModel)]="gap" placeholder="gap" required>
         </div>
         <br>
       </div>

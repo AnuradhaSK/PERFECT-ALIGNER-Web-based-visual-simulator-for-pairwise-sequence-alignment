@@ -6,6 +6,8 @@
 <input type="submit" class="btn" [value]="finalBtn" [disabled] = "finalStop"(click)="finalResult()">
 <input type="submit" class="btn" [value]="clearBtn" (click)="clearall()" >
 
+<br>
+Current Step : {{nextDataArrayIndex}}
 
 <div style="overflow:auto; height: 500px;  width: 490px;" >
   <!--Grid-->
@@ -14,6 +16,7 @@
       <td  *ngFor="let colData of rowArray"
            [ngClass]='{highlight : (colData.color), highlight2 : (colData.datacolor), highlight3 : (colData.refcolor)}'>
         {{colData.cellvalue}}
+
       </td>
     </tr>
   </table>

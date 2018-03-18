@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SharingService} from '../../services/sharing.service';
 import {NwalgoService} from '../../services/nwalgo.service';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-nw-form',

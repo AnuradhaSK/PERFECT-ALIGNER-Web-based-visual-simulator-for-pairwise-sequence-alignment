@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+
 import {Cell} from '../cell'; // import cell class
 import {NwalgoService} from '../services/nwalgo.service';
 import {SharingService} from '../services/sharing.service'; // import Nwalgoservice
