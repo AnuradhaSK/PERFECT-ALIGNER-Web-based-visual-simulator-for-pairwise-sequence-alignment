@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SharingService} from '../../services/sharing.service';
 import {NwalgoService} from '../../services/nwalgo.service';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
@@ -19,9 +19,11 @@ export class NwFormComponent implements OnInit {
   gap: '';
   alignStop: boolean;
   dataArray: any;
-  submitted = false
+  submitted = false;
+
   constructor(protected sharingService: SharingService,
-              protected nwalgoService: NwalgoService) { }
+              protected nwalgoService: NwalgoService) {
+  }
 
   ngOnInit() {
     this.submitted = false;
@@ -49,7 +51,7 @@ export class NwFormComponent implements OnInit {
   public _get() {
     this.nwalgoService._get(this.stringOne, this.stringTwo, this.match, this.mismatch, this.gap).subscribe((data) => {
       this.dataArray = data;
-      this.sharingService.setData(this.dataArray, this.stringOne, this.stringTwo);
+      this.sharingService.setData(this.dataArray, this.stringOne, this.stringTwo, this.match, this.mismatch, this.gap);
       this.sharingService.setVisibility(true);
       console.log(this.dataArray);
     });

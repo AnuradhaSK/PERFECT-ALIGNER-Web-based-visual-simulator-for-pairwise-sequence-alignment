@@ -1,70 +1,41 @@
-.stage{
-  cursor: default;
-  line-height: normal;
-  font-family: Helvetica;
+.table-area {
+  position: relative;
+  z-index: 0;
+  margin-top: 50px;
 }
 
-.header{
-  white-space: nowrap;
-  text-align: left;
-}
-
-.idlableheader
-{width: 120px;
-display: inline-block;
-font-size: 12px;}
-
-.marker {
-  color: #999;
-  white-space: nowrap;
-}
-
-.marker .col-header {
-  cursor: pointer;
-  cursor: pointer;
-  text-align: center;
-}
-
-.marker .col-header:hover {
-  color: #f00;
-}
-
-.seqblock {
-  cursor: move;
-}
-
-.labels {
-  color:black;
-  display: inline-block;
-  white-space: nowrap;
-  cursor: pointer;
-  vertical-align:middle;
-  overflow: hidden;
-  text-overflow: clip;
-  /*margin:auto; */
-  text-align: left;
-}
-.labelrow{
+table.responsive-table {
+  display: table;
+  /* required for table-layout to be used (not normally necessary; included for completeness) */
+  table-layout: fixed;
+  /* this keeps your columns with fixed with exactly the right width */
+  width: 100%;
+  /* table must have width set for fixed layout to work as expected */
   height: 100%;
 }
 
-.labelrow:before {
-  content: '';
-  display: inline-block;
-  width: 0;
-  height: 100%;
-  vertical-align: middle;
+table.responsive-table thead {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 3em;
+  background: #eee;
+  table-layout: fixed;
+  display: table;
 }
 
-.labelblock::-webkit-scrollbar, .logo_header::-webkit-scrollbar{
-// FIX scrollbars on Mac
--webkit-appearance: none;
-  width: 7px;
-  height: 7px;
-}
-.labelblock::-webkit-scrollbar-thumb, .logo_header::-webkit-scrollbar-thumb{
-  border-radius: 4px;
-  background-color: rgba(0,0,0,.5);
-  box-shadow: 0 0 1px rgba(255,255,255,.5);
+table.responsive-table th {
+  background: #eee;
 }
 
+table.responsive-table td {
+  line-height: 2em;
+}
+
+table.responsive-table tr > td,
+table.responsive-table th {
+  text-align: left;
+}

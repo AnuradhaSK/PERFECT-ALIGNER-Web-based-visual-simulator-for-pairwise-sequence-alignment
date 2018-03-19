@@ -9,12 +9,18 @@ export class SharingService {
   private data: any = undefined;
   private strinOne: string;
   private stringTwo: string;
+  private match: string;
+  private mismatch: string;
+  private gap: string;
   private visible: boolean;
 
-  setData(data: any, stringOne: string, stringTwo: string) {
+  setData(data: any, stringOne: string, stringTwo: string, match: string, mismatch: string, gap: string) {
     this.data = data;
     this.strinOne = stringOne;
     this.stringTwo = stringTwo;
+    this.match = match;
+    this.mismatch = mismatch;
+    this.gap = gap;
     console.log('came to sharing');
   }
 
@@ -33,8 +39,16 @@ export class SharingService {
   getStringOne(): string {
     return this.strinOne;
   }
-
   getStringTwo(): string {
     return this.stringTwo;
+  }
+  getMatch(): string {
+    return this.match;
+  }
+  getMismatch(): string {
+    return this.mismatch;
+  }
+  getGap(): string {
+    return this.gap;
   }
 }

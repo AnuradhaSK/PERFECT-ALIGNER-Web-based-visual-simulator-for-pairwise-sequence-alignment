@@ -1,4 +1,82 @@
-.container{
+h2{
+  font-weight: bold;
+  color: black;
+
+}
+h3{
+  font-weight: bold;
+  color: white;
+
+}
+
+.btn {
+  background: #242424 none repeat scroll 0 0;
+  border: 1px solid #4f5c04;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 12px;
+  font-style: normal;
+  line-height: 35px;
+  margin: 10px 0;
+  padding: 0;
+  text-transform: uppercase;
+  width: 22%;
+}
+
+.btn:hover{opacity:0.6;}
+.example-container {
+  border-radius:5px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+
+}
+
+.example-container > * {
+  width: 100%;
+
+}
+mat-grid-tile {
+  background: white;
+}
+
+table, td {
+  border: 1px solid black;
+  width: 30px;
+  height: 30px;
+}
+
+.highlight{
+  background-color: lightpink;
+}
+
+.highlight2{
+  background-color: lightgoldenrodyellow;
+}
+.highlight3{
+  background-color: lightgreen;
+}
+
+.borderless td, .borderless th {
+  border: none;
+}
+
+.gridblock::-webkit-scrollbar{
+// FIX scrollbars on Mac
+-webkit-appearance: none;
+  width: 7px;
+  height: 7px;
+}
+
+.gridblock::-webkit-scrollbar-thumb{
+  border-radius: 4px;
+  background-color: rgba(0,0,0,.5);
+  box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+
+
+/*.container{
   display: grid;
   grid-template-columns: 50% auto;
 
@@ -93,4 +171,5 @@ table, td {
 
 .borderless td, .borderless th {
   border: none;
-}
+}*/
+

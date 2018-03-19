@@ -1,6 +1,106 @@
+<!--Inputs-->
+<div class="container" style="float:left; width:60%;">
+  <div class="row">
+    <div class="col-md-4">
+      <span> String 1    : {{stringOne}}</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <span>  String 2    : {{stringTwo}}</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <span>  Match Score     : {{match}}</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <span>  Mismatch Score    : {{mismatch}}</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <span> Gap Penalty     : {{gap}}</span>
+    </div>
+  </div>
+
+  Current Step : {{nextDataArrayIndex}}
+
+  <div clas="gridblock" style="overflow:auto; height: 500px;  width: 490px;" >
+    <!--Grid-->
+    <table class="table table-bordered" cellspacing="10">
+      <tr *ngFor="let rowArray of gridArray">
+        <td  *ngFor="let colData of rowArray"
+             [ngClass]='{highlight : (colData.color), highlight2 : (colData.datacolor), highlight3 : (colData.refcolor)}'>
+          {{colData.cellvalue}}
+
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+<!--Control Buttons-->
+<div style="float:right; width: 40%">
+  <br>
+  <input type="submit" class="btn" [value]="reloadBtn" (click)="goBack()" >
+  <br>
+  <input type="submit" class="btn" [value]="clearBtn" (click)="clearall()" >
+  <input type="submit" class="btn" [value]="backBtn" [disabled] = "noback" (click)="previousStep()" >
+  <input type="submit" class="btn" [value]="stepBtn" [disabled] = "stepStop" (click)="nextStep()" >
+  <input type="submit" class="btn" [value]="finalBtn" [disabled] = "finalStop"(click)="finalResult()">
+
+  <!--Value Calculation-->
+  <div *ngIf="!noback">
+    <table class="table borderless" cellspacing="10">
+      <tr>
+        <th width="15px">Score From Above Cell</th>
+        <th width="15px">Score of Cell({{dataArray[nextDataArrayIndex-1].row + 1}}, {{dataArray[nextDataArrayIndex-1].col + 2}})+gap</th>
+        <td>{{dataArray[nextDataArrayIndex-1].upScore}}</td>
+      </tr>
+      <tr >
+        <th width="15px">Score From Left Cell</th>
+        <th width="15px">Score of Cell({{dataArray[nextDataArrayIndex-1].row + 2}}, {{dataArray[nextDataArrayIndex-1].col + 1}})+gap</th>
+        <td>{{dataArray[nextDataArrayIndex-1].leftScore}}</td>
+      </tr>
+      <tr>
+        <th width="15px">Score From Diagonal Cell</th>
+        <th width="15px">Score of Cell({{dataArray[nextDataArrayIndex-1].row + 1}}, {{dataArray[nextDataArrayIndex-1].col + 1}})+match/mismatch</th>
+        <td>{{dataArray[nextDataArrayIndex-1].diagonalScore}}</td>
+      </tr>
+      <tr>
+        <th width="15px">Max Score</th>
+        <th></th>
+        <td>{{dataArray[nextDataArrayIndex-1].score}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <!--Final output-->
+  <div *ngIf="final">
+    <table class="table borderless" cellspacing="10">
+      <tr>
+        <td>S1:</td>
+        <td *ngFor="let char of resSeq1Array" >{{char}}</td>
+      </tr>
+      <tr>
+        <td>S2:</td>
+        <td *ngFor="let char2 of resSeq2Array" >{{char2}}</td>
+      </tr>
+    </table>
+
+  </div>
+</div>
+
+
+
+
+
 
 <!--Grid-->
-<h2 >Matrix</h2>
+<!--<h2 >Matrix</h2>
 <br>
 <input type="submit" class="btn" [value]="reloadBtn" (click)="goBack()" >
 <br>
@@ -12,7 +112,7 @@
 <br>
 Current Step : {{nextDataArrayIndex}}
 <!--<mat-spinner align="center" [style.display]=" showSpinner ?'block':'none'"></mat-spinner>-->
-<div style="overflow:auto; height: 500px;  width: 490px;" >
+<!--<div style="overflow:auto; height: 500px;  width: 490px;" >
   <table class="table table-bordered" cellspacing="10">
     <tr *ngFor="let rowArray of gridArray">
       <td  *ngFor="let colData of rowArray"
@@ -21,10 +121,10 @@ Current Step : {{nextDataArrayIndex}}
       </td>
     </tr>
   </table>
-</div>
+</div>-->
 
 <!--Final output-->
-<div *ngIf="final">
+<!--<div *ngIf="final">
   <table class="table borderless" cellspacing="10">
     <tr>
       <td>S1:</td>
@@ -37,4 +137,4 @@ Current Step : {{nextDataArrayIndex}}
   </table>
 
 </div>
-
+-->

@@ -49,7 +49,7 @@ export class SwFormComponent implements OnInit {
   public _get() {
     this.swalgoService._get(this.stringOne, this.stringTwo, this.match, this.mismatch, this.gap).subscribe((data) => {
       this.dataArray = data;
-      this.sharingService.setData(this.dataArray, this.stringOne, this.stringTwo);
+      this.sharingService.setData(this.dataArray, this.stringOne, this.stringTwo, this.match, this.mismatch, this.gap);
       this.sharingService.setVisibility(true);
       console.log(this.dataArray);
     });

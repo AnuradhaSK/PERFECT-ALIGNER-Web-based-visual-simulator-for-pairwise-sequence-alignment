@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
 import {DialignService} from '../../services/dialign.service';
 import {MsaSharingService} from '../../services/msa-sharing.service';
 
+
 @Component({
   selector: 'app-dialign-panel',
   templateUrl: './dialign-panel.component.html',
@@ -9,13 +10,14 @@ import {MsaSharingService} from '../../services/msa-sharing.service';
 })
 export class DialignPanelComponent implements OnInit/*, AfterViewInit */ {
   geneArray: any;
+
+
   /** Template reference to the canvas element */
 
   // @ViewChild('canvasEl') canvasEl: ElementRef;
 
   /** Canvas 2d context */
   // private context: CanvasRenderingContext2D;
-
 
   constructor(protected dialignService: DialignService,
               protected msasharingService: MsaSharingService) {
@@ -24,6 +26,8 @@ export class DialignPanelComponent implements OnInit/*, AfterViewInit */ {
   ngOnInit() {
     this.geneArray = this.msasharingService.getPanelData();
   }
+
+
 
   /*ngAfterViewInit() {
     this.context = (this.canvasEl.nativeElement as HTMLCanvasElement).getContext('2d');
@@ -63,3 +67,4 @@ export class DialignPanelComponent implements OnInit/*, AfterViewInit */ {
     ctx.fillRect(0, 0, 150, 75);
   }*/
 }
+

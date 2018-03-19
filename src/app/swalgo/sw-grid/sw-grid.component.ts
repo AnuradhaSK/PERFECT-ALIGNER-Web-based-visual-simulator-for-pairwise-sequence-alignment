@@ -35,7 +35,9 @@ export class SwGridComponent implements OnInit {
   resSeq1Array = [];
   resSeq2Array = [];
   nextDataArrayIndex = 0;
-
+  match='';
+  mismatch='';
+  gap='';
   constructor(private sharingService: SharingService) {
   }
 
@@ -59,6 +61,9 @@ export class SwGridComponent implements OnInit {
     this.dataArray = this.sharingService.getData();
     this.stringOne = this.sharingService.getStringOne();
     this.stringTwo = this.sharingService.getStringTwo();
+    this.match = this.sharingService.getMatch();
+    this.mismatch = this.sharingService.getMismatch();
+    this.gap = this.sharingService.getGap();
     this.String1array = this.StringOffsetArray.concat(this.stringOne.split('', this.stringOne.length));
     this.String2array = this.StringOffsetArray.concat(this.stringTwo.split('', this.stringTwo.length));
     this.columns = this.stringOne.length + 2;

@@ -35,6 +35,9 @@ export class NwGridComponent implements OnInit {
   resSeq1Array = [];
   resSeq2Array = [];
   nextDataArrayIndex = 0;
+  match = '';
+  mismatch = '';
+  gap = '';
 
   constructor(private sharingService: SharingService) {
   }
@@ -59,6 +62,9 @@ export class NwGridComponent implements OnInit {
     this.dataArray = this.sharingService.getData();
     this.stringOne = this.sharingService.getStringOne();
     this.stringTwo = this.sharingService.getStringTwo();
+    this.match = this.sharingService.getMatch();
+    this.mismatch = this.sharingService.getMismatch();
+    this.gap = this.sharingService.getGap();
     this.String1array = this.StringOffsetArray.concat(this.stringOne.split('', this.stringOne.length));
     this.String2array = this.StringOffsetArray.concat(this.stringTwo.split('', this.stringTwo.length));
     this.columns = this.stringOne.length + 2;
@@ -84,10 +90,10 @@ export class NwGridComponent implements OnInit {
     }
     this.gridArray[1][1].cellvalue = '0';
     for (let cp = 2; cp < this.colCount; cp++) {
-      this.gridArray[1][cp].cellvalue = (parseInt('0', 10) * (cp - 1)).toString();
+      this.gridArray[1][cp].cellvalue = (parseInt(this.gap, 10) * (cp - 1)).toString();
     }
     for (let rp = 2; rp < this.rowCount; rp++) {
-      this.gridArray[rp][1].cellvalue = (parseInt('0', 10) * (rp - 1)).toString();
+      this.gridArray[rp][1].cellvalue = (parseInt(this.gap, 10) * (rp - 1)).toString();
     }
     console.log('created grid');
   }
