@@ -1,110 +1,24 @@
 <br>
-<div class="timeline-shell" style="width: 600px; height: 200px;">
-  <div class="timeline-header" style="width: 820px;">
+<!--header-->
+<div class="timeline-shell" style="width: 1010px;height: 300px;" >
+  <div class="timeline-header" [style.width.px]="width" >
     <span class="header-blank"></span>
-    <span class="header-item">
-      <div class="item-label">2017 Dec</div>
-      <div class="item-sublabel">
-        <span class="sublabel-value">1</span>
-        <span class="sublabel-value">2</span>
-        <span class="sublabel-value">3</span>
-        <span class="sublabel-value">4</span>
-      </div>
+
+    <span class="header-item" *ngFor="let col of this.getMaxSequenceLength();let j=index;">
+      <div class="item-label">{{j+1}}</div>
     </span>
-    <span class="header-item">
-      <div class="item-label">2018 Jan</div>
-      <div class="item-sublabel">
-        <span class="sublabel-value">1</span>
-        <span class="sublabel-value">2</span>
-        <span class="sublabel-value">3</span>
-        <span class="sublabel-value">4</span>
-      </div>
-    </span>
-    <span class="header-item">
-      <div class="item-label">Feb</div>
-      <div class="item-sublabel">
-        <span class="sublabel-value">1</span>
-        <span class="sublabel-value">2</span>
-        <span class="sublabel-value">3</span>
-        <span class="sublabel-value">4</span>
-      </div>
-    </span>
-    <span class="header-item">
-      <div class="item-label">Mar</div>
-      <div class="item-sublabel">
-        <span class="sublabel-value">1</span>
-        <span class="sublabel-value">2</span>
-        <span class="sublabel-value">3</span>
-        <span class="sublabel-value">4</span>
-      </div>
-    </span>
-    <span class="header-item">
-      <div class="item-label">Apr</div>
-      <div class="item-sublabel">
-        <span class="sublabel-value">1</span>
-        <span class="sublabel-value">2</span>
-        <span class="sublabel-value">3</span>
-        <span class="sublabel-value">4</span>
-      </div>
-    </span>
-    <span class="header-item">
-      <div class="item-label">May</div>
-      <div class="item-sublabel">
-        <span class="sublabel-value">1</span>
-        <span class="sublabel-value">2</span>
-        <span class="sublabel-value">3</span>
-        <span class="sublabel-value">4</span>
-      </div>
-    </span>
+
   </div>
-  <div class="timeline-body" style="width: 820px; height: 150px;">
-    <div class="body-item">
+  <!--body-->
+  <div class="timeline-body" style="height: 150px;" [style.width.px]="width">
+    <div class="body-item" *ngFor="let gene of geneArray">
       <span class="body-details-cell">
-        <div class="detail-title">Sample item title</div>
-        <div class="detail-description">Item description</div>
+        <div class="detail-title" >{{gene.id}}</div>
       </span>
-      <span class="body-graph-cell first-graph-cell"></span>
-      <span class="body-graph-cell"></span>
-      <span class="body-graph-cell"></span>
-      <span class="body-graph-cell"></span>
-      <span class="body-graph-cell"></span>
-      <span class="body-graph-cell"></span>
-    </div>
-    <div class="body-item">
-      <span class="body-details-cell">
-        <div class="detail-title">Sample item title</div>
-        <div class="detail-description">Item description</div>
+      <span *ngFor="let char of gene.sequence.split('');let i=index;">
+      <span class="body-graph-cell first-graph-cell" *ngIf="i==0">{{char}}</span>
+      <span class="body-graph-cell" *ngIf="i!=0">{{char}}</span>
       </span>
-      <span class="body-graph-cell first-graph-cell"></span>
-      <span class="body-graph-cell"></span>
-      <span class="body-graph-cell"></span>
-      <span class="body-graph-cell"></span>
-      <span class="body-graph-cell"></span>
-      <span class="body-graph-cell"></span>
-    </div>
-    <div class="body-item">
-      <span class="body-details-cell">
-        <div class="detail-title">Sample item title</div>
-        <div class="detail-description">Item description</div>
-      </span>
-      <span class="body-graph-cell first-graph-cell"></span>
-      <span class="body-graph-cell"></span>
-      <span class="body-graph-cell"></span>
-      <span class="body-graph-cell"></span>
-      <span class="body-graph-cell"></span>
-      <span class="body-graph-cell"></span>
-    </div>
-    <div class="body-item">
-      <span class="body-details-cell">
-        <div class="detail-title">Sample item title</div>
-        <div class="detail-description">Item description</div>
-      </span>
-      <span class="body-graph-cell first-graph-cell"></span>
-      <span class="body-graph-cell"></span>
-      <span class="body-graph-cell"></span>
-      <span class="body-graph-cell"></span>
-      <span class="body-graph-cell"></span>
-      <span class="body-graph-cell"></span>
     </div>
   </div>
 </div>

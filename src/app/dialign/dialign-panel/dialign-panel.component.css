@@ -13,8 +13,8 @@
 .timeline-header .header-item {
   float: left;
   height: 50px;
-  border-bottom: 1px solid #bebebe;
-  border-right: 1px solid #bebebe;
+  /*border-bottom: 1px solid #BEBEBE;
+  border-right: 1px solid #BEBEBE;*/
   background: white;
 }
 .timeline-header .header-blank {
@@ -22,11 +22,11 @@
   position: -webkit-sticky;
   top: 0;
   left: 0;
-  width: 200px;
+  width: 100px;
   z-index: 2;
 }
 .timeline-header .header-item {
-  width: 100px;
+  width: 30px;
 }
 
 .header-item .item-label {
@@ -43,17 +43,18 @@
 .timeline-body .body-details-cell,
 .timeline-body .body-graph-cell {
   float: left;
-  height: 50px;
-  border-bottom: 1px solid #bebebe;
-  border-right: 1px solid #bebebe;
+  height: 30px;
+ /* border-bottom: 1px solid #bebebe;
+  border-right: 1px solid #bebebe;*/
   background: white;
+  text-align: center;
 }
 .timeline-body .body-details-cell {
   position: -webkit-sticky;
   position: sticky;
   left: 0;
-  width: 200px;
+  width: 100px;
 }
 .timeline-body .body-graph-cell {
-  width: 100px;
+  width: 30px;
 }
