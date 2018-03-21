@@ -9,6 +9,8 @@ import {TcoffeeService} from '../../services/tcoffee.service';
 })
 export class TcoffeePanelComponent implements OnInit {
   geneArray: any;
+  maxlength: number;
+  width: any;
   constructor(protected tcoffeeService: TcoffeeService,
  protected msasharingService: MsaSharingService) { }
 
@@ -17,18 +19,57 @@ export class TcoffeePanelComponent implements OnInit {
   }
 
   // get the maximum length sequence
+
   getMaxSequenceLength() {
-    let maxlength = 0;
+    this.maxlength = 0;
     let max = [];
     for (let i in this.geneArray) {
-      if (maxlength < this.geneArray[i].sequence.split('').length) {
-        maxlength = this.geneArray[i].sequence.split('').length;
+      if (this.maxlength < this.geneArray[i].sequence.split('').length) {
+        this.maxlength = this.geneArray[i].sequence.split('').length;
         max = this.geneArray[i].sequence.split('');
       }
     }
-    console.log(maxlength);
+    console.log(this.maxlength);
+    this.calWidth();
     return max;
 
+  }
+
+  calWidth() {
+    this.width = 100 + 20 * this.maxlength;
+  }
+
+
+  getColor(char) {
+    switch (char) {
+      case 'A':
+      case 'C':
+      case 'I':
+      case 'L':
+      case 'M':
+      case 'F':
+      case 'W':
+      case 'V':
+        return '#2E5DCB';
+      case 'K':
+      case 'R':
+        return '#F92B17';
+      case 'E':
+      case 'D':
+        return '#E817F9';
+      case 'N':
+      case 'Q':
+      case 'S':
+      case 'T':
+        return '#63C318';
+      case 'G':
+        return '#FA9915';
+      case 'P':
+        return '#FAFA15';
+      case 'H':
+      case 'Y':
+        return '#15FADB';
+    }
   }
 
 }

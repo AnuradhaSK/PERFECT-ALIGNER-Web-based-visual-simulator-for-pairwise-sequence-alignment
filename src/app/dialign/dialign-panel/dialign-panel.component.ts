@@ -41,7 +41,39 @@ export class DialignPanelComponent implements OnInit {
   }
 
   calWidth() {
-    this.width = 100 + 30 * this.maxlength;
+    this.width = 100 + 20 * this.maxlength;
+  }
+
+  getColor(char) {
+    switch (char) {
+      case 'A':
+      case 'C':
+      case 'I':
+      case 'L':
+      case 'M':
+      case 'F':
+      case 'W':
+      case 'V':
+        return '#2E5DCB';
+      case 'K':
+      case 'R':
+        return '#F92B17';
+      case 'E':
+      case 'D':
+        return '#E817F9';
+      case 'N':
+      case 'Q':
+      case 'S':
+      case 'T':
+        return '#63C318';
+      case 'G':
+        return '#FA9915';
+      case 'P':
+        return '#FAFA15';
+      case 'H':
+      case 'Y':
+        return '#15FADB';
+    }
   }
 }
 

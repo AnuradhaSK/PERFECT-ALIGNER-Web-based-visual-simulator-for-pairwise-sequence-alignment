@@ -28,7 +28,7 @@ export class SwGridComponent implements OnInit {
   resSeq2: ' ';
   String1array = [];
   String2array = [];
-  StringOffsetArray = ['', ''];
+  StringOffsetArray = ['D(0,0)', ''];
   colCount = 0;
   rowCount = 0;
   gridArray: Cell[][];
@@ -88,6 +88,7 @@ export class SwGridComponent implements OnInit {
         this.gridArray[r][co] = new Cell();
       }
     }
+    this.gridArray[0][0].cellvalue = this.String1array[0];
     for (let co = 2; co < this.colCount; co++) {
       this.gridArray[0][co].cellvalue = this.String1array[co];
     }

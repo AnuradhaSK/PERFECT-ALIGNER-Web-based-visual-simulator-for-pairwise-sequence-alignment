@@ -82,7 +82,7 @@ mat-grid-tile {
 
 table, td {
   border: 1px solid black;
-  width: 30px;
+  min-width: 30px;
   height: 30px;
 }
 
@@ -91,13 +91,20 @@ table, td {
 }
 
 .highlight2{
-  background-color: lightgoldenrodyellow;
+  background-color: lightskyblue;
 }
 .highlight3{
   background-color: lightgreen;
 }
 
-.borderless td, .borderless th {
+.borderless td {
+  border: none;
+  min-width: 30px;
+
+}
+
+.borderless th {
+  min-width: 60px;
   border: none;
 }
 .txt[type="number"] {

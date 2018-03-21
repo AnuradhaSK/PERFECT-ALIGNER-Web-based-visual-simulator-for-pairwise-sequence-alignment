@@ -58,22 +58,22 @@
   <div *ngIf="!noback">
     <table class="table borderless" cellspacing="10">
       <tr>
-        <th width="15px">Score From Above Cell</th>
-        <th width="15px">Score of Cell({{dataArray[nextDataArrayIndex-1].row + 1}}, {{dataArray[nextDataArrayIndex-1].col + 2}})+gap</th>
+        <th >Score From Above Cell</th>
+        <th >Score of Cell({{dataArray[nextDataArrayIndex-1].row + 1}}, {{dataArray[nextDataArrayIndex-1].col + 2}})+gap</th>
         <td>{{dataArray[nextDataArrayIndex-1].upScore}}</td>
       </tr>
       <tr >
-        <th width="15px">Score From Left Cell</th>
-        <th width="15px">Score of Cell({{dataArray[nextDataArrayIndex-1].row + 2}}, {{dataArray[nextDataArrayIndex-1].col + 1}})+gap</th>
+        <th >Score From Left Cell</th>
+        <th >Score of Cell({{dataArray[nextDataArrayIndex-1].row + 2}}, {{dataArray[nextDataArrayIndex-1].col + 1}})+gap</th>
         <td>{{dataArray[nextDataArrayIndex-1].leftScore}}</td>
       </tr>
       <tr>
-        <th width="15px">Score From Diagonal Cell</th>
-        <th width="15px">Score of Cell({{dataArray[nextDataArrayIndex-1].row + 1}}, {{dataArray[nextDataArrayIndex-1].col + 1}})+match/mismatch</th>
+        <th >Score From Diagonal Cell</th>
+        <th >Score of Cell({{dataArray[nextDataArrayIndex-1].row + 1}}, {{dataArray[nextDataArrayIndex-1].col + 1}})+match/mismatch</th>
         <td>{{dataArray[nextDataArrayIndex-1].diagonalScore}}</td>
       </tr>
       <tr>
-        <th width="15px">Max Score</th>
+        <th >Max Score</th>
         <th></th>
         <td>{{dataArray[nextDataArrayIndex-1].score}}</td>
       </tr>

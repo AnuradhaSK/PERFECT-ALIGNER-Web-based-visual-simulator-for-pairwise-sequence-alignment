@@ -1,54 +1,25 @@
-
 <br>
+<!--header-->
+<div class="timeline-shell" style="width: 1340px;height: 300px;" >
+  <div class="timeline-header" [style.width.px]="width" >
+    <span class="header-blank"></span>
 
+    <span class="header-item" *ngFor="let col of this.getMaxSequenceLength();let j=index;let e=even;let o=odd;">
+      <div class="item-label" *ngIf="e">{{j+1}}</div>
+      <div class="item-label" *ngIf="o">.</div>
+    </span>
 
-<!--
-<div class="mas_div">
-  <div class="stage">
-    <div class="header">
-      <div class="idlableheader" style="width: 120px; display: inline-block; font-size: 12px;">
-        <div style="width: 120px; display: inline-block;">
-          <span style="width: 20px; display: inline-block;">ID</span>
-          <span style="display: inline-block;">Sequence Label</span>
-        </div>
-      </div>
-      <div class="logo_header" style="margin-left: 0px; overflow-x: auto; display: inline-block; width: 1230px;">
-        <div>
-          <div class="logo_container" style="height: 100px; margin-left: 0px;">
-            <div class="logo_graphic" width="2355px" style="width: 2355px;">
-              <canvas class="canvas_logo" id="canv_0" height="100" width="2355" style="left:0px"></canvas>
-            </div>
-          </div>
-        </div>
-        <div class="marker" style="font-size: 10px;">
-        <span>
-          <span *ngFor="let sequence of this.getMaxSequenceLength(); let j=index; let e=even;let o=odd;" class="col-header" style="width: 15px; display: inline-block;">
-            <span *ngIf="e">{{j+1}}</span>
-            <span *ngIf="o">.</span>
-          </span>
-        </span>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel_body"  style="white-space: nowrap; height: 225px; width: 1350px;">
-      <div class="labelblock" style="display: inline-block; vertical-align: top; overflow-y: auto; overflow-x: hidden; font-size: 13px; line-height: 13px; height: 225px;">
-        <div class="labelrow" *ngFor="let gene of geneArray; let i= index"  style="height: 15px; font-weight: normal;">
-          <div class="labels" style="width: 120px; font-size: 13px;">
-            <span style="width: 20px; display: inline-block;">{{i+1}}</span>
-            <span style="width: 100px;">{{gene.id}}</span>
-          </div>
-        </div>
-      </div>
-      <table class="seqblock" height="225px" width="1230" style="display: inline-block; overflow: hidden;">
-        <tr *ngFor="let gene of geneArray">
-          <td *ngFor="let char of gene.sequence.split('')">
-            {{char}}
-          </td>
-        </tr>
-      </table>
-      <canvas #canvasEl class="seqblock" height="225px" width="1230" style="display: inline-block; overflow: hidden;"></canvas>
+  </div>
+  <!--body-->
+  <div class="timeline-body" style="height: 150px;" [style.width.px]="width">
+    <div class="body-item" *ngFor="let gene of geneArray">
+      <span class="body-details-cell">
+        <div class="detail-title" >{{gene.id}}</div>
+      </span>
+      <span *ngFor="let char of gene.sequence.split('');let i=index;">
+      <span class="body-graph-cell first-graph-cell" *ngIf="i==0" [style.background-color]="getColor(char)">{{char}}</span>
+      <span class="body-graph-cell" *ngIf="i!=0" [style.background-color]="getColor(char)">{{char}}</span>
+      </span>
     </div>
   </div>
 </div>
--->

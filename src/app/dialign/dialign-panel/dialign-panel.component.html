@@ -1,11 +1,12 @@
 <br>
 <!--header-->
-<div class="timeline-shell" style="width: 1010px;height: 300px;" >
+<div class="timeline-shell" style="width: 1340px;height: 300px;" >
   <div class="timeline-header" [style.width.px]="width" >
     <span class="header-blank"></span>
 
-    <span class="header-item" *ngFor="let col of this.getMaxSequenceLength();let j=index;">
-      <div class="item-label">{{j+1}}</div>
+    <span class="header-item" *ngFor="let col of this.getMaxSequenceLength();let j=index;let e=even;let o=odd;">
+      <div class="item-label" *ngIf="e">{{j+1}}</div>
+      <div class="item-label" *ngIf="o">.</div>
     </span>
 
   </div>
@@ -16,8 +17,8 @@
         <div class="detail-title" >{{gene.id}}</div>
       </span>
       <span *ngFor="let char of gene.sequence.split('');let i=index;">
-      <span class="body-graph-cell first-graph-cell" *ngIf="i==0">{{char}}</span>
-      <span class="body-graph-cell" *ngIf="i!=0">{{char}}</span>
+      <span class="body-graph-cell first-graph-cell" *ngIf="i==0" [style.background-color]="getColor(char)">{{char}}</span>
+      <span class="body-graph-cell" *ngIf="i!=0" [style.background-color]="getColor(char)">{{char}}</span>
       </span>
     </div>
   </div>

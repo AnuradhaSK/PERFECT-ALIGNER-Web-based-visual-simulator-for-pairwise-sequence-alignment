@@ -1,88 +1,62 @@
-.stage{
-  cursor: default;
-  line-height: normal;
-  font-family: Helvetica;
+.timeline-shell {
+  overflow-x: auto;
 }
 
-.header{
-  white-space: nowrap;
-  text-align: left;
+.timeline-header {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  height: 50px;
+  z-index: 1;
+}
+.timeline-header .header-blank,
+.timeline-header .header-item {
+  float: left;
+  height: 50px;
+  /*border-bottom: 1px solid #BEBEBE;
+  border-right: 1px solid #BEBEBE;*/
+  background: white;
+  font-size: 11px;
+}
+.timeline-header .header-blank {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  left: 0;
+  width: 100px;
+  z-index: 2;
+}
+.timeline-header .header-item {
+  width: 20px;
 }
 
-.id_lable_header
-{width: 120px;
-  display: inline-block;
-  font-size: 12px;}
-
-.marker {
-  color: #999;
-  white-space: nowrap;
+.header-item .item-label {
+  text-align: center;
 }
-
-.marker .col-header {
-  cursor: pointer;
-  cursor: pointer;
+.header-item .item-sublabel {
+  display: flex;
+}
+.header-item .item-sublabel .sublabel-value {
+  flex: 1;
   text-align: center;
 }
 
-.marker .col-header:hover {
-  color: #f00;
-}
-
-.seqblock {
-  cursor: move;
-}
-
-.labels {
-  color:black;
-  display: inline-block;
-  white-space: nowrap;
-  cursor: pointer;
-  vertical-align:middle;
-  overflow: hidden;
-  text-overflow: clip;
-  /*margin:auto; */
-  text-align: left;
-}
-.labelrow{
-  height: 100%;
-}
-
-.labelrow:before {
-  content: '';
-  display: inline-block;
-  width: 0;
-  height: 100%;
-  vertical-align: middle;
-}
-
-.labelblock::-webkit-scrollbar, .logo_header::-webkit-scrollbar{
-// FIX scrollbars on Mac
--webkit-appearance: none;
-  width: 7px;
-  height: 7px;
-}
-.labelblock::-webkit-scrollbar-thumb, .logo_header::-webkit-scrollbar-thumb{
-  border-radius: 4px;
-  background-color: rgba(0,0,0,.5);
-  box-shadow: 0 0 1px rgba(255,255,255,.5);
-}
-
-div.scrollmenu {
-  background-color: #0000;
-  overflow: scroll;
-  white-space: nowrap;
-}
-
-div.scrollmenu a {
-  display: inline-block;
-  color: white;
+.timeline-body .body-details-cell,
+.timeline-body .body-graph-cell {
+  float: left;
+  height: 20px;
+  /* border-bottom: 1px solid #bebebe;
+   border-right: 1px solid #bebebe;*/
+  background: white;
   text-align: center;
-  padding: 14px;
-  text-decoration: none;
-}
 
-div.scrollmenu a:hover {
-  background-color: #777;
 }
-
+.timeline-body .body-details-cell {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  width: 100px;
+}
+.timeline-body .body-graph-cell {
+  width: 20px;
+}
