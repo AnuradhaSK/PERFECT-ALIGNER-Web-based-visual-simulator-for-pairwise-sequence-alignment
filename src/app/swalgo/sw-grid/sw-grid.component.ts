@@ -9,17 +9,19 @@ import {Cell} from '../../cell';
 })
 export class SwGridComponent implements OnInit {
 
-  stepBtn = 'NextStep';
-  backBtn = 'PreviousStep';
-  finalBtn = 'FinalAlignment';
-  clearBtn = 'ClearGrid';
-  reloadBtn = 'GoBack'
+  stepBtn = 'Next Step';
+  backBtn = 'Previous Step';
+  finalBtn = 'Final Alignment';
+  clearBtn = 'Clear Grid';
+  reloadBtn = 'Go Back';
+  reqBtn = 'Request';
   dataArray: any;
   stepStop = false;
   finalStop = false;
   columns: number;
   stringOne: string;
   stringTwo: string;
+  requestedStep: number;
   noback = true;
   final: boolean;
   resSeq1: ' ';
@@ -35,9 +37,12 @@ export class SwGridComponent implements OnInit {
   resSeq1Array = [];
   resSeq2Array = [];
   nextDataArrayIndex = 0;
-  match='';
-  mismatch='';
-  gap='';
+  max: number;
+  request: boolean;
+  match = '';
+  mismatch = '';
+  gap = '';
+
   constructor(private sharingService: SharingService) {
   }
 
@@ -69,6 +74,8 @@ export class SwGridComponent implements OnInit {
     this.columns = this.stringOne.length + 2;
     this.rowCount = this.stringTwo.length + 2;
     this.colCount = this.stringOne.length + 2;
+    this.request = false;
+    this.max = this.stringOne.length * this.stringTwo.length;
     console.log('come to create grid array');
     this.gridArray = [];
     for (let r = 0; r < this.rowCount; r++) {
@@ -219,8 +226,9 @@ export class SwGridComponent implements OnInit {
     this.nextDataArrayIndex = this.stringOne.length * this.stringTwo.length;
     this.nextRowIndex = this.stringTwo.length + 2;
     this.nextColIndex = this.stringOne.length + 2;
+    this.request = true;
     this.stepStop = true;
-    // this.noback = true;
+    this.noback = true;
     this.resetColor();
     this.fillin();
     for (let x = this.stringOne.length * this.stringTwo.length; x < this.dataArray.length - 1; x++) {
@@ -265,6 +273,22 @@ export class SwGridComponent implements OnInit {
   // reload the form for new alignment
   goBack() {
     location.reload();
+  }
+
+  goToRequest() {
+    let req = this.requestedStep;
+    let current = this.nextDataArrayIndex;
+    if (req > current) {
+
+      for (let i = 0; i < req - current; i++) {
+        this.nextStep();
+      }
+    }
+    if (req < current) {
+      for (let i = 0; i < current - req; i++) {
+        this.previousStep();
+      }
+    }
   }
 
 }

@@ -27,6 +27,8 @@
   </div>
 
   Current Step : {{nextDataArrayIndex}}
+  <input class="txt"id="match" type="number"  max={{max}} min="0" name="a" [(ngModel)]="requestedStep" placeholder="Request a step">
+  <input class="btn" type="submit" [disabled]="request" [value]="reqBtn" (click)="goToRequest()" >
 
   <div clas="gridblock" style="overflow:auto; height: 500px;  width: 490px;" >
     <!--Grid-->

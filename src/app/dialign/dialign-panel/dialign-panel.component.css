@@ -1,41 +1,59 @@
-.table-area {
-  position: relative;
-  z-index: 0;
-  margin-top: 50px;
+.timeline-shell {
+  overflow-x: auto;
 }
 
-table.responsive-table {
-  display: table;
-  /* required for table-layout to be used (not normally necessary; included for completeness) */
-  table-layout: fixed;
-  /* this keeps your columns with fixed with exactly the right width */
-  width: 100%;
-  /* table must have width set for fixed layout to work as expected */
-  height: 100%;
-}
-
-table.responsive-table thead {
-  position: fixed;
-  top: 50px;
-  left: 0;
-  right: 0;
-  width: 100%;
+.timeline-header {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
   height: 50px;
-  line-height: 3em;
-  background: #eee;
-  table-layout: fixed;
-  display: table;
+  z-index: 1;
+}
+.timeline-header .header-blank,
+.timeline-header .header-item {
+  float: left;
+  height: 50px;
+  border-bottom: 1px solid #bebebe;
+  border-right: 1px solid #bebebe;
+  background: white;
+}
+.timeline-header .header-blank {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  left: 0;
+  width: 200px;
+  z-index: 2;
+}
+.timeline-header .header-item {
+  width: 100px;
 }
 
-table.responsive-table th {
-  background: #eee;
+.header-item .item-label {
+  text-align: center;
+}
+.header-item .item-sublabel {
+  display: flex;
+}
+.header-item .item-sublabel .sublabel-value {
+  flex: 1;
+  text-align: center;
 }
 
-table.responsive-table td {
-  line-height: 2em;
+.timeline-body .body-details-cell,
+.timeline-body .body-graph-cell {
+  float: left;
+  height: 50px;
+  border-bottom: 1px solid #bebebe;
+  border-right: 1px solid #bebebe;
+  background: white;
 }
-
-table.responsive-table tr > td,
-table.responsive-table th {
-  text-align: left;
+.timeline-body .body-details-cell {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  width: 200px;
+}
+.timeline-body .body-graph-cell {
+  width: 100px;
 }

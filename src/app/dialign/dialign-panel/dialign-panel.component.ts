@@ -1,6 +1,8 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {DialignService} from '../../services/dialign.service';
 import {MsaSharingService} from '../../services/msa-sharing.service';
+import {MatPaginator, MatTableDataSource} from '@angular/material';
+import {Gene} from '../../gene';
 
 
 @Component({
@@ -8,16 +10,13 @@ import {MsaSharingService} from '../../services/msa-sharing.service';
   templateUrl: './dialign-panel.component.html',
   styleUrls: ['./dialign-panel.component.css']
 })
-export class DialignPanelComponent implements OnInit/*, AfterViewInit */ {
+
+export class DialignPanelComponent implements OnInit, AfterViewInit {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   geneArray: any;
+  displayedColumns = ['id', 'sequence'];
+  dataSource: any;
 
-
-  /** Template reference to the canvas element */
-
-  // @ViewChild('canvasEl') canvasEl: ElementRef;
-
-  /** Canvas 2d context */
-  // private context: CanvasRenderingContext2D;
 
   constructor(protected dialignService: DialignService,
               protected msasharingService: MsaSharingService) {
@@ -25,26 +24,16 @@ export class DialignPanelComponent implements OnInit/*, AfterViewInit */ {
 
   ngOnInit() {
     this.geneArray = this.msasharingService.getPanelData();
-  }
-
-
-
-  /*ngAfterViewInit() {
-    this.context = (this.canvasEl.nativeElement as HTMLCanvasElement).getContext('2d');
-
-    this.draw();
+    this.dataSource = this.geneArray;
   }
 
   /**
-   * Draws something using the context we obtained earlier on
+   * Set the paginator after the view init since this component will
+   * be able to query its view for the initialized paginator.
    */
-
-  /*private draw() {
-    this.context.beginPath();
-    this.context.moveTo(0, 0);
-    this.context.lineTo(300, 150);
-    this.context.stroke();
-  }*/
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   getMaxSequenceLength() {
     let maxlength = 0;
@@ -59,12 +48,35 @@ export class DialignPanelComponent implements OnInit/*, AfterViewInit */ {
     return max;
 
   }
-
-  /* drawOnCanvas() {
-    let canvas = document.getElementById('dialigncanvas');
-    let ctx = canvas.getContext('2d');
-    ctx.fillStyle = '#FF0000';
-    ctx.fillRect(0, 0, 150, 75);
-  }*/
 }
+
+export interface Element {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+}
+
+const ELEMENT_DATA: Element[] = [
+  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
+  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
+  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
+  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
+  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
+  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
+  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
+  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
+  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
+  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+  {position: 11, name: 'Sodium', weight: 22.9897, symbol: 'Na'},
+  {position: 12, name: 'Magnesium', weight: 24.305, symbol: 'Mg'},
+  {position: 13, name: 'Aluminum', weight: 26.9815, symbol: 'Al'},
+  {position: 14, name: 'Silicon', weight: 28.0855, symbol: 'Si'},
+  {position: 15, name: 'Phosphorus', weight: 30.9738, symbol: 'P'},
+  {position: 16, name: 'Sulfur', weight: 32.065, symbol: 'S'},
+  {position: 17, name: 'Chlorine', weight: 35.453, symbol: 'Cl'},
+  {position: 18, name: 'Argon', weight: 39.948, symbol: 'Ar'},
+  {position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K'},
+  {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
+];
 

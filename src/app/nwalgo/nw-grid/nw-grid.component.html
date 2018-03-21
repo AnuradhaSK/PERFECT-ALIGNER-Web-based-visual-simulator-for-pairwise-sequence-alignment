@@ -29,8 +29,9 @@
 
 
   Current Step : {{nextDataArrayIndex}}
-
-<div clas="gridblock" style="overflow:auto; height: 500px;  width: 490px;" >
+  <input class="txt"id="match" type="number"  max={{max}} min="0" name="a" [(ngModel)]="requestedStep" placeholder="Request a step">
+  <input class="btn" type="submit" [disabled]="request" [value]="reqBtn" (click)="goToRequest()" >
+  <div clas="gridblock" style="overflow:auto; height: 500px;  width: 490px;" >
   <!--Grid-->
   <table class="table table-bordered" cellspacing="10">
     <tr *ngFor="let rowArray of gridArray">
@@ -60,23 +61,23 @@
   <div *ngIf="!noback">
     <table class="table borderless" cellspacing="10">
       <tr>
-        <th width="15px">Score From Above Cell</th>
-        <th width="15px">Score of Cell({{dataArray[nextDataArrayIndex-1].row + 1}}, {{dataArray[nextDataArrayIndex-1].col + 2}})+gap</th>
+        <th style="min-width: 100px;">Score From Above Cell</th>
+        <td  style="min-width: 100px;">Score of Cell({{dataArray[nextDataArrayIndex-1].row + 1}}, {{dataArray[nextDataArrayIndex-1].col + 2}})+gap</td>
         <td>{{dataArray[nextDataArrayIndex-1].upScore}}</td>
       </tr>
       <tr >
-        <th width="15px">Score From Left Cell</th>
-        <th width="15px">Score of Cell({{dataArray[nextDataArrayIndex-1].row + 2}}, {{dataArray[nextDataArrayIndex-1].col + 1}})+gap</th>
+        <th  style="min-width: 100px;">Score From Left Cell</th>
+        <td style="min-width: 100px;">Score of Cell({{dataArray[nextDataArrayIndex-1].row + 2}}, {{dataArray[nextDataArrayIndex-1].col + 1}})+gap</td>
         <td>{{dataArray[nextDataArrayIndex-1].leftScore}}</td>
       </tr>
       <tr>
-        <th width="15px">Score From Diagonal Cell</th>
-        <th width="15px">Score of Cell({{dataArray[nextDataArrayIndex-1].row + 1}}, {{dataArray[nextDataArrayIndex-1].col + 1}})+match/mismatch</th>
+        <th  style="min-width: 100px;">Score From Diagonal Cell</th>
+        <td  style="min-width: 100px;">Score of Cell({{dataArray[nextDataArrayIndex-1].row + 1}}, {{dataArray[nextDataArrayIndex-1].col + 1}})+match/mismatch</td>
         <td>{{dataArray[nextDataArrayIndex-1].diagonalScore}}</td>
       </tr>
       <tr>
-        <th width="15px">Max Score</th>
-        <th></th>
+        <th  style="min-width: 100px;">Max Score</th>
+        <td  style="min-width: 100px;"></td>
         <td>{{dataArray[nextDataArrayIndex-1].score}}</td>
       </tr>
     </table>

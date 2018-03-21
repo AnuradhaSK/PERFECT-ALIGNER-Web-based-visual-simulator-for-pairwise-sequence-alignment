@@ -9,11 +9,13 @@ import {SharingService} from '../../services/sharing.service';
 })
 export class NwGridComponent implements OnInit {
 
-  stepBtn = 'NextStep';
-  backBtn = 'PreviousStep';
-  finalBtn = 'FinalAlignment';
-  clearBtn = 'Clear';
-  reloadBtn = 'GoBack';
+  stepBtn = 'Next Step';
+  backBtn = 'Previous Step';
+  finalBtn = 'Final Alignment';
+  clearBtn = 'Clear Grid';
+  reloadBtn = 'Go Back';
+  reqBtn = 'Request';
+  requestedStep: number;
   dataArray: any;
   stepStop = false;
   finalStop = false;
@@ -30,6 +32,8 @@ export class NwGridComponent implements OnInit {
   stringTwo: string;
   resSeq1: ' ';
   resSeq2: ' ';
+  max: number;
+  request: boolean;
   noback = true;
   final: boolean;
   resSeq1Array = [];
@@ -70,6 +74,8 @@ export class NwGridComponent implements OnInit {
     this.columns = this.stringOne.length + 2;
     this.rowCount = this.stringTwo.length + 2;
     this.colCount = this.stringOne.length + 2;
+    this.request=false;
+    this.max= this.stringOne.length*this.stringTwo.length;
     console.log('come to create grid array');
     this.gridArray = [];
     for (let r = 0; r < this.rowCount; r++) {
@@ -179,6 +185,7 @@ export class NwGridComponent implements OnInit {
   // final button's function
   finalResult() {
     this.nextDataArrayIndex = this.stringOne.length * this.stringTwo.length;
+    this.request= true;
     this.stepStop = true;
     this.noback = true;
     this.resetColor();
@@ -224,5 +231,21 @@ export class NwGridComponent implements OnInit {
   // reload the form for new alignment
   goBack() {
     location.reload();
+  }
+
+  goToRequest() {
+    let req = this.requestedStep;
+    let current = this.nextDataArrayIndex;
+    if (req > current) {
+
+      for (let i = 0; i < req - current; i++) {
+        this.nextStep();
+      }
+    }
+    if (req < current) {
+      for (let i = 0; i < current - req; i++) {
+        this.previousStep();
+      }
+    }
   }
 }
