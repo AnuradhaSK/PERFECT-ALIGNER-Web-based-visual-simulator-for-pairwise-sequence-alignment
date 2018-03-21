@@ -185,7 +185,7 @@ export class NwGridComponent implements OnInit {
   // final button's function
   finalResult() {
     this.nextDataArrayIndex = this.stringOne.length * this.stringTwo.length;
-    this.request= true;
+    this.request = true;
     this.stepStop = true;
     this.noback = true;
     this.resetColor();
@@ -224,6 +224,7 @@ export class NwGridComponent implements OnInit {
 
   // clear grid
   clearall() {
+    this.final = false;
     this.ngOnInit();
 
   }
