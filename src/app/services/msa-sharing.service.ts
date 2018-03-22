@@ -4,6 +4,7 @@ import {Injectable} from '@angular/core';
 export class MsaSharingService {
 
   private geneArray: any;
+  private schemeName: string;
   private visible: boolean;
 
   constructor() {
@@ -23,6 +24,14 @@ export class MsaSharingService {
 
   getVisibility(): boolean {
     return this.visible;
+  }
+
+  setScheme(schemeName: string) {
+    this.schemeName = schemeName;
+  }
+
+  getScheme() {
+    return this.schemeName;
   }
 
 }

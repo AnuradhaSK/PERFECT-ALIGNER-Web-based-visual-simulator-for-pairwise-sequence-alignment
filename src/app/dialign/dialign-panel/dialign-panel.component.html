@@ -1,4 +1,9 @@
 <br>
+
+<label id="lb2">Color Scheme :</label>
+<select  class="btn btn-primary" [(ngModel)]="scheme">
+  <option *ngFor="let x of colorSchemes" [value]="x.name" [selected]="scheme == x.name">{{x.name}}</option>
+</select>
 <!--header-->
 <div class="timeline-shell" style="width: 1340px;height: 300px;" >
   <div class="timeline-header" [style.width.px]="width" >
@@ -16,9 +21,9 @@
       <span class="body-details-cell">
         <div class="detail-title" >{{gene.id}}</div>
       </span>
-      <span *ngFor="let char of gene.sequence.split('');let i=index;">
-      <span class="body-graph-cell first-graph-cell" *ngIf="i==0" [style.background-color]="getColor(char)">{{char}}</span>
-      <span class="body-graph-cell" *ngIf="i!=0" [style.background-color]="getColor(char)">{{char}}</span>
+      <span *ngFor="let charc of gene.sequence.split('');let i=index;">
+      <span class="body-graph-cell first-graph-cell" *ngIf="i==0" [style.background-color]="getColor(charc)">{{charc}}</span>
+      <span class="body-graph-cell" *ngIf="i!=0" [style.background-color]="getColor(charc)">{{charc}}</span>
       </span>
     </div>
   </div>

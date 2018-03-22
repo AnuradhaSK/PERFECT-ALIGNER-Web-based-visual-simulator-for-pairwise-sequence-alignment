@@ -42,40 +42,19 @@ export class NwGridComponent implements OnInit {
   match = '';
   mismatch = '';
   gap = '';
+  showSpinner: boolean;
 
   constructor(private sharingService: SharingService) {
   }
 
   ngOnInit() {
+    this.showSpinner = true;
     this.createGridArray();
   }
 
+
   createGridArray() {
-    this.String1array = [];
-    this.String2array = [];
-    this.StringOffsetArray = ['', ''];
-    this.colCount = 0;
-    this.rowCount = 0;
-    this.nextRowIndex = 2;
-    this.nextColIndex = 2;
-    this.resSeq1Array = [];
-    this.resSeq2Array = [];
-    this.nextDataArrayIndex = 0;
-    this.noback = true;
-    this.stepStop = false;
-    this.dataArray = this.sharingService.getData();
-    this.stringOne = this.sharingService.getStringOne();
-    this.stringTwo = this.sharingService.getStringTwo();
-    this.match = this.sharingService.getMatch();
-    this.mismatch = this.sharingService.getMismatch();
-    this.gap = this.sharingService.getGap();
-    this.String1array = this.StringOffsetArray.concat(this.stringOne.split('', this.stringOne.length));
-    this.String2array = this.StringOffsetArray.concat(this.stringTwo.split('', this.stringTwo.length));
-    this.columns = this.stringOne.length + 2;
-    this.rowCount = this.stringTwo.length + 2;
-    this.colCount = this.stringOne.length + 2;
-    this.request=false;
-    this.max= this.stringOne.length*this.stringTwo.length;
+    this.initialize();
     console.log('come to create grid array');
     this.gridArray = [];
     for (let r = 0; r < this.rowCount; r++) {
@@ -103,6 +82,36 @@ export class NwGridComponent implements OnInit {
     }
     console.log('created grid');
   }
+
+  initialize() {
+    this.String1array = [];
+    this.String2array = [];
+    this.StringOffsetArray = ['', ''];
+    this.colCount = 0;
+    this.rowCount = 0;
+    this.nextRowIndex = 2;
+    this.nextColIndex = 2;
+    this.resSeq1Array = [];
+    this.resSeq2Array = [];
+    this.nextDataArrayIndex = 0;
+    this.noback = true;
+    this.stepStop = false;
+    this.dataArray = this.sharingService.getData();
+    this.stringOne = this.sharingService.getStringOne();
+    this.stringTwo = this.sharingService.getStringTwo();
+    this.match = this.sharingService.getMatch();
+    this.mismatch = this.sharingService.getMismatch();
+    this.gap = this.sharingService.getGap();
+    this.String1array = this.StringOffsetArray.concat(this.stringOne.split('', this.stringOne.length));
+    this.String2array = this.StringOffsetArray.concat(this.stringTwo.split('', this.stringTwo.length));
+    this.columns = this.stringOne.length + 2;
+    this.rowCount = this.stringTwo.length + 2;
+    this.colCount = this.stringOne.length + 2;
+    this.request = false;
+    this.max = this.stringOne.length * this.stringTwo.length;
+    this.showSpinner = false;
+  }
+
 
   // next step button function
   nextStep() {

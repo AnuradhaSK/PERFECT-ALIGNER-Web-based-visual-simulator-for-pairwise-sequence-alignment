@@ -12,11 +12,11 @@
             <label>String 2</label>
             <input class="txt" type="text" style="text-transform:uppercase" name="Stringtwo" [(ngModel)]=" stringTwo" placeholder="String 2 (i.e CAATGAA)" required>
             <label>Match Score</label>
-            <input class="txt"id="match" type="number"  min="1" name="a" pattern= "[0-9]+" [(ngModel)]="match" placeholder="match" required>
+            <input class="txt"id="match" type="number"  min="1" name="match" pattern= "[0-9]+" [(ngModel)]="match" placeholder="match" required>
             <label>Mismatch Score</label>
-            <input class="txt"type="number" name="b" max="0" [(ngModel)]="mismatch" placeholder="mismatch" required>
+            <input class="txt"type="number" name="mismatch" max="0" [(ngModel)]="mismatch" placeholder="mismatch" required>
             <label>Gap Penalty</label>
-            <input class="txt"type="number" max="0" name= "c" [(ngModel)]="gap" placeholder="gap" required>
+            <input class="txt"type="number" max="0" name= "gap" [(ngModel)]="gap" placeholder="gap" required>
         <input class="txt2" type="submit" [disabled]="!nwalgoForm.form.valid" [value]="btnText" [disabled]= "alignStop"
                (click)="onSubmit();showGrid()" >
 
@@ -27,94 +27,3 @@
     </div>
   </div>
 
-
-  <!--<div class="col-lg-12">
-    <!--Form-->
-   <!-- <form (ngSubmit)="onSubmit()" #nwalgoForm="ngForm">
-      <div class="form-group row">
-        <div class="col-lg-4">
-          <label>String 1</label>
-        </div>
-        <div class="col-lg-4">
-          <input type="text" style="text-transform:uppercase" name="Stringone"  [(ngModel)]=" stringOne" placeholder="String 1 (i.e CCATGTA)" required>
-        </div>
-        <br>
-
-      </div>
-
-      <div class="form-group row">
-        <div class="col-lg-4">
-          <label>String 2</label>
-        </div>
-        <div class="col-lg-4">
-          <input type="text" style="text-transform:uppercase" name="Stringtwo" [(ngModel)]=" stringTwo" placeholder="String 2 (i.e CAATGAA)" required>
-        </div>
-        <br>
-      </div>
-
-      <div class="form-group row">
-        <div class="col-lg-4">
-          <label>Match Score</label>
-        </div>
-        <div class="col-lg-4">
-          <input id="match" type="number"  min="0" name="a" pattern= "[0-9]+" [(ngModel)]="match" placeholder="match" required>
-
-        </div>
-        <br>
-      </div>
-
-      <div class="form-group row">
-        <div class="col-lg-4">
-          <label>Mismatch Score</label>
-        </div>
-        <div class="col-lg-4">
-          <input type="number" name="b" max="0" [(ngModel)]="mismatch" placeholder="mismatch" required>
-        </div>
-        <br>
-      </div>
-
-      <div class="form-group row">
-        <div class="col-lg-4">
-          <label>Gap Penalty</label>
-        </div>
-        <div class="col-lg-4">
-          <input type="number" max="0" name= "c" [(ngModel)]="gap" placeholder="gap" required>
-        </div>
-        <br>
-      </div>
-
-      <input type="submit" class="btn btn-success" [disabled]="!nwalgoForm.form.valid" class="btn" [value]="btnText" [disabled]= "alignStop"
-             (click)="onSubmit();showGrid()" >
-
-    </form>
-  </div>
-</div>-->
-
-
-
-<!--<div class="col-lg-12">
-<div *ngIf="submitted" >
-  <h4>Simulation for following:</h4>
-  <div class="row">
-    <div class="col-lg-4">String 1    : </div>
-    <div class="col-lg-4">{{stringOne}}</div>
-  </div>
-  <div class="row">
-    <div class="col-lg-4">String 2    : </div>
-    <div class="col-lg-4">{{stringTwo}}</div>
-  </div>
-  <div class="row">
-    <div class="col-lg-4">Match Score     : </div>
-    <div class="col-lg-4">{{match}}</div>
-  </div>
-  <div class="row">
-    <div class="col-lg-4">Mismatch Score    : </div>
-    <div class="col-lg-4">{{mismatch}}</div>
-  </div>
-  <div class="row">
-    <div class="col-lg-4">Gap Penalty     : </div>
-    <div class="col-lg-4">{{gap}}</div>
-  </div>
-
-</div>
-</div>-->

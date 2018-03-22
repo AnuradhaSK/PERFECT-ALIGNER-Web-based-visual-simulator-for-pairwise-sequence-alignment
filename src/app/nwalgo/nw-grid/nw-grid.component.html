@@ -1,4 +1,4 @@
-
+<mat-spinner align="center" [style.display]=" showSpinner ?'block':'none'"></mat-spinner>
 <!--Inputs-->
 <div class="container" style="float:left; width:60%;">
     <div class="row">
@@ -27,9 +27,10 @@
     </div>
   </div>
 
-
+  <!--Current step display-->
   Current Step : {{nextDataArrayIndex}}
-  <input class="txt"id="match" type="number"  max={{max}} min="0" name="a" [(ngModel)]="requestedStep" placeholder="Request a step">
+  <!--Field to request step-->
+  <input class="txt"id="request" type="number"  max={{max}} min="0" name="request" [(ngModel)]="requestedStep" placeholder="Request a step">
   <input class="btn" type="submit" [disabled]="request" [value]="reqBtn" (click)="goToRequest()" >
   <div clas="gridblock" style="overflow:auto; height: 500px;  width: 490px;" >
   <!--Grid-->

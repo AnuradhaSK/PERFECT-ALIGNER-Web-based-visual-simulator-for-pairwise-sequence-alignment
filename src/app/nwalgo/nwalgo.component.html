@@ -4,11 +4,11 @@
 <br>
 
 <div class="container color-light">
-  <!--<div class="col"></div>-->
 
+  <!--Form-->
     <app-nw-form></app-nw-form>
 
-    <mat-spinner align="center" [style.display]=" showSpinner ?'block':'none'"></mat-spinner>
+  <!--Grid-->
     <app-nw-grid *ngIf="sharingService.getVisibility()"></app-nw-grid>
 
 </div>

@@ -26,8 +26,11 @@
     </div>
   </div>
 
+  <!--Current step display-->
   Current Step : {{nextDataArrayIndex}}
-  <input class="txt"id="match" type="number"  max={{max}} min="0" name="a" [(ngModel)]="requestedStep" placeholder="Request a step">
+
+  <!--Field to request a step-->
+  <input class="txt"id="request" type="number"  max={{max}} min="0" name="request" [(ngModel)]="requestedStep" placeholder="Request a step">
   <input class="btn" type="submit" [disabled]="request" [value]="reqBtn" (click)="goToRequest()" >
 
   <div clas="gridblock" style="overflow:auto; height: 500px;  width: 490px;" >
@@ -95,48 +98,3 @@
 
   </div>
 </div>
-
-
-
-
-
-
-<!--Grid-->
-<!--<h2 >Matrix</h2>
-<br>
-<input type="submit" class="btn" [value]="reloadBtn" (click)="goBack()" >
-<br>
-<input type="submit" class="btn" [value]="clearBtn" (click)="clearall()" >
-<input type="submit" class="btn" [value]="backBtn" [disabled] = "noback" (click)="previousStep()" >
-<input type="submit" class="btn" [value]="stepBtn" [disabled] = "stepStop" (click)="nextStep()" >
-<input type="submit" class="btn" [value]="finalBtn" [disabled] = "finalStop"(click)="finalResult()">
-
-<br>
-Current Step : {{nextDataArrayIndex}}
-<!--<mat-spinner align="center" [style.display]=" showSpinner ?'block':'none'"></mat-spinner>-->
-<!--<div style="overflow:auto; height: 500px;  width: 490px;" >
-  <table class="table table-bordered" cellspacing="10">
-    <tr *ngFor="let rowArray of gridArray">
-      <td  *ngFor="let colData of rowArray"
-           [ngClass]='{highlight : (colData.color), highlight2 : (colData.datacolor), highlight3 : (colData.refcolor)}'>
-        {{colData.cellvalue}}
-      </td>
-    </tr>
-  </table>
-</div>-->
-
-<!--Final output-->
-<!--<div *ngIf="final">
-  <table class="table borderless" cellspacing="10">
-    <tr>
-      <td>S1:</td>
-      <td *ngFor="let char of resSeq1Array" >{{char}}</td>
-    </tr>
-    <tr>
-      <td>S2:</td>
-      <td *ngFor="let char2 of resSeq2Array" >{{char2}}</td>
-    </tr>
-  </table>
-
-</div>
--->

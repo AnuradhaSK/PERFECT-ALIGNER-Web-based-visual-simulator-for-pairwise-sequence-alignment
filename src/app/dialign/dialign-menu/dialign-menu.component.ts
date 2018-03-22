@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {DialignService} from '../../services/dialign.service';
 import {MsaSharingService} from '../../services/msa-sharing.service';
+import {Colorscheme, SCHEMES} from '../../colorscheme';
 
 @Component({
   selector: 'app-dialign-menu',
@@ -27,6 +28,7 @@ export class DialignMenuComponent implements OnInit {
 
   // upload and read the file
   uploadDocument(file) {
+
     this.msasharingService.setVisibility(false);
     let fileReader = new FileReader();
     fileReader.readAsText(this.file);
@@ -46,7 +48,6 @@ export class DialignMenuComponent implements OnInit {
       }
 
     };
-
   }
 
 }
