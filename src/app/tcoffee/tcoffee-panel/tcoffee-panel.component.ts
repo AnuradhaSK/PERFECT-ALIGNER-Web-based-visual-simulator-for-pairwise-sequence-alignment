@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MsaSharingService} from '../../services/msa-sharing.service';
 import {TcoffeeService} from '../../services/tcoffee.service';
+import * as Plotly from 'plotly.js';
+import { Config, Data, Layout} from 'plotly.js';
 
 @Component({
   selector: 'app-tcoffee-panel',
