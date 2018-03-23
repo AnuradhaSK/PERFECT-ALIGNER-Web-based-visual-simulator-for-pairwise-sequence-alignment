@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MsaSharingService} from '../../services/msa-sharing.service';
 import {TcoffeeService} from '../../services/tcoffee.service';
 import * as Plotly from 'plotly.js';
-import { Config, Data, Layout} from 'plotly.js';
+import {Config, Data, Layout} from 'plotly.js';
+import {linkHorizontal} from 'd3-shape';
 
 @Component({
   selector: 'app-tcoffee-panel',
@@ -13,11 +14,23 @@ export class TcoffeePanelComponent implements OnInit {
   geneArray: any;
   maxlength: number;
   width: any;
+
   constructor(protected tcoffeeService: TcoffeeService,
- protected msasharingService: MsaSharingService) { }
+              protected msasharingService: MsaSharingService) {
+  }
 
   ngOnInit() {
     this.geneArray = this.msasharingService.getPanelData();
+    /*let x = [];
+    for (let i = 0; i < 500; i++) {
+      x[i] = Math.random();
+    }
+    const trace = {
+      x:x,
+      type: 'histogram',
+    };
+    const data = [trace];
+    Plotly.newPlot('myPlotlyDiv');*/
   }
 
   // get the maximum length sequence
