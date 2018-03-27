@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MaterialModule } from '../../material.module';
 import { NwGridComponent } from './nw-grid.component';
 
 describe('NwGridComponent', () => {
@@ -8,6 +8,7 @@ describe('NwGridComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [MaterialModule],
       declarations: [ NwGridComponent ]
     })
     .compileComponents();

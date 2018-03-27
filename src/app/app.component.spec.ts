@@ -36,7 +36,7 @@ describe('AppComponent', () => {
 
   it('should have a link to home page', () => {
     const debugElements =  fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));
-    const index = debugElements.findIndex(de => de.properties['href'] === '/');
+    const index = debugElements.findIndex(de => de.properties['href'] === '/home');
     expect(index).toBe(-1);
   });
 
