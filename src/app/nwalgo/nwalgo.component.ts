@@ -13,8 +13,7 @@ import {SharingService} from '../services/sharing.service'; // import Nwalgoserv
 export class NwalgoComponent implements OnInit {
   title = 'needleman-wunsch';
   showSpinner = false;
-  constructor(protected sharingService: SharingService,
-              protected nwalgoService: NwalgoService) {
+  constructor(protected sharingService: SharingService) {
   }
 
   ngOnInit() {

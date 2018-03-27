@@ -19,7 +19,7 @@ describe('FaqComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create FAQ component', () => {
     expect(component).toBeTruthy();
   });
 });

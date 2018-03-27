@@ -26,7 +26,7 @@ export class TcoffeePanelComponent implements OnInit {
       x[i] = Math.random();
     }
     const trace = {
-      x:x,
+      x: x,
       type: 'histogram',
     };
     const data = [trace];
@@ -52,6 +52,21 @@ export class TcoffeePanelComponent implements OnInit {
 
   calWidth() {
     this.width = 100 + 20 * this.maxlength;
+    /*const y = [];
+    for (let i = 0; i < 500; i ++) {
+      y[i] = Math.random();
+    }
+
+   const data = [
+      {
+        y: y,
+        type: 'histogram',
+        marker: {
+          color: 'pink',
+        },
+      }
+    ];
+    Plotly.newPlot('myDiv', data);*/
   }
 
 
