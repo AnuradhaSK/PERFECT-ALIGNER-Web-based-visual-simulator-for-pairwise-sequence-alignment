@@ -1,8 +1,8 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {DialignMenuComponent} from './dialign-menu.component';
-import {MsaSharingService} from '../../services/msa-sharing.service';
-import {DialignService} from '../../services/dialign.service';
+import {MsaSharingService} from '../../../services/msa-sharing.service';
+import {DialignService} from '../../../services/dialign.service';
 
 
 describe('DialignMenuComponent', () => {

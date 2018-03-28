@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import {FaqComponent} from './faq/faq.component';
-import { NwalgoComponent} from './nwalgo/nwalgo.component';
-import { SwalgoComponent } from './swalgo/swalgo.component';
-import {TcoffeeComponent} from './tcoffee/tcoffee.component';
-import {DialignComponent} from './dialign/dialign.component';
+import { HomeComponent } from './components/home/home.component';
+import {FaqComponent} from './components/faq/faq.component';
+import { NwalgoComponent} from './components/nwalgo/nwalgo.component';
+import { SwalgoComponent } from './components/swalgo/swalgo.component';
+import {TcoffeeComponent} from './components/tcoffee/tcoffee.component';
+import {DialignComponent} from './components/dialign/dialign.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},

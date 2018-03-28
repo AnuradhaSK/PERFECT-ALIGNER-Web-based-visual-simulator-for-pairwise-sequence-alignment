@@ -4,7 +4,7 @@ import {HomeComponent} from './home.component';
 import {RouterLinkWithHref} from '@angular/router';
 import {By} from '@angular/platform-browser';
 import {RouterTestingModule} from '@angular/router/testing';
-import {MaterialModule} from '../material.module';
+import {MaterialModule} from '../../material.module';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;

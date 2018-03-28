@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Gene} from '../gene';
+import {Gene} from '../models/gene';
 
 @Injectable()
 export class TcoffeeService {

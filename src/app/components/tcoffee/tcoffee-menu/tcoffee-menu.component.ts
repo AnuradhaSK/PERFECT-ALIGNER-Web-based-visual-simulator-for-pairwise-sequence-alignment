@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {MsaSharingService} from '../../services/msa-sharing.service';
-import {TcoffeeService} from '../../services/tcoffee.service';
+import {MsaSharingService} from '../../../services/msa-sharing.service';
+import {TcoffeeService} from '../../../services/tcoffee.service';
 
 @Component({
   selector: 'app-tcoffee-menu',

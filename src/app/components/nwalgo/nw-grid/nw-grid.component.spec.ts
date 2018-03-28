@@ -1,8 +1,8 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {MaterialModule} from '../../material.module';
+import {MaterialModule} from '../../../material.module';
 import {FormsModule} from '@angular/forms';
 import {NwGridComponent} from './nw-grid.component';
-import {SharingService} from '../../services/sharing.service';
+import {SharingService} from '../../../services/sharing.service';
 
 describe('NwGridComponent', () => {
   let component: NwGridComponent;
@@ -37,7 +37,7 @@ describe('NwGridComponent', () => {
   }));
 
 
-  /*it('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
-  });*/
+  });
 });

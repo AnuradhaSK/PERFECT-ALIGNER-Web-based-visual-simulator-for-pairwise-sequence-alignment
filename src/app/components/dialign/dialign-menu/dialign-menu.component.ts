@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DialignService} from '../../services/dialign.service';
-import {MsaSharingService} from '../../services/msa-sharing.service';
-import {Colorscheme, SCHEMES} from '../../colorscheme';
+import {DialignService} from '../../../services/dialign.service';
+import {MsaSharingService} from '../../../services/msa-sharing.service';
+import {Colorscheme, SCHEMES} from '../../../models/colorscheme';
 
 @Component({
   selector: 'app-dialign-menu',

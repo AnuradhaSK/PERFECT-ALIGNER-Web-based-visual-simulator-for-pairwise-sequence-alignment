@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
-import {NwalgoService} from '../services/nwalgo.service'; // import Nwalgoservice
-import {SharingService} from '../services/sharing.service';
+import {NwalgoService} from '../../services/nwalgo.service'; // import Nwalgoservice
+import {SharingService} from '../../services/sharing.service';
 
 @Component({
   selector: 'app-nwalgo',

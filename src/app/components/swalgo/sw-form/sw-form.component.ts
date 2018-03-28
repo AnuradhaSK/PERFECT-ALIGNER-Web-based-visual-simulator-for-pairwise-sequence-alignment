@@ -1,16 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {SharingService} from '../../services/sharing.service';
-import {NwalgoService} from '../../services/nwalgo.service';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {SharingService} from '../../../services/sharing.service';
+import {SwalgoService} from '../../../services/swalgo.service';
 
 @Component({
-  selector: 'app-nw-form',
-  templateUrl: './nw-form.component.html',
-  styleUrls: ['./nw-form.component.css'],
-  providers: [NwalgoService]
+  selector: 'app-sw-form',
+  templateUrl: './sw-form.component.html',
+  styleUrls: ['./sw-form.component.css'],
+  providers: [SwalgoService]
 })
-
-export class NwFormComponent implements OnInit {
+export class SwFormComponent implements OnInit {
   stringOne: string;
   stringTwo: string;
   btnText = 'Align';
@@ -22,7 +20,7 @@ export class NwFormComponent implements OnInit {
   submitted = false;
 
   constructor(protected sharingService: SharingService,
-              protected nwalgoService: NwalgoService) {
+              protected swalgoService: SwalgoService) {
   }
 
   ngOnInit() {
@@ -41,20 +39,19 @@ export class NwFormComponent implements OnInit {
     this.mismatch = this.mismatch;
     this.gap = this.gap;
     setTimeout(() => {
-      this._get();
-    }, 3000);
+        this._get();
+      }, 3000);
     this.alignStop = true;
     this.onSubmit();
   }
 
   // call the service
   public _get() {
-    this.nwalgoService._get(this.stringOne, this.stringTwo, this.match, this.mismatch, this.gap).subscribe((data) => {
+    this.swalgoService._get(this.stringOne, this.stringTwo, this.match, this.mismatch, this.gap).subscribe((data) => {
       this.dataArray = data;
       this.sharingService.setData(this.dataArray, this.stringOne, this.stringTwo, this.match, this.mismatch, this.gap);
       this.sharingService.setVisibility(true);
       console.log(this.dataArray);
     });
   }
-
 }

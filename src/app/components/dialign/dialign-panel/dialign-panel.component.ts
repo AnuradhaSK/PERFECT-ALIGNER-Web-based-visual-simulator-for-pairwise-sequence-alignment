@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {DialignService} from '../../services/dialign.service';
-import {MsaSharingService} from '../../services/msa-sharing.service';
-import {Colorscheme, SCHEMES} from '../../colorscheme';
+import {DialignService} from '../../../services/dialign.service';
+import {MsaSharingService} from '../../../services/msa-sharing.service';
+import {Colorscheme, SCHEMES} from '../../../models/colorscheme';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class DialignPanelComponent implements OnInit {
   width: any;
   scheme = 'ClustalW';
   colorSchemes = SCHEMES;
-  obj:any;
+  obj: any;
   colorArray:any;
   constructor(protected dialignService: DialignService,
               protected msasharingService: MsaSharingService) {
