@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TcoffeeComponent } from './tcoffee.component';
-import {MsaSharingService} from '../services/msa-sharing.service';
+import {MsaSharingService} from '../../services/msa-sharing.service';
 import {Component} from '@angular/core';
 @Component({selector: 'app-tcoffee-menu', template: ''})
 class TcoffeeMenuStubComponent {}

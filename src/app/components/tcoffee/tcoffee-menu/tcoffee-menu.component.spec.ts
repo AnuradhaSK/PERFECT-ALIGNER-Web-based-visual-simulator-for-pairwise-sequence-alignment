@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TcoffeeMenuComponent } from './tcoffee-menu.component';
-import {MsaSharingService} from '../../services/msa-sharing.service';
-import {TcoffeeService} from '../../services/tcoffee.service';
+import {MsaSharingService} from '../../../services/msa-sharing.service';
+import {TcoffeeService} from '../../../services/tcoffee.service';
 
 describe('TcoffeeMenuComponent', () => {
   let component: TcoffeeMenuComponent;

@@ -2,8 +2,8 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NwFormComponent} from './nw-form.component';
-import {SharingService} from '../../services/sharing.service';
-import {NwalgoService} from '../../services/nwalgo.service';
+import {SharingService} from '../../../services/sharing.service';
+import {NwalgoService} from '../../../services/nwalgo.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('NwFormComponent', () => {
