@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
-import {Cell} from '../cell'; // import cell class
-import {NwalgoService} from '../services/nwalgo.service';
-import {SharingService} from '../services/sharing.service'; // import Nwalgoservice
+import {NwalgoService} from '../services/nwalgo.service'; // import Nwalgoservice
+import {SharingService} from '../services/sharing.service';
 
 @Component({
   selector: 'app-nwalgo',

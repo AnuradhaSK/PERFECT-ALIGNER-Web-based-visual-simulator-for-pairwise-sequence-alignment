@@ -29,16 +29,13 @@ describe('NwalgoComponent', () => {
       providers: [ {provide: SharingService, useValue: sharingServiceStub }
       ]
     })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(NwalgoComponent);
     component = fixture.componentInstance;
     // UserService from the root injector
     const sharingService = TestBed.get(SharingService);
     fixture.detectChanges();
-  });
+  }));
+
 
   /*it('should create', () => {
     expect(component).toBeTruthy();
