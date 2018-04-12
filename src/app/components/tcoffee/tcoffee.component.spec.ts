@@ -12,16 +12,17 @@ class TcoffeePanelStubComponent {}
 describe('TcoffeeComponent', () => {
   let component: TcoffeeComponent;
   let fixture: ComponentFixture<TcoffeeComponent>;
-  let msasharingServiceStub: Partial<MsaSharingService>;
+  // let msasharingServiceStub: Partial<MsaSharingService>;
   beforeEach(async(() => {
     // stub SharingService for test purposes
-    msasharingServiceStub = {};
+    // msasharingServiceStub = {};
     TestBed.configureTestingModule({
       declarations: [ TcoffeeComponent,
         TcoffeeMenuStubComponent,
         TcoffeePanelStubComponent
       ],
-      providers: [{provide: MsaSharingService, useValue: msasharingServiceStub}]
+      providers: [ MsaSharingService]
+      // providers: [{provide: MsaSharingService, useValue: msasharingServiceStub}]
     })
     fixture = TestBed.createComponent(TcoffeeComponent);
     component = fixture.componentInstance;
@@ -30,7 +31,7 @@ describe('TcoffeeComponent', () => {
     fixture.detectChanges();
   }));
 
-  /*it('should create', () => {
+  it('should create tcoffee component', () => {
     expect(component).toBeTruthy();
-  });*/
+  });
 });

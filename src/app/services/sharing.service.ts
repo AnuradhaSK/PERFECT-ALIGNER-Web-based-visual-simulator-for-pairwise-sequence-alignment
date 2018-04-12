@@ -21,7 +21,7 @@ export class SharingService {
     this.match = match;
     this.mismatch = mismatch;
     this.gap = gap;
-    console.log('came to sharing');
+    // console.log('came to sharing');
   }
 
   setVisibility(visible: boolean) {

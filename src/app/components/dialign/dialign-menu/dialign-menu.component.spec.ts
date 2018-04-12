@@ -30,7 +30,7 @@ describe('DialignMenuComponent', () => {
     fixture.detectChanges();
   }));
 
-  it('should create DialognMenu Component', () => {
+  it('should create DialignMenu Component', () => {
     expect(component).toBeTruthy();
   });
 });
