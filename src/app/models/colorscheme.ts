@@ -5,7 +5,7 @@ export interface Colorscheme {
 
 export const SCHEMES: Colorscheme[] = [
   {name: 'ClustalW', colors: {
-      A: '#2E5DCB', B: '', C: '#2E5DCB', D: '#E817F9', E: '#E817F9', F: '#2E5DCB', G: '#FA9915', H: '#15FADB',
+      'A': '#2E5DCB', 'B': '', 'C': '#2E5DCB', 'D': '#E817F9', 'E': '#E817F9', 'F': '#2E5DCB', 'G': '#FA9915', 'H': '#15FADB',
       I: '#2E5DCB', J: '', K: '#F92B17', L: '#2E5DCB', M: '#2E5DCB', N: '#63C318', O: '', P: '#FAFA15', Q: '#63C318',
       R: '#F92B17', S: '#63C318', T: '#63C318', U: '', V: '#2E5DCB', W: '#2E5DCB', X: '', Y: '#15FADB', Z: ''}},
   {name: 'Taylor', colors: {

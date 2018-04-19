@@ -1,13 +1,15 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Gene} from '../models/gene';
 
 @Injectable()
 export class TcoffeeService {
   dataArray: string[] | any | any[];
+  chartDataArray: any;
   private geneArray: any[];
   file: Blob;
 
-  constructor() { }
+  constructor() {
+  }
 
   // return the geneArray which contains gene objects. Gene object has a id and a sequence
   getGeneArray(dataArray) {
@@ -17,7 +19,7 @@ export class TcoffeeService {
     let id = '';
     let sequence = '';
     let first = true;
-    for (let i in this.dataArray) {
+    for (const i in this.dataArray) {
       console.log(this.dataArray[i]);
       /* if ((this.dataArray[i] === ' ')) {
         continue;
@@ -46,5 +48,20 @@ export class TcoffeeService {
     console.log('id:'.concat(id));
     console.log('sequence:'.concat(sequence));
     return this.geneArray;
+  }
+
+  alignedCharCount(geneArray: Gene[]) {
+    this.chartDataArray = new Array();
+    for (const gene of geneArray) {
+      let count = 0;
+      for (let i = 0; i < gene.sequence.length; i++) {
+        if (65 <= gene.sequence.charCodeAt(i) && gene.sequence.charCodeAt(i) <= 90) {
+          count++;
+        }
+      }
+      console.log(count);
+      this.chartDataArray.push(count.toString());
+    }
+    return this.chartDataArray;
   }
 }

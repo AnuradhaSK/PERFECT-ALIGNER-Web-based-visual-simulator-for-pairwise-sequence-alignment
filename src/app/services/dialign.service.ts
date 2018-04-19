@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 // import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/map';
-// import * as Fasta from 'biojs-io-fasta';
+import * as Fasta from 'bionode-fasta';
 import {Gene} from '../models/gene';
 
 

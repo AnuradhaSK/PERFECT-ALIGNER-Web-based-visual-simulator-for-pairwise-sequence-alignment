@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MsaSharingService} from '../../services/msa-sharing.service';
 import {TcoffeeService} from '../../services/tcoffee.service';
+import {Chart} from 'chart.js';
 
 
 @Component({

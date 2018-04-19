@@ -3,7 +3,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
-
+import { ChartsModule } from 'ng2-charts';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppBootstrapModule } from './app-bootstrap.module';
@@ -27,6 +27,7 @@ import { DialignPanelComponent } from './components/dialign/dialign-panel/dialig
 import { MsaSharingService } from './services/msa-sharing.service';
 import { TcoffeeMenuComponent } from './components/tcoffee/tcoffee-menu/tcoffee-menu.component';
 import { TcoffeePanelComponent } from './components/tcoffee/tcoffee-panel/tcoffee-panel.component';
+import { TcoffeeChartComponent } from './components/tcoffee/tcoffee-chart/tcoffee-chart.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { TcoffeePanelComponent } from './components/tcoffee/tcoffee-panel/tcoffe
     DialignMenuComponent,
     DialignPanelComponent,
     TcoffeeMenuComponent,
-    TcoffeePanelComponent
+    TcoffeePanelComponent,
+    TcoffeeChartComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +59,7 @@ import { TcoffeePanelComponent } from './components/tcoffee/tcoffee-panel/tcoffe
     MatGridListModule,
     AppBootstrapModule,
     HttpClientModule,
+    ChartsModule
   ],
   providers: [SharingService,
     MsaSharingService],

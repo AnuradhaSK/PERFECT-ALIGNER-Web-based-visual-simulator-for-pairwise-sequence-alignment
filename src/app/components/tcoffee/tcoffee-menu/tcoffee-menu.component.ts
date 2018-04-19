@@ -10,6 +10,7 @@ import {TcoffeeService} from '../../../services/tcoffee.service';
 export class TcoffeeMenuComponent implements OnInit {
   dataArray: any;
   geneArray: any;
+  chartDataArray: any;
   file: any;
   message = '';
 
@@ -23,6 +24,7 @@ export class TcoffeeMenuComponent implements OnInit {
   // choose a file
   fileChanged(e) {
     this.file = e.target.files[0];
+    console.log(this.file);
   }
 
   // upload the file and read
@@ -35,6 +37,8 @@ export class TcoffeeMenuComponent implements OnInit {
       // console.log(this.dataArray);
       this.geneArray = this.tcoffeeService.getGeneArray(this.dataArray);
       this.msasharingService.setPanelData(this.geneArray);
+      this.chartDataArray = this.tcoffeeService.alignedCharCount(this.geneArray);
+      this.msasharingService.setChartData(this.chartDataArray);
       if (!(this.msasharingService.getPanelData().length === 1 && this.msasharingService.getPanelData()[0].id === '')) {
         this.msasharingService.setVisibility(true);
         this.message = '';

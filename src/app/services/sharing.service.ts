@@ -24,6 +24,7 @@ export class SharingService {
     // console.log('came to sharing');
   }
 
+
   setVisibility(visible: boolean) {
     this.visible = visible;
   }
@@ -39,15 +40,19 @@ export class SharingService {
   getStringOne(): string {
     return this.strinOne;
   }
+
   getStringTwo(): string {
     return this.stringTwo;
   }
+
   getMatch(): string {
     return this.match;
   }
+
   getMismatch(): string {
     return this.mismatch;
   }
+
   getGap(): string {
     return this.gap;
   }

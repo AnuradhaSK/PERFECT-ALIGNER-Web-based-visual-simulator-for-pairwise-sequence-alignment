@@ -17,7 +17,8 @@ export class DialignPanelComponent implements OnInit {
   scheme = 'ClustalW';
   colorSchemes = SCHEMES;
   obj: any;
-  colorArray:any;
+  colorArray: any;
+
   constructor(protected dialignService: DialignService,
               protected msasharingService: MsaSharingService) {
   }
@@ -35,7 +36,7 @@ export class DialignPanelComponent implements OnInit {
         console.log(this.colorArray);
       }
     }
-    /*for (let x of this.colorSchemes) {
+    for (let x of this.colorSchemes) {
       if (x.name === this.scheme) {
         this.obj = x;
         console.log(this.obj.colors.A);
@@ -43,7 +44,7 @@ export class DialignPanelComponent implements OnInit {
         console.log(this.obj.colors.C);
         console.log(this.obj.colors.D);
       }
-    }*/
+    }
     this.maxlength = 0;
     let max = [];
     for (let i in this.geneArray) {
@@ -63,22 +64,24 @@ export class DialignPanelComponent implements OnInit {
   }
 
   getColor(character) {
-   /* let color;
-    if (44 > character.charCodeAt(0) || character.charCodeAt(0) > 69) {
-      color = '';
-      console.log('not an aligned charcter');
-    } else {
-      console.log(character);*/
-   console.log(character);
-   console.log(this.colorArray.character);
-   return this.colorArray.character;
-      /*for (let x of this.colorSchemes) {
-        if (x.name === this.scheme) {
-          this.obj = x;
-          console.log(character);
-          color = this.obj.colors.character;
-        }
-      }*/
+    /* let color;
+     if (44 > character.charCodeAt(0) || character.charCodeAt(0) > 69) {
+       color = '';
+       console.log('not an aligned charcter');
+     } else {
+       console.log(character);*/
+    console.log(typeof(character));
+
+    // console.log(this.colorArray);
+    console.log(this.colorArray[character]);
+    return this.colorArray[character];
+    /*for (let x of this.colorSchemes) {
+      if (x.name === this.scheme) {
+        this.obj = x;
+        console.log(character);
+        color = this.obj.colors.character;
+      }
+    }*/
     /*}
     console.log(color);
     return color;*/

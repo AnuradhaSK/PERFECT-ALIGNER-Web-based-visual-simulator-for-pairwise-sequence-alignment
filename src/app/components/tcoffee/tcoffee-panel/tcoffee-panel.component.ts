@@ -15,24 +15,14 @@ export class TcoffeePanelComponent implements OnInit {
   maxlength: number;
   width: any;
 
+
   constructor(protected tcoffeeService: TcoffeeService,
               protected msasharingService: MsaSharingService) {
   }
 
   ngOnInit() {
     this.geneArray = this.msasharingService.getPanelData();
-    /*let x = [];
-    for (let i = 0; i < 500; i++) {
-      x[i] = Math.random();
-    }
-    const trace = {
-      x: x,
-      type: 'histogram',
-    };
-    const data = [trace];
-    Plotly.newPlot('myPlotlyDiv');*/
   }
-
   // get the maximum length sequence
 
   getMaxSequenceLength() {

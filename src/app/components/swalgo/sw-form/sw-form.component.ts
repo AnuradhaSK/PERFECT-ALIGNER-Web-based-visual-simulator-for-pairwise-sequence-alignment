@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SharingService} from '../../../services/sharing.service';
 import {SwalgoService} from '../../../services/swalgo.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sw-form',
@@ -30,9 +31,21 @@ export class SwFormComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
   }
+  showLoading() {
+    swal({
+      title: 'Please Wait!',
+      text: 'Aligned results is loading',
+      onOpen: () => {
+        swal.showLoading();
+      }});
+  }
+  closeLoading() {
+    swal.close();
+  }
 
   // This method is called when the align button clicks
   showGrid() {
+    this.showLoading();
     this.stringOne = this.stringOne.toUpperCase();
     this.stringTwo = this.stringTwo.toUpperCase();
     this.match = this.match;
@@ -51,6 +64,7 @@ export class SwFormComponent implements OnInit {
       this.dataArray = data;
       this.sharingService.setData(this.dataArray, this.stringOne, this.stringTwo, this.match, this.mismatch, this.gap);
       this.sharingService.setVisibility(true);
+      this.closeLoading();
       console.log(this.dataArray);
     });
   }

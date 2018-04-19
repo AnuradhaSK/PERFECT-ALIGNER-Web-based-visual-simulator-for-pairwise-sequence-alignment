@@ -1,6 +1,6 @@
 <br>
-<div id="myPlotlyDiv"></div>
-<!--header-->
+
+<!--panel header-->
 <div class="timeline-shell" style="width: 1340px;height: 300px;" >
   <div class="timeline-header" [style.width.px]="width" >
     <span class="header-blank"></span>
@@ -11,7 +11,7 @@
     </span>
 
   </div>
-  <!--body-->
+  <!--panel body-->
   <div class="timeline-body" style="height: 150px;" [style.width.px]="width">
     <div class="body-item" *ngFor="let gene of geneArray">
       <span class="body-details-cell">
@@ -24,17 +24,4 @@
     </div>
   </div>
 </div>
-<!--<div id="myDiv"></div>
-<script>
-var x = [];
-for (var i = 0; i < 500; i ++) {
-x[i] = Math.random();
-}
 
-var trace = {
-x: x,
-type: 'histogram',
-};
-var data = [trace];
-Plotly.newPlot('myDiv', data);
-</script>-->
