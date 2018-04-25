@@ -10,7 +10,7 @@ export class NwalgoService {
 
   // return grid values from backend
   public _get(Stringone: string, Stringtwo: string, match: string, mismatch: string, gap: string) {
-    return this.http.get('http://localhost:8080/perfectaligner/test?sequence1='.concat(Stringone.toUpperCase()) +
+    return this.http.get('https://perfectaligner.herokuapp.com/test?sequence1='.concat(Stringone.toUpperCase()) +
       '&sequence2='.concat(Stringtwo.toUpperCase()) + '&match='.concat(match) + '&mismatch='.concat(mismatch) + '&gap='.concat(gap))
       .map(res => res);
   }

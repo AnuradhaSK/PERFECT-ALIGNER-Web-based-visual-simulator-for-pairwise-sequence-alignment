@@ -34,7 +34,7 @@ export class SwFormComponent implements OnInit {
   showLoading() {
     swal({
       title: 'Please Wait!',
-      text: 'Aligned results is loading',
+      text: 'Your request is processing',
       onOpen: () => {
         swal.showLoading();
       }});

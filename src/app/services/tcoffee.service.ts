@@ -5,7 +5,7 @@ import {Gene} from '../models/gene';
 export class TcoffeeService {
   dataArray: string[] | any | any[];
   chartDataArray: any;
-  private geneArray: any[];
+  geneArray: any[];
   file: Blob;
 
   constructor() {

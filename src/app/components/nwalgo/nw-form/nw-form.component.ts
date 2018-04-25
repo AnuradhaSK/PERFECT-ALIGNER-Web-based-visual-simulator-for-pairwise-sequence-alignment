@@ -37,7 +37,7 @@ export class NwFormComponent implements OnInit {
   showLoading() {
     swal({
       title: 'Please Wait!',
-      text: 'Aligned results is loading',
+      text: 'your request is processing',
       onOpen: () => {
         swal.showLoading();
       }});

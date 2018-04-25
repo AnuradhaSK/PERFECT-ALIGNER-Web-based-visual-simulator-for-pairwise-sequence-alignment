@@ -42,21 +42,6 @@ export class TcoffeePanelComponent implements OnInit {
 
   calWidth() {
     this.width = 100 + 20 * this.maxlength;
-    /*const y = [];
-    for (let i = 0; i < 500; i ++) {
-      y[i] = Math.random();
-    }
-
-   const data = [
-      {
-        y: y,
-        type: 'histogram',
-        marker: {
-          color: 'pink',
-        },
-      }
-    ];
-    Plotly.newPlot('myDiv', data);*/
   }
 
 

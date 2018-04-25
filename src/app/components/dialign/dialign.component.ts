@@ -14,10 +14,6 @@ import {MsaSharingService} from '../../services/msa-sharing.service';
 export class DialignComponent implements OnInit {
 
   title = 'Dialign';
-  /*selectedFiles: FileList;
-  currentFileUpload: File;
-  progress: { percentage: number } = { percentage: 0 };*/
-
 
   constructor(protected msasharingService: MsaSharingService) {
   }
@@ -25,23 +21,5 @@ export class DialignComponent implements OnInit {
   ngOnInit() {
     this.msasharingService.setVisibility(false);
   }
-  // call the service
-  /*public _get(file) {
-    this.dialignService._get(file).subscribe((data) => {
-      this.dataArray = data;
-    });
-    // this.dialignService.reader();
-
-  }
-
-  uploadDocument(file) {
-   setTimeout(() => {
-      this._get(file);
-    }, 2000);
-    // FastaFileReader.obj(file).on('data', console.log);
-    // this.p = Fasta.read('http://dialign.gobics.de/repository/DIALIGN-1435256264/sequences.fa');
-
-
-  }*/
 
 }

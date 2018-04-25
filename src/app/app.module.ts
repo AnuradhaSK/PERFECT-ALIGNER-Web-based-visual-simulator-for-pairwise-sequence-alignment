@@ -28,6 +28,7 @@ import { MsaSharingService } from './services/msa-sharing.service';
 import { TcoffeeMenuComponent } from './components/tcoffee/tcoffee-menu/tcoffee-menu.component';
 import { TcoffeePanelComponent } from './components/tcoffee/tcoffee-panel/tcoffee-panel.component';
 import { TcoffeeChartComponent } from './components/tcoffee/tcoffee-chart/tcoffee-chart.component';
+import { DialignChartComponent } from './components/dialign/dialign-chart/dialign-chart.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { TcoffeeChartComponent } from './components/tcoffee/tcoffee-chart/tcoffe
     DialignPanelComponent,
     TcoffeeMenuComponent,
     TcoffeePanelComponent,
-    TcoffeeChartComponent
+    TcoffeeChartComponent,
+    DialignChartComponent
   ],
   imports: [
     BrowserModule,

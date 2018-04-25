@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-// import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import * as Fasta from 'bionode-fasta';
 import {Gene} from '../models/gene';
@@ -8,8 +7,9 @@ import {Gene} from '../models/gene';
 @Injectable()
 export class DialignService {
   dataArray: string[] | any | any[];
-  private geneArray: any[];
+  geneArray: any[];
   file: Blob;
+  chartDataArray: any;
 
   constructor() {
   }
@@ -53,18 +53,19 @@ export class DialignService {
     return this.geneArray;
   }
 
-  /*public _get(file: File) {
-    return this.http.get('http://localhost:8080/perfectaligner/dialign?file='.concat('C:/Users/sudu/Desktop/test.fasta.txt'))
-      .map(res => res);
-  }*/
+  alignedCharCount(geneArray: Gene[]) {
+    this.chartDataArray = new Array();
+    for (const gene of geneArray) {
+      let count = 0;
+      for (let i = 0; i < gene.sequence.length; i++) {
+        if (65 <= gene.sequence.charCodeAt(i) && gene.sequence.charCodeAt(i) <= 90) {
+          count++;
+        }
+      }
+      console.log(count);
+      this.chartDataArray.push(count.toString());
+    }
+    return this.chartDataArray;
+  }
 
-  /*public reader() {
-    this.p = Fasta.read('http://dialign.gobics.de/repository/DIALIGN-1435256264/sequences.fa');
-
-    this.p.then(function (model) {
-      console.log(model);
-    }, function (err) {
-      console.error('err happened during downloading', err);
-    });
-  }*/
 }

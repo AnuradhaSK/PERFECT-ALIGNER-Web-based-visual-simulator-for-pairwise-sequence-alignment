@@ -4,6 +4,7 @@
 <select  class="btn btn-primary" [(ngModel)]="scheme">
   <option *ngFor="let x of colorSchemes" [value]="x.name" [selected]="scheme == x.name">{{x.name}}</option>
 </select>
+<div style="display: block; background: white ">
 <!--header-->
 <div class="timeline-shell" style="width: 1340px;height: 300px;" >
   <div class="timeline-header" [style.width.px]="width" >
@@ -27,4 +28,5 @@
       </span>
     </div>
   </div>
+</div>
 </div>
