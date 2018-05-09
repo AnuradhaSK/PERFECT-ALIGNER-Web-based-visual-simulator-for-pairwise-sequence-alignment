@@ -6,13 +6,13 @@ export class SharingService {
   constructor() {
   }
 
-  private data: any = undefined;
-  private strinOne: string;
-  private stringTwo: string;
-  private match: string;
-  private mismatch: string;
-  private gap: string;
-  private visible: boolean;
+  public data: any = undefined;
+  public strinOne: string;
+  public stringTwo: string;
+  public match: string;
+  public mismatch: string;
+  public gap: string;
+  public visible: boolean;
 
   setData(data: any, stringOne: string, stringTwo: string, match: string, mismatch: string, gap: string) {
     this.data = data;
@@ -21,7 +21,6 @@ export class SharingService {
     this.match = match;
     this.mismatch = mismatch;
     this.gap = gap;
-    // console.log('came to sharing');
   }
 
 

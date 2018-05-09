@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MsaSharingService} from '../../../services/msa-sharing.service';
 import {TcoffeeService} from '../../../services/tcoffee.service';
-import swal from "sweetalert2";
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tcoffee-menu',
@@ -21,7 +21,25 @@ export class TcoffeeMenuComponent implements OnInit {
 
   ngOnInit() {
   }
+  showLoading() {
+    swal({
+      title: 'Please Wait!',
+      text: 'your request is processing',
+      onOpen: () => {
+        swal.showLoading();
+      }});
+  }
+  closeLoading() {
+    swal.close();
+  }
 
+  showError() {
+    swal({
+      type: 'error',
+      title: 'Oops...',
+      text: 'Uploaded file is not in FASTA format!',
+    });
+  }
   // choose a file
   fileChanged(e) {
     this.file = e.target.files[0];
@@ -46,22 +64,12 @@ export class TcoffeeMenuComponent implements OnInit {
         this.message = '';
       } else {
         this.closeLoading();
-        this.message = 'Sorry :( Uploaded file is not in FASTA format';
+        this.showError();
       }
     };
 
   }
-  showLoading() {
-    swal({
-      title: 'Please Wait!',
-      text: 'your request is processing',
-      onOpen: () => {
-        swal.showLoading();
-      }});
-  }
-  closeLoading() {
-    swal.close();
-  }
+
 
 
 }

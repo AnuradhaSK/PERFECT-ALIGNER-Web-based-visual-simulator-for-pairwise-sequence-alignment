@@ -3,11 +3,11 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class MsaSharingService {
 
-  private geneArray: any;
-  private chartDataArray: any;
+  public geneArray: any;
+  public chartDataArray: any;
   idArray: any;
-  private schemeName: string;
-  private visible: boolean;
+  public schemeName: string;
+  public visible: boolean;
 
   constructor() {
   }

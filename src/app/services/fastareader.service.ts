@@ -6,7 +6,7 @@ import {HttpClient, HttpEvent, HttpRequest} from '@angular/common/http';
 @Injectable()
 export class FastareaderService {
 
-  constructor(protected http: HttpClient) {
+  constructor(private http: HttpClient) {
   }
 
   /*public fileReader(e) {

@@ -39,10 +39,10 @@ export class DialignPanelComponent implements OnInit {
     for (let x of this.colorSchemes) {
       if (x.name === this.scheme) {
         this.obj = x;
-        console.log(this.obj.colors.A);
+        /*console.log(this.obj.colors.A);
         console.log(this.obj.colors.B);
         console.log(this.obj.colors.C);
-        console.log(this.obj.colors.D);
+        console.log(this.obj.colors.D);*/
       }
     }
     this.maxlength = 0;
@@ -64,27 +64,10 @@ export class DialignPanelComponent implements OnInit {
   }
 
   getColor(character) {
-    /* let color;
-     if (44 > character.charCodeAt(0) || character.charCodeAt(0) > 69) {
-       color = '';
-       console.log('not an aligned charcter');
-     } else {
-       console.log(character);*/
     console.log(typeof(character));
-
     // console.log(this.colorArray);
     console.log(this.colorArray[character]);
     return this.colorArray[character];
-    /*for (let x of this.colorSchemes) {
-      if (x.name === this.scheme) {
-        this.obj = x;
-        console.log(character);
-        color = this.obj.colors.character;
-      }
-    }*/
-    /*}
-    console.log(color);
-    return color;*/
   }
 
   /* switch (char) {

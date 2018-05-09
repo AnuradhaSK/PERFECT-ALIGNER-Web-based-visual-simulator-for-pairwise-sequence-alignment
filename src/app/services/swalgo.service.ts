@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class SwalgoService {
 
-  constructor(protected http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   // return the grid values from backend
   public _get(Stringone: string, Stringtwo: string, match: string, mismatch: string, gap: string) {

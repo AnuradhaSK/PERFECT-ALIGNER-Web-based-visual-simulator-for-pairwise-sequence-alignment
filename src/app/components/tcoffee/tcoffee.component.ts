@@ -13,7 +13,7 @@ import {Chart} from 'chart.js';
 export class TcoffeeComponent implements OnInit {
 
   title = 'T-coffee';
-  constructor(protected msasharingService: MsaSharingService) { }
+  constructor(public msasharingService: MsaSharingService) { }
 
   ngOnInit() {
     this.msasharingService.setVisibility(false);

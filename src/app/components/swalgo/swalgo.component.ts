@@ -11,7 +11,7 @@ export class SwalgoComponent implements OnInit {
   title = 'smith-waterman';
   showSpinner = false;
 
-  constructor(protected sharingService: SharingService) {
+  constructor(public sharingService: SharingService) {
   }
 
   ngOnInit() {

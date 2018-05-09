@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MsaSharingService} from '../../../services/msa-sharing.service';
 import {TcoffeeService} from '../../../services/tcoffee.service';
-import * as Plotly from 'plotly.js';
-import {Config, Data, Layout} from 'plotly.js';
-import {linkHorizontal} from 'd3-shape';
+import {SCHEMES} from '../../../models/colorscheme';
 
 @Component({
   selector: 'app-tcoffee-panel',
@@ -14,6 +12,10 @@ export class TcoffeePanelComponent implements OnInit {
   geneArray: any;
   maxlength: number;
   width: any;
+  scheme = 'ClustalW';
+  colorSchemes = SCHEMES;
+  obj: any;
+  colorArray: any;
 
 
   constructor(protected tcoffeeService: TcoffeeService,
@@ -23,9 +25,22 @@ export class TcoffeePanelComponent implements OnInit {
   ngOnInit() {
     this.geneArray = this.msasharingService.getPanelData();
   }
+
   // get the maximum length sequence
 
   getMaxSequenceLength() {
+    for (let x of this.colorSchemes) {
+      if (x.name === this.scheme) {
+        this.obj = x;
+        this.colorArray = x.colors;
+        console.log(this.colorArray);
+      }
+    }
+    for (let x of this.colorSchemes) {
+      if (x.name === this.scheme) {
+        this.obj = x;
+      }
+    }
     this.maxlength = 0;
     let max = [];
     for (let i in this.geneArray) {
@@ -45,36 +60,10 @@ export class TcoffeePanelComponent implements OnInit {
   }
 
 
-  getColor(char) {
-    switch (char) {
-      case 'A':
-      case 'C':
-      case 'I':
-      case 'L':
-      case 'M':
-      case 'F':
-      case 'W':
-      case 'V':
-        return '#2E5DCB';
-      case 'K':
-      case 'R':
-        return '#F92B17';
-      case 'E':
-      case 'D':
-        return '#E817F9';
-      case 'N':
-      case 'Q':
-      case 'S':
-      case 'T':
-        return '#63C318';
-      case 'G':
-        return '#FA9915';
-      case 'P':
-        return '#FAFA15';
-      case 'H':
-      case 'Y':
-        return '#15FADB';
-    }
-  }
+  getColor(character) {
+    console.log(typeof(character));
+    console.log(this.colorArray[character]);
+    return this.colorArray[character];
 
+  }
 }

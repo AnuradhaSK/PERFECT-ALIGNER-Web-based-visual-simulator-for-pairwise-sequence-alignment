@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class NwalgoService {
 
-  constructor(protected http: HttpClient) {
+  constructor(private http: HttpClient) {
   }
 
   // return grid values from backend

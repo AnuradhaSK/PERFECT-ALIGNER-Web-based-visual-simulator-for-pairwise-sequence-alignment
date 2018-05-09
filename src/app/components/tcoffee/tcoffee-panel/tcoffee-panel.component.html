@@ -1,4 +1,10 @@
 <br>
+<label id="lb2">Color Scheme :</label>
+<select  class="btn btn-primary" [(ngModel)]="scheme">
+  <option *ngFor="let x of colorSchemes" [value]="x.name" [selected]="scheme == x.name">{{x.name}}</option>
+</select>
+<div style="display: block; background: white ">
+
 <div style="display: block; background: white ">
 <!--panel header-->
 <div class="timeline-shell" style="width: 1340px;height: 300px;" >

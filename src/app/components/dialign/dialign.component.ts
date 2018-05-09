@@ -15,7 +15,7 @@ export class DialignComponent implements OnInit {
 
   title = 'Dialign';
 
-  constructor(protected msasharingService: MsaSharingService) {
+  constructor(public msasharingService: MsaSharingService) {
   }
 
   ngOnInit() {
