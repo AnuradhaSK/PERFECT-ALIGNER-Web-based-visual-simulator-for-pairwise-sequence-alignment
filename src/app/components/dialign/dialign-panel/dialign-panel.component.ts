@@ -1,7 +1,7 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DialignService} from '../../../services/dialign.service';
 import {MsaSharingService} from '../../../services/msa-sharing.service';
-import {Colorscheme, SCHEMES} from '../../../models/colorscheme';
+import { SCHEMES} from '../../../models/colorscheme';
 
 
 @Component({
@@ -39,10 +39,6 @@ export class DialignPanelComponent implements OnInit {
     for (let x of this.colorSchemes) {
       if (x.name === this.scheme) {
         this.obj = x;
-        /*console.log(this.obj.colors.A);
-        console.log(this.obj.colors.B);
-        console.log(this.obj.colors.C);
-        console.log(this.obj.colors.D);*/
       }
     }
     this.maxlength = 0;
@@ -70,35 +66,5 @@ export class DialignPanelComponent implements OnInit {
     return this.colorArray[character];
   }
 
-  /* switch (char) {
-     case 'A':
-     case 'C':
-     case 'I':
-     case 'L':
-     case 'M':
-     case 'F':
-     case 'W':
-     case 'V':
-       return '#2E5DCB';
-     case 'K':
-     case 'R':
-       return '#F92B17';
-     case 'E':
-     case 'D':
-       return '#E817F9';
-     case 'N':
-     case 'Q':
-     case 'S':
-     case 'T':
-       return '#63C318';
-     case 'G':
-       return '#FA9915';
-     case 'P':
-       return '#FAFA15';
-     case 'H':
-     case 'Y':
-       return '#15FADB';
-   }
- }*/
 }
 

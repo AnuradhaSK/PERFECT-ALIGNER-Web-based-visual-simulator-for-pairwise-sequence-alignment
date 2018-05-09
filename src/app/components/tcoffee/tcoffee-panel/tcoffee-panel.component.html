@@ -21,7 +21,7 @@
   <div class="timeline-body" style="height: 150px;" [style.width.px]="width">
     <div class="body-item" *ngFor="let gene of geneArray">
       <span class="body-details-cell">
-        <div class="detail-title" >{{gene.id}}</div>
+        <div class="detail-title" class="a">{{gene.id}}</div>
       </span>
       <span *ngFor="let char of gene.sequence.split('');let i=index;">
       <span class="body-graph-cell first-graph-cell" *ngIf="i==0" [style.background-color]="getColor(char)">{{char}}</span>
