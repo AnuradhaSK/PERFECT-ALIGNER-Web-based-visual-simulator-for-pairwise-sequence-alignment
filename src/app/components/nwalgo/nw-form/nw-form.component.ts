@@ -34,17 +34,6 @@ export class NwFormComponent implements OnInit {
     this.submitted = true;
 
   }
-  showLoading() {
-    swal({
-      title: 'Please Wait!',
-      text: 'your request is processing',
-      onOpen: () => {
-        swal.showLoading();
-      }});
-  }
-  closeLoading() {
-    swal.close();
-  }
 
   // This method is called when the align button clicks
   showGrid() {
@@ -61,7 +50,7 @@ export class NwFormComponent implements OnInit {
     this.onSubmit();
   }
 
-  // call the service
+  // call the service to retrive data
   public _get() {
     this.nwalgoService._get(this.stringOne, this.stringTwo, this.match, this.mismatch, this.gap).subscribe((data) => {
       this.dataArray = data;
@@ -71,5 +60,22 @@ export class NwFormComponent implements OnInit {
       console.log(this.dataArray);
     });
   }
+
+  // waiting alert on
+  showLoading() {
+    swal({
+      title: 'Please Wait!',
+      text: 'your request is processing',
+      onOpen: () => {
+        swal.showLoading();
+      }
+    });
+  }
+
+  // waiting alert close
+  closeLoading() {
+    swal.close();
+  }
+
 
 }

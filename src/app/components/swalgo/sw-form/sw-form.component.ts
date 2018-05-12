@@ -31,17 +31,7 @@ export class SwFormComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
   }
-  showLoading() {
-    swal({
-      title: 'Please Wait!',
-      text: 'Your request is processing',
-      onOpen: () => {
-        swal.showLoading();
-      }});
-  }
-  closeLoading() {
-    swal.close();
-  }
+
 
   // This method is called when the align button clicks
   showGrid() {
@@ -52,8 +42,8 @@ export class SwFormComponent implements OnInit {
     this.mismatch = this.mismatch;
     this.gap = this.gap;
     setTimeout(() => {
-        this._get();
-      }, 3000);
+      this._get();
+    }, 3000);
     this.alignStop = true;
     this.onSubmit();
   }
@@ -67,5 +57,21 @@ export class SwFormComponent implements OnInit {
       this.closeLoading();
       console.log(this.dataArray);
     });
+  }
+
+  // waiting alert on
+  showLoading() {
+    swal({
+      title: 'Please Wait!',
+      text: 'Your request is processing',
+      onOpen: () => {
+        swal.showLoading();
+      }
+    });
+  }
+
+  // waiting alert off
+  closeLoading() {
+    swal.close();
   }
 }

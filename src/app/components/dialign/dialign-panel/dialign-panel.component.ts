@@ -19,8 +19,7 @@ export class DialignPanelComponent implements OnInit {
   obj: any;
   colorArray: any;
 
-  constructor(protected dialignService: DialignService,
-              protected msasharingService: MsaSharingService) {
+  constructor(protected msasharingService: MsaSharingService) {
   }
 
   ngOnInit() {

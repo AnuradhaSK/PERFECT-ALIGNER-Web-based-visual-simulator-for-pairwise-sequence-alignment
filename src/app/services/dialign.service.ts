@@ -28,7 +28,7 @@ export class DialignService {
         continue;
       }*/
       if (counter === 0 && this.dataArray[i].charAt(0) !== '>') {
-        console.log('This file is not in fasta format');
+        // console.log('This file is not in fasta format');
         break;
       }
       if (this.dataArray[i].charAt(0) === '>') {
@@ -53,6 +53,8 @@ export class DialignService {
     return this.geneArray;
   }
 
+
+  // count the number of aligned characters in gene sequences
   alignedCharCount(geneArray: Gene[]) {
     this.chartDataArray = new Array();
     for (const gene of geneArray) {

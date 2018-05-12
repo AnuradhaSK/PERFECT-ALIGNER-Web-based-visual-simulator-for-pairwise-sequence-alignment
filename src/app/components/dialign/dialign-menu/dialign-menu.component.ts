@@ -23,25 +23,7 @@ export class DialignMenuComponent implements OnInit {
   ngOnInit() {
   }
 
-  showLoading() {
-    swal({
-      title: 'Please Wait!',
-      text: 'your request is processing',
-      onOpen: () => {
-        swal.showLoading();
-      }});
-  }
-  closeLoading() {
-    swal.close();
-  }
-  showError() {
-    swal({
-      type: 'error',
-      title: 'Oops...',
-      text: 'Uploaded file is not in FASTA format!',
-    });
-  }
-  //
+
   // choose file
   fileChanged(e) {
     this.file = e.target.files[0];
@@ -49,8 +31,10 @@ export class DialignMenuComponent implements OnInit {
 
   // upload and read the file
   uploadDocument(file) {
+    // waiting alert on
     this.showLoading();
     this.msasharingService.setVisibility(false);
+    // read file
     let fileReader = new FileReader();
     fileReader.readAsText(this.file);
     fileReader.onload = (e) => {
@@ -75,6 +59,30 @@ export class DialignMenuComponent implements OnInit {
     };
   }
 
+  // show waiting alert
+  showLoading() {
+    swal({
+      title: 'Please Wait!',
+      text: 'your request is processing',
+      onOpen: () => {
+        swal.showLoading();
+      }
+    });
+  }
+
+  // close alert
+  closeLoading() {
+    swal.close();
+  }
+
+  // show error alert
+  showError() {
+    swal({
+      type: 'error',
+      title: 'Oops...',
+      text: 'Uploaded file is not in FASTA format!',
+    });
+  }
 
 
 }

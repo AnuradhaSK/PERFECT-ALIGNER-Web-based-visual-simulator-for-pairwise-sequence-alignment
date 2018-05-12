@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  // algorithms' details
   algos = [
     {name: 'Needleman-Wunsch', text: 'The Needleman–Wunsch algorithm is an algorithm used in bioinformatics to align protein or ' +
       'nucleotide sequences. It was one of the first applications of dynamic programming to compare biological sequences. ' +

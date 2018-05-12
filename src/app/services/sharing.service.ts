@@ -7,7 +7,7 @@ export class SharingService {
   }
 
   public data: any = undefined;
-  public strinOne: string;
+  public stringOne: string;
   public stringTwo: string;
   public match: string;
   public mismatch: string;
@@ -16,7 +16,7 @@ export class SharingService {
 
   setData(data: any, stringOne: string, stringTwo: string, match: string, mismatch: string, gap: string) {
     this.data = data;
-    this.strinOne = stringOne;
+    this.stringOne = stringOne;
     this.stringTwo = stringTwo;
     this.match = match;
     this.mismatch = mismatch;
@@ -37,7 +37,7 @@ export class SharingService {
   }
 
   getStringOne(): string {
-    return this.strinOne;
+    return this.stringOne;
   }
 
   getStringTwo(): string {

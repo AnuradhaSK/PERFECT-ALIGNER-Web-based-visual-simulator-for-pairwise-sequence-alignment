@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Cell} from '../../../models/cell';
 import {SharingService} from '../../../services/sharing.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-nw-grid',
@@ -53,9 +54,9 @@ export class NwGridComponent implements OnInit {
   }
 
 
+  // create grid
   createGridArray() {
     this.initialize();
-    console.log('come to create grid array');
     this.gridArray = [];
     for (let r = 0; r < this.rowCount; r++) {
       this.gridArray[r] = [];
@@ -83,6 +84,7 @@ export class NwGridComponent implements OnInit {
     console.log('created grid');
   }
 
+  // initialize values
   initialize() {
     this.String1array = [];
     this.String2array = [];
@@ -246,16 +248,40 @@ export class NwGridComponent implements OnInit {
   goToRequest() {
     let req = this.requestedStep;
     let current = this.nextDataArrayIndex;
-    if (req > current) {
+    if (req < 0) {
+      this.showMinusError();
+    }
+    else if (req > this.stringOne.length * this.stringTwo.length) {
+      this.showExcessRequestError();
+    }
+    else if (req > current) {
 
       for (let i = 0; i < req - current; i++) {
         this.nextStep();
       }
     }
-    if (req < current) {
+    else if (req < current) {
       for (let i = 0; i < current - req; i++) {
         this.previousStep();
       }
     }
+  }
+
+  // show error alert for requesting minus step
+  showMinusError() {
+    swal({
+      type: 'error',
+      title: 'Oops...',
+      text: 'Please request a non-negative step',
+    });
+  }
+
+  // show error alert for requesting step exceeding the number of steps
+  showExcessRequestError() {
+    swal({
+      type: 'error',
+      title: 'Oops...',
+      text: 'Please request a step equal or less than '.concat((this.stringOne.length * this.stringTwo.length).toString()),
+    });
   }
 }

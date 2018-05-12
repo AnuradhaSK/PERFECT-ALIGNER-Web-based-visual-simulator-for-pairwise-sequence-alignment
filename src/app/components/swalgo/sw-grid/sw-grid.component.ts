@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SharingService} from '../../../services/sharing.service';
 import {Cell} from '../../../models/cell';
+import swal from "sweetalert2";
 
 @Component({
   selector: 'app-sw-grid',
@@ -154,7 +155,7 @@ export class SwGridComponent implements OnInit {
     }
   }
 
-  // undow a step which has a pre. ref. cell
+  // undo a step which has a pre. ref. cell
   undoMatrix(row, col, val, prerow, precol) {
     console.log('update matrix');
     this.gridArray[row][col].cellvalue = val;
@@ -276,20 +277,45 @@ export class SwGridComponent implements OnInit {
     location.reload();
   }
 
+  // go to the requested step
   goToRequest() {
     let req = this.requestedStep;
     let current = this.nextDataArrayIndex;
-    if (req > current) {
+    if (req < 0) {
+      this.showMinusError();
+    }
+    else if (req > this.stringOne.length * this.stringTwo.length) {
+      this.showExcessRequestError();
+    }
+    else if (req > current) {
 
       for (let i = 0; i < req - current; i++) {
         this.nextStep();
       }
     }
-    if (req < current) {
+    else if (req < current) {
       for (let i = 0; i < current - req; i++) {
         this.previousStep();
       }
     }
+  }
+
+  // show error alert for requesting minus step
+  showMinusError() {
+    swal({
+      type: 'error',
+      title: 'Oops...',
+      text: 'Please request a non-negative step',
+    });
+  }
+
+  // show error alert for requesting step exceeding the number of steps
+  showExcessRequestError() {
+    swal({
+      type: 'error',
+      title: 'Oops...',
+      text: 'Please request a step equal or less than '.concat((this.stringOne.length * this.stringTwo.length).toString()),
+    });
   }
 
 }
