@@ -6,16 +6,26 @@
 
 <!--Menu-->
 <app-dialign-menu></app-dialign-menu>
-
+<br>
 <!--panel-->
-<app-dialign-panel *ngIf="msasharingService.getVisibility()"></app-dialign-panel>
-<!--chart-->
-<!--<app-dialign-chart *ngIf="msasharingService.getVisibility()"></app-dialign-chart>-->
 <div class="card mb-3" *ngIf="msasharingService.getVisibility()">
   <div class="card-header">
-    <i class="fa fa-area-chart"></i> Number of Aligned Character Chart</div>
+    <i class=""></i> Aligned Sequence Simulator</div>
+  <div class="card-body">
+    <app-dialign-panel></app-dialign-panel>
+  </div>
+  <div class="card-footer small text-muted"></div>
+</div>
+<!--<app-dialign-panel *ngIf="msasharingService.getVisibility()"></app-dialign-panel>-->
+<br>
+<!--chart-->
+
+<div class="card mb-3" *ngIf="msasharingService.getVisibility()">
+  <div class="card-header">
+    <i class="fa fa-bar-chart"></i> Number of Aligned Character Chart</div>
   <div class="card-body">
     <app-dialign-chart ></app-dialign-chart>
   </div>
   <div class="card-footer small text-muted"></div>
 </div>
+<!--<app-dialign-chart *ngIf="msasharingService.getVisibility()"></app-dialign-chart>-->

@@ -1,4 +1,3 @@
-<br>
 <label id="lb2">Color Scheme :</label>
 <select  class="btn btn-primary" [(ngModel)]="scheme">
   <option *ngFor="let x of colorSchemes" [value]="x.name" [selected]="scheme == x.name">{{x.name}}</option>
@@ -18,7 +17,7 @@
 
   </div>
   <!--panel body-->
-  <div class="timeline-body" style="height: 150px;" [style.width.px]="width">
+  <div class="timeline-body" style=" height: 150px;" [style.width.px]="width">
     <div class="body-item" *ngFor="let gene of geneArray">
       <span class="body-details-cell">
         <div class="detail-title" class="a">{{gene.id}}</div>
