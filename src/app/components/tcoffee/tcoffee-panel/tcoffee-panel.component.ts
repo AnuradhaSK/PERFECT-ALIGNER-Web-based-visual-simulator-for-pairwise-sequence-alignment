@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MsaSharingService} from '../../../services/msa-sharing.service';
 import {TcoffeeService} from '../../../services/tcoffee.service';
 import {SCHEMES} from '../../../models/colorscheme';
+import swal from "sweetalert2";
 
 @Component({
   selector: 'app-tcoffee-panel',
@@ -18,16 +19,15 @@ export class TcoffeePanelComponent implements OnInit {
   colorArray: any;
 
 
-  constructor(protected tcoffeeService: TcoffeeService,
-              protected msasharingService: MsaSharingService) {
+  constructor(protected msasharingService: MsaSharingService) {
   }
 
   ngOnInit() {
     this.geneArray = this.msasharingService.getPanelData();
+    swal.close();
   }
 
   // get the maximum length sequence
-
   getMaxSequenceLength() {
     for (let x of this.colorSchemes) {
       if (x.name === this.scheme) {
@@ -55,15 +55,18 @@ export class TcoffeePanelComponent implements OnInit {
 
   }
 
+  // clacluate the width of pannel
   calWidth() {
     this.width = 100 + 20 * this.maxlength;
   }
 
 
+  // return the color of each character according to the color scheme
   getColor(character) {
     console.log(typeof(character));
     console.log(this.colorArray[character]);
     return this.colorArray[character];
 
   }
+
 }

@@ -15,6 +15,7 @@ export class TcoffeeChartComponent implements OnInit {
   ngOnInit() {
   }
 
+  // characteristics of the chart
   public barChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true

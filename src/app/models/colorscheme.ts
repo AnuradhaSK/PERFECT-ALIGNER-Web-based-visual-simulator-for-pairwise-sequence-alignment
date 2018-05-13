@@ -20,6 +20,13 @@ export const SCHEMES: Colorscheme[] = [
     }
   },
   {
+    name: 'Purine', colors: {
+      A: '#FFC0CB', B: '', C: '#ADD8E6', D: '', E: '', F: '', G: '#FFC0CB', H: '',
+      I: '', J: '', K: '', L: '', M: '', N: '', O: '', P: '', Q: '',
+      R: '#FFC0CB', S: '', T: '#ADD8E6', U: '#ADD8E6', V: '', W: '', X: '', Y: '#ADD8E6', Z: ''
+    }
+  },
+  {
     name: 'No Color', colors: {
       A: '', B: '', C: '', D: '', E: '', F: '', G: '', H: '',
       I: '', J: '', K: '', L: '', M: '', N: '', O: '', P: '', Q: '',

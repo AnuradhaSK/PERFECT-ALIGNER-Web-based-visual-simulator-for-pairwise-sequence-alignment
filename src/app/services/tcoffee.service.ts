@@ -21,16 +21,13 @@ export class TcoffeeService {
     let first = true;
     for (const i in this.dataArray) {
       console.log(this.dataArray[i]);
-      /* if ((this.dataArray[i] === ' ')) {
-        continue;
-      }*/
+      // check for fasta format
       if (counter === 0 && this.dataArray[i].charAt(0) !== '>') {
-        console.log('This file is not in fasta format');
         break;
       }
       if (this.dataArray[i].charAt(0) === '>') {
         if (counter > 0) {
-          this.geneArray.push(new Gene(id, sequence));
+          this.geneArray.push(new Gene(id, sequence.trim()));
           console.log('id:'.concat(id));
           console.log('sequence:'.concat(sequence));
         }
@@ -44,12 +41,13 @@ export class TcoffeeService {
       }
       counter += 1;
     }
-    this.geneArray.push(new Gene(id, sequence));
+    this.geneArray.push(new Gene(id, sequence.trim()));
     console.log('id:'.concat(id));
     console.log('sequence:'.concat(sequence));
     return this.geneArray;
   }
 
+  // return number of aligned characters of each sequence
   alignedCharCount(geneArray: Gene[]) {
     this.chartDataArray = new Array();
     for (const gene of geneArray) {

@@ -71,3 +71,7 @@ div.a {
 div.a:hover {
   overflow: visible;
 }
+
+.mat-radio-button ~ .mat-radio-button {
+  padding-right: 16px;
+}

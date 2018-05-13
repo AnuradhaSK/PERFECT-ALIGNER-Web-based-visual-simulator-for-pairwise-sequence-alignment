@@ -4,6 +4,7 @@ import {DialignService} from '../../services/dialign.service';
 import * as FastaFileReader from 'bionode-fasta';
 import * as Fasta from 'biojs-io-fasta';
 import {MsaSharingService} from '../../services/msa-sharing.service';
+import swal from "sweetalert2";
 
 @Component({
   selector: 'app-dialign',
@@ -21,5 +22,6 @@ export class DialignComponent implements OnInit {
   ngOnInit() {
     this.msasharingService.setVisibility(false);
   }
+
 
 }

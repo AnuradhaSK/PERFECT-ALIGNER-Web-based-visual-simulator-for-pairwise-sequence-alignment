@@ -3,11 +3,11 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class MsaSharingService {
 
-  public geneArray: any;
-  public chartDataArray: any;
+  geneArray: any;
+  chartDataArray: any;
   idArray: any;
-  public schemeName: string;
-  public visible: boolean;
+  schemeName: string;
+  visible: boolean;
 
   constructor() {
   }
@@ -22,7 +22,7 @@ export class MsaSharingService {
     return this.geneArray;
   }
 
-  // returns id of sequnces
+  // returns id of sequences
   getIdArray() {
     this.idArray = new Array();
     for (const gene of this.geneArray) {
@@ -60,5 +60,6 @@ export class MsaSharingService {
   getChartData() {
     return this.chartDataArray;
   }
+
 
 }

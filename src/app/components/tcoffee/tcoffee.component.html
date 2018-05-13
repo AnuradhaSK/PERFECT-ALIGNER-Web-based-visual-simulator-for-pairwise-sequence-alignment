@@ -8,4 +8,12 @@
 <app-tcoffee-panel *ngIf="msasharingService.getVisibility()"></app-tcoffee-panel>
 
 <!--chart-->
-<app-tcoffee-chart *ngIf="msasharingService.getVisibility()"></app-tcoffee-chart>
+<div class="card mb-3" *ngIf="msasharingService.getVisibility()">
+  <div class="card-header">
+    <i class="fa fa-area-chart"></i> Number of Aligned Character Chart</div>
+  <div class="card-body">
+    <app-tcoffee-chart></app-tcoffee-chart>
+  </div>
+  <div class="card-footer small text-muted"></div>
+</div>
+<!--<app-tcoffee-chart *ngIf="msasharingService.getVisibility()"></app-tcoffee-chart>-->

@@ -1,6 +1,8 @@
 <br>
 <!--Algorithm name-->
-<div align="center"><h2>{{title|uppercase}}</h2></div>
+<div align="center"><h2>{{title|uppercase}}</h2>
+
+</div>
 
 <!--Menu-->
 <app-dialign-menu></app-dialign-menu>
@@ -8,4 +10,12 @@
 <!--panel-->
 <app-dialign-panel *ngIf="msasharingService.getVisibility()"></app-dialign-panel>
 <!--chart-->
-<app-dialign-chart *ngIf="msasharingService.getVisibility()"></app-dialign-chart>
+<!--<app-dialign-chart *ngIf="msasharingService.getVisibility()"></app-dialign-chart>-->
+<div class="card mb-3" *ngIf="msasharingService.getVisibility()">
+  <div class="card-header">
+    <i class="fa fa-area-chart"></i> Number of Aligned Character Chart</div>
+  <div class="card-body">
+    <app-dialign-chart ></app-dialign-chart>
+  </div>
+  <div class="card-footer small text-muted"></div>
+</div>

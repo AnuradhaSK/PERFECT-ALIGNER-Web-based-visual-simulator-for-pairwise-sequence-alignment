@@ -27,7 +27,7 @@ export class DialignPanelComponent implements OnInit {
   }
 
 
-  getMaxSequenceLength() {
+  getSequenceData() {
     for (let x of this.colorSchemes) {
       if (x.name === this.scheme) {
         this.obj = x;

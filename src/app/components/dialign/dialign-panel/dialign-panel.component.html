@@ -4,13 +4,14 @@
 <select  class="btn btn-primary" [(ngModel)]="scheme">
   <option *ngFor="let x of colorSchemes" [value]="x.name" [selected]="scheme == x.name">{{x.name}}</option>
 </select>
+<br>
 <div style="display: block; background: white ">
 <!--header-->
 <div class="timeline-shell" style="width: 1340px;height: 300px;" >
   <div class="timeline-header" [style.width.px]="width" >
     <span class="header-blank"></span>
 
-    <span class="header-item" *ngFor="let col of this.getMaxSequenceLength();let j=index;let e=even;let o=odd;">
+    <span class="header-item" *ngFor="let col of this.getSequenceData();let j=index;let e=even;let o=odd;">
       <div class="item-label" *ngIf="e">{{j+1}}</div>
       <div class="item-label" *ngIf="o">.</div>
     </span>

@@ -156,8 +156,8 @@ export class NwGridComponent implements OnInit {
       this.dataArray[this.nextDataArrayIndex].preRow + 1, this.dataArray[this.nextDataArrayIndex].preCol + 1);
   }
 
-  undoMatrix(row, col, val, prerow, precol) {
 
+  undoMatrix(row, col, val, prerow, precol) {
     this.gridArray[row][col].cellvalue = val;
     this.gridArray[0][col].color = false;
     this.gridArray[row][0].color = false;
@@ -245,12 +245,15 @@ export class NwGridComponent implements OnInit {
     location.reload();
   }
 
+  // direct to the requested step
   goToRequest() {
     let req = this.requestedStep;
     let current = this.nextDataArrayIndex;
+    // show error for minus value requests
     if (req < 0) {
       this.showMinusError();
     }
+    // show errors for requests which exceeds number of requests
     else if (req > this.stringOne.length * this.stringTwo.length) {
       this.showExcessRequestError();
     }

@@ -281,9 +281,11 @@ export class SwGridComponent implements OnInit {
   goToRequest() {
     let req = this.requestedStep;
     let current = this.nextDataArrayIndex;
+    // show errors for minus values
     if (req < 0) {
       this.showMinusError();
     }
+    // show errors for which exceeds the number of steps
     else if (req > this.stringOne.length * this.stringTwo.length) {
       this.showExcessRequestError();
     }

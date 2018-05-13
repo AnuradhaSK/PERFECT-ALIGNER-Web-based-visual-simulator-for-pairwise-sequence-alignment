@@ -133,6 +133,6 @@ body {
   margin: 0;
 }
 
-.collapse{
-  display: block;
+.in{
+  display: block !important;
 }

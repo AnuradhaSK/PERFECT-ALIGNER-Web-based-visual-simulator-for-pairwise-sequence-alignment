@@ -18,6 +18,7 @@ export class DialignService {
   getGeneArray(dataArray) {
     this.dataArray = dataArray;
     this.geneArray = new Array();
+
     let counter = 0;
     let id = '';
     let sequence = '';
@@ -33,9 +34,9 @@ export class DialignService {
       }
       if (this.dataArray[i].charAt(0) === '>') {
         if (counter > 0) {
-          this.geneArray.push(new Gene(id, sequence));
-          console.log('id:'.concat(id));
-          console.log('sequence:'.concat(sequence));
+          this.geneArray.push(new Gene(id, sequence.trim()));
+  /**/        console.log('id:'.concat(id));
+          console.log('sequence:'.concat(sequence.trim().length.toString()));
         }
         if (first) {
           first = false;
@@ -47,9 +48,9 @@ export class DialignService {
       }
       counter += 1;
     }
-    this.geneArray.push(new Gene(id, sequence));
+    this.geneArray.push(new Gene(id, sequence.trim()));
     console.log('id:'.concat(id));
-    console.log('sequence:'.concat(sequence));
+    console.log('sequence:'.concat(sequence.trim().length.toString()));
     return this.geneArray;
   }
 
@@ -69,5 +70,26 @@ export class DialignService {
     }
     return this.chartDataArray;
   }
+
+  /*checkFormatted(geneArray) {
+    let max = geneArray[0].sequence.length;
+    let min = geneArray[0].sequence.length;
+    for (const gene of geneArray) {
+      console.log(gene.sequence.length);
+      if (gene.sequence.length < min) {
+        min = gene.sequence.length;
+      }
+      if (gene.sequence.length > max) {
+        max = gene.sequence.length;
+      }
+    }
+    if (min === max) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }*/
+
 
 }
