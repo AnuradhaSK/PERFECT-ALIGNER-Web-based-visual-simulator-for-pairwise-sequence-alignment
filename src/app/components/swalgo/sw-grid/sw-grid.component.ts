@@ -112,6 +112,7 @@ export class SwGridComponent implements OnInit {
     console.log('next step ' + this.nextDataArrayIndex + 'next row ' + this.nextRowIndex + 'next col ' + this.nextColIndex);
     // reset exisiting colors
     this.resetColor();
+    this.resetBackgrounds();
     // update the next step values,colors
     if (this.dataArray[this.nextDataArrayIndex].preRow != null) {
       this.updateMatrix(this.nextRowIndex, this.nextColIndex, this.dataArray[this.nextDataArrayIndex].score,
@@ -119,22 +120,24 @@ export class SwGridComponent implements OnInit {
     } else {
       this.updateMatrixWithoutpre(this.nextRowIndex, this.nextColIndex, this.dataArray[this.nextDataArrayIndex].score);
     }
+    this.nextDataArrayIndex += 1;
+    this.selectImage(this.gridArray[this.nextRowIndex][this.nextColIndex]);
     if (this.nextColIndex + 1 < this.colCount) {
       this.nextColIndex += 1;
     } else {
       this.nextColIndex = 2;
       this.nextRowIndex += 1;
     }
-    this.nextDataArrayIndex += 1;
+
     if (this.nextDataArrayIndex === this.stringOne.length * this.stringTwo.length) {
       console.log('Next step came to final');
       this.stepStop = true;
-      this.resetColor();
     }
   }
 
   // functionality of the previous step
   previousStep() {
+    this.resetBackgrounds();
     this.stepStop = false;
     this.nextDataArrayIndex -= 1;
     if (this.nextDataArrayIndex < 1) {
@@ -172,6 +175,7 @@ export class SwGridComponent implements OnInit {
       if (point.preRow != null) {
         this.gridArray[point.preRow + 1][point.preCol + 1].refcolor = true;
       }
+      this.selectImage(this.gridArray[point.row + 1][point.col + 1]);
     }
   }
 
@@ -191,6 +195,7 @@ export class SwGridComponent implements OnInit {
       if (point.preRow != null) {
         this.gridArray[point.preRow + 1][point.preCol + 1].refcolor = true;
       }
+      this.selectImage(this.gridArray[point.row + 1][point.col + 1]);
     }
   }
 
@@ -205,6 +210,22 @@ export class SwGridComponent implements OnInit {
       }
     }
   }
+
+  // reset backgrounds
+  resetBackgrounds() {
+    for (const row of this.gridArray) {
+      for (const col of row) {
+        col.diag_img = false;
+        col.side_img = false;
+        col.up_img = false;
+        col.diag_side_img = false;
+        col.diag_up_img = false;
+        col.side_up_img = false;
+        col.diag_side_up_img = false;
+      }
+    }
+  }
+
 
   // update the next step values,colors wich have precell
   updateMatrix(row, col, val, prerow, precol) {
@@ -232,6 +253,7 @@ export class SwGridComponent implements OnInit {
     this.stepStop = true;
     this.noback = true;
     this.resetColor();
+    this.resetBackgrounds();
     this.fillin();
     for (let x = this.stringOne.length * this.stringTwo.length; x < this.dataArray.length - 1; x++) {
       this.colorTraceback(x);
@@ -299,6 +321,35 @@ export class SwGridComponent implements OnInit {
       for (let i = 0; i < current - req; i++) {
         this.previousStep();
       }
+    }
+  }
+
+  // select image
+  selectImage(cell) {
+    const upScore = this.dataArray[this.nextDataArrayIndex - 1].upScore;
+    const leftScore = this.dataArray[this.nextDataArrayIndex - 1].leftScore;
+    const diagonalScore = this.dataArray[this.nextDataArrayIndex - 1].diagonalScore;
+    const max = this.dataArray[this.nextDataArrayIndex - 1].score;
+    if (max === upScore && max === leftScore && max === diagonalScore) {
+      cell.diag_side_up_img = true;
+    }
+    else if (max === upScore && max === diagonalScore) {
+      cell.diag_up_img = true;
+    }
+    else if (max === leftScore && max === diagonalScore) {
+      cell.diag_side_img = true;
+    }
+    else if (max === upScore && max === leftScore) {
+      cell.side_up_img = true;
+    }
+    else if (max === upScore) {
+      cell.up_img = true;
+    }
+    else if (max === leftScore) {
+      cell.side_img = true;
+    }
+    else if (max === diagonalScore) {
+      cell.diag_img = true;
     }
   }
 

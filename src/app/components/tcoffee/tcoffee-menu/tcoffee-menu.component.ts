@@ -14,6 +14,7 @@ export class TcoffeeMenuComponent implements OnInit {
   chartDataArray: any;
   file: any;
   message = '';
+  isSample=false;
 
   constructor(protected tcoffeeService: TcoffeeService,
               protected msasharingService: MsaSharingService) {
@@ -54,6 +55,13 @@ export class TcoffeeMenuComponent implements OnInit {
         this.showError();
       }
     };
+
+  }
+
+  showSample(){
+    this.isSample=true;
+  }
+  upload(){
 
   }
 

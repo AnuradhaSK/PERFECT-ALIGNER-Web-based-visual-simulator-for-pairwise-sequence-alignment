@@ -1,100 +1,133 @@
-<!--Inputs-->
-<div class="container" style="float:left; width:60%;">
-  <div class="row">
-    <div class="col-md-4">
-      <span> String 1    : {{stringOne}}</span>
+<div class="row">
+  <div class="col-lg-7">
+    <div class="card mb-3">
+      <div class="card-header">
+        <i class=""></i> Dynamic Matrix
+      </div>
+      <div class="card-body">
+        <div id="myBarChart" width="100" height="50">
+          <!--Inputs-->
+          <div class="row">
+            <div class="col-md-4">
+              <span> String 1    : {{stringOne}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <span>  String 2    : {{stringTwo}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              Match Score : {{match}}
+            </div>
+            <div class="col-md-4">
+              Mismatch Score : {{mismatch}}
+            </div>
+            <div class="col-md-4">
+              Gap Penalty : {{gap}}
+            </div>
+          </div>
+
+          <!--Current step display-->
+          Current Step : {{nextDataArrayIndex}}
+
+          <!--Field to request a step-->
+          <input class="txt" id="request" type="number" max={{max}} min="0" name="request" [(ngModel)]="requestedStep"
+                 placeholder="Request a step">
+          <input class="btn" type="submit" [disabled]="request" [value]="reqBtn" (click)="goToRequest()">
+
+          <div clas="gridblock" style="overflow:auto; height: 500px;  width: 100%;">
+            <!--Grid-->
+            <table class="table table-bordered" cellspacing="10">
+              <tr *ngFor="let rowArray of gridArray">
+                <td *ngFor="let colData of rowArray"
+                    [ngClass]='{diagonal : (colData.diag_img), up : (colData.up_img),side : (colData.side_img),
+                 diagonal_side:(colData.diag_side_img), diagonal_up:(colData.diag_up_img), side_up:(colData.side_up_img),diagonal_side_up:(colData.diag_side_up_img)
+                 ,highlight : (colData.color), highlight2 : (colData.datacolor), highlight3 : (colData.refcolor)}'>
+                  {{colData.cellvalue}}
+
+                </td>
+              </tr>
+            </table>
+          </div>
+
+        </div>
+
+        <!--Final output-->
+        <div *ngIf="final"  clas="gridblock" style="overflow:auto; height: 200px;  width: 100%;">
+          <table class="table borderless" cellspacing="10">
+            <tr>
+              <td>S1:</td>
+              <td *ngFor="let char of resSeq1Array">{{char}}</td>
+            </tr>
+            <tr>
+              <td>S2:</td>
+              <td *ngFor="let char2 of resSeq2Array">{{char2}}</td>
+            </tr>
+          </table>
+
+        </div>
+      </div>
+
+      <div class="card-footer small text-muted"></div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-4">
-      <span>  String 2    : {{stringTwo}}</span>
+
+  <div class="col-lg-5">
+    <div class="card mb-3">
+      <div class="card-header">
+        <i class=""></i> Navigate Buttons
+      </div>
+      <div class="card-body">
+        <div id="myPieChart" width="100%" height="100">
+          <!--Control Buttons-->
+
+          <br>
+          <input type="submit" class="btn" [value]="reloadBtn" (click)="goBack()">
+          <br>
+          <input type="submit" class="btn" [value]="clearBtn" (click)="clearall()">
+          <input type="submit" class="btn" [value]="backBtn" [disabled]="noback" (click)="previousStep()">
+          <input type="submit" class="btn" [value]="stepBtn" [disabled]="stepStop" (click)="nextStep()">
+          <input type="submit" class="btn" [value]="finalBtn" [disabled]="finalStop" (click)="finalResult()">
+
+          <!--Value Calculation-->
+          <div *ngIf="!noback">
+            <table class="table borderless" cellspacing="10" syle=" overflow:auto; width:100%">
+              <tr>
+                <th>Score From Above Cell</th>
+                <td>Score of Cell({{dataArray[nextDataArrayIndex-1].row + 1}}, {{dataArray[nextDataArrayIndex-1].col +
+                  2}})+gap
+                </td>
+                <td>{{dataArray[nextDataArrayIndex-1].upScore}}</td>
+              </tr>
+              <tr>
+                <th>Score From Left Cell</th>
+                <td>Score of Cell({{dataArray[nextDataArrayIndex-1].row + 2}}, {{dataArray[nextDataArrayIndex-1].col +
+                  1}})+gap
+                </td>
+                <td>{{dataArray[nextDataArrayIndex-1].leftScore}}</td>
+              </tr>
+              <tr>
+                <th>Score From Diagonal Cell</th>
+                <td>Score of Cell({{dataArray[nextDataArrayIndex-1].row + 1}}, {{dataArray[nextDataArrayIndex-1].col +
+                  1}})+match/mismatch
+                </td>
+                <td>{{dataArray[nextDataArrayIndex-1].diagonalScore}}</td>
+              </tr>
+              <tr>
+                <th>Max Score</th>
+                <th></th>
+                <td>{{dataArray[nextDataArrayIndex-1].score}}</td>
+              </tr>
+            </table>
+          </div>
+
+        </div>
+      </div>
+      <div class="card-footer small text-muted"></div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4">
-      <span>  Match Score     : {{match}}</span>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4">
-      <span>  Mismatch Score    : {{mismatch}}</span>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4">
-      <span> Gap Penalty     : {{gap}}</span>
-    </div>
-  </div>
 
-  <!--Current step display-->
-  Current Step : {{nextDataArrayIndex}}
-
-  <!--Field to request a step-->
-  <input class="txt"id="request" type="number"  max={{max}} min="0" name="request" [(ngModel)]="requestedStep" placeholder="Request a step">
-  <input class="btn" type="submit" [disabled]="request" [value]="reqBtn" (click)="goToRequest()" >
-
-  <div clas="gridblock" style="overflow:auto; height: 500px;  width: 490px;" >
-    <!--Grid-->
-    <table class="table table-bordered" cellspacing="10">
-      <tr *ngFor="let rowArray of gridArray">
-        <td  *ngFor="let colData of rowArray"
-             [ngClass]='{highlight : (colData.color), highlight2 : (colData.datacolor), highlight3 : (colData.refcolor)}'>
-          {{colData.cellvalue}}
-
-        </td>
-      </tr>
-    </table>
-  </div>
-
-</div>
-<!--Control Buttons-->
-<div style="float:right; width: 40%">
-  <br>
-  <input type="submit" class="btn" [value]="reloadBtn" (click)="goBack()" >
-  <br>
-  <input type="submit" class="btn" [value]="clearBtn" (click)="clearall()" >
-  <input type="submit" class="btn" [value]="backBtn" [disabled] = "noback" (click)="previousStep()" >
-  <input type="submit" class="btn" [value]="stepBtn" [disabled] = "stepStop" (click)="nextStep()" >
-  <input type="submit" class="btn" [value]="finalBtn" [disabled] = "finalStop"(click)="finalResult()">
-
-  <!--Value Calculation-->
-  <div *ngIf="!noback">
-    <table class="table borderless" cellspacing="10">
-      <tr>
-        <th >Score From Above Cell</th>
-        <th >Score of Cell({{dataArray[nextDataArrayIndex-1].row + 1}}, {{dataArray[nextDataArrayIndex-1].col + 2}})+gap</th>
-        <td>{{dataArray[nextDataArrayIndex-1].upScore}}</td>
-      </tr>
-      <tr >
-        <th >Score From Left Cell</th>
-        <th >Score of Cell({{dataArray[nextDataArrayIndex-1].row + 2}}, {{dataArray[nextDataArrayIndex-1].col + 1}})+gap</th>
-        <td>{{dataArray[nextDataArrayIndex-1].leftScore}}</td>
-      </tr>
-      <tr>
-        <th >Score From Diagonal Cell</th>
-        <th >Score of Cell({{dataArray[nextDataArrayIndex-1].row + 1}}, {{dataArray[nextDataArrayIndex-1].col + 1}})+match/mismatch</th>
-        <td>{{dataArray[nextDataArrayIndex-1].diagonalScore}}</td>
-      </tr>
-      <tr>
-        <th >Max Score</th>
-        <th></th>
-        <td>{{dataArray[nextDataArrayIndex-1].score}}</td>
-      </tr>
-    </table>
-  </div>
-
-  <!--Final output-->
-  <div *ngIf="final">
-    <table class="table borderless" cellspacing="10">
-      <tr>
-        <td>S1:</td>
-        <td *ngFor="let char of resSeq1Array" >{{char}}</td>
-      </tr>
-      <tr>
-        <td>S2:</td>
-        <td *ngFor="let char2 of resSeq2Array" >{{char2}}</td>
-      </tr>
-    </table>
 
   </div>
 </div>

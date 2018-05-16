@@ -1,9 +1,10 @@
-h2{
+h2 {
   font-weight: bold;
   color: black;
 
 }
-h3{
+
+h3 {
   font-weight: bold;
   color: white;
 
@@ -23,9 +24,12 @@ h3{
   width: 22%;
 }
 
-.btn:hover{opacity:0.6;}
+.btn:hover {
+  opacity: 0.6;
+}
+
 .example-container {
-  border-radius:5px;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   background: white;
@@ -36,6 +40,7 @@ h3{
   width: 100%;
 
 }
+
 mat-grid-tile {
   background: white;
 }
@@ -46,21 +51,50 @@ table, td {
   height: 30px;
 }
 
-.highlight{
+.highlight {
   background-color: lightpink;
 }
 
-.highlight2{
-  background-color:  lightskyblue;
+.highlight2 {
+  background-color: lightskyblue;
 }
-.highlight3{
+
+.highlight3 {
   background-color: lightgreen;
 }
+
+
+.diagonal{
+  background-image: url('../../../../assets/images/diagonal.png');
+}
+
+.up{
+  background-image: url('../../../../assets/images/up.png');
+}
+
+.side{
+  background-image: url('../../../../assets/images/side.png');
+}
+
+.diagonal_side{
+  background-image: url('../../../../assets/images/diagonal+side.png');
+}
+
+.diagonal_up{
+  background-image: url('../../../../assets/images/diagonal+up.png');
+}
+
+.side_up{
+  background-image: url('../../../../assets/images/side+up.png');
+}
+.diagonal_side_up{
+  background-image: url('../../../../assets/images/diagonal+side+up.png');
+}
+
 
 .borderless td {
   border: none;
   min-width: 30px;
-
 }
 
 .borderless th {
@@ -68,17 +102,16 @@ table, td {
   border: none;
 }
 
-.gridblock::-webkit-scrollbar{
-// FIX scrollbars on Mac
--webkit-appearance: none;
+.gridblock::-webkit-scrollbar {
+/ / FIX scrollbars on Mac -webkit-appearance: none;
   width: 7px;
   height: 7px;
 }
 
-.gridblock::-webkit-scrollbar-thumb{
+.gridblock::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: rgba(0,0,0,.5);
-  box-shadow: 0 0 1px rgba(255,255,255,.5);
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 
 .txt[type="number"] {
@@ -87,7 +120,6 @@ table, td {
   padding: 10px 0 10px 5px;
   width: 30%;
 }
-
 
 /*.container{
   display: grid;
