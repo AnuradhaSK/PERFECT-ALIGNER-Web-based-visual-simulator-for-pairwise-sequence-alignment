@@ -35,7 +35,7 @@
           <!--Field to request step-->
           <input class="txt"id="request" type="number"  max={{max}} min="0" name="request" [(ngModel)]="requestedStep" placeholder="Request a step">
           <input class="btn" type="submit" [disabled]="request" [value]="reqBtn" (click)="goToRequest()" >
-          <div clas="gridblock" style="overflow:auto; height: 500px;  width: 490px;" >
+          <div clas="gridblock" style="overflow:auto; height: 500px;  width: 100%" >
             <!--Grid-->
             <table class="table table-bordered" cellspacing="10">
               <tr *ngFor="let rowArray of gridArray">
@@ -102,12 +102,13 @@
               </tr>
               <tr>
                 <th>Score From Diagonal Cell</th>
-                <td>Score of Cell({{dataArray[nextDataArrayIndex-1].row + 1}}, {{dataArray[nextDataArrayIndex-1].col + 1}})+match/mismatch</td>
+                <td><span>Score of Cell({{dataArray[nextDataArrayIndex-1].row + 1}}, {{dataArray[nextDataArrayIndex-1].col + 1}})</span>
+                  <span>+match/mismatch</span></td>
                 <td>{{dataArray[nextDataArrayIndex-1].diagonalScore}}</td>
               </tr>
               <tr>
                 <th  style="min-width: 100px;">Max Score</th>
-                <td  style="min-width: 100px;"></td>
+                <td>Score of Cell({{dataArray[nextDataArrayIndex-1].row + 2}}, {{dataArray[nextDataArrayIndex-1].col + 2}})</td>
                 <td>{{dataArray[nextDataArrayIndex-1].score}}</td>
               </tr>
             </table>

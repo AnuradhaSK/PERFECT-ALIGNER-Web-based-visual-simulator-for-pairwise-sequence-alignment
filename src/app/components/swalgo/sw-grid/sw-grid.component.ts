@@ -96,6 +96,7 @@ export class SwGridComponent implements OnInit {
     for (let r = 2; r < this.rowCount; r++) {
       this.gridArray[r][0].cellvalue = this.String2array[r];
     }
+    this.gridArray[0][0].cellvalue = 'D(1,1)';
     this.gridArray[1][1].cellvalue = '0';
     for (let cp = 2; cp < this.colCount; cp++) {
       this.gridArray[1][cp].cellvalue = (parseInt('0', 10) * (cp - 1)).toString();

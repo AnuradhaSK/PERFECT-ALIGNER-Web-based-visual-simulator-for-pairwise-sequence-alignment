@@ -110,14 +110,15 @@
               </tr>
               <tr>
                 <th>Score From Diagonal Cell</th>
-                <td>Score of Cell({{dataArray[nextDataArrayIndex-1].row + 1}}, {{dataArray[nextDataArrayIndex-1].col +
-                  1}})+match/mismatch
+                <td><span>Score of Cell({{dataArray[nextDataArrayIndex-1].row + 1}}, {{dataArray[nextDataArrayIndex-1].col +
+                  1}})</span>
+                  <span>+match/mismatch</span>
                 </td>
                 <td>{{dataArray[nextDataArrayIndex-1].diagonalScore}}</td>
               </tr>
               <tr>
                 <th>Max Score</th>
-                <th></th>
+                <td>Score of Cell({{dataArray[nextDataArrayIndex-1].row + 2}}, {{dataArray[nextDataArrayIndex-1].col + 2}})</td>
                 <td>{{dataArray[nextDataArrayIndex-1].score}}</td>
               </tr>
             </table>
