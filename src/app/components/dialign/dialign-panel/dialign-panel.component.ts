@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {DialignService} from '../../../services/dialign.service';
 import {MsaSharingService} from '../../../services/msa-sharing.service';
 import { SCHEMES} from '../../../models/colorscheme';
 
@@ -27,6 +26,7 @@ export class DialignPanelComponent implements OnInit {
   }
 
 
+  // return sequence data to create pannel
   getSequenceData() {
     for (let x of this.colorSchemes) {
       if (x.name === this.scheme) {
@@ -54,14 +54,16 @@ export class DialignPanelComponent implements OnInit {
 
   }
 
+  // calculate the width of the pannel
   calWidth() {
     this.width = 100 + 20 * this.maxlength;
   }
 
+  // return color for each character according to the color scheme
   getColor(character) {
-    console.log(typeof(character));
+    //console.log(typeof(character));
     // console.log(this.colorArray);
-    console.log(this.colorArray[character]);
+    //console.log(this.colorArray[character]);
     return this.colorArray[character];
   }
 

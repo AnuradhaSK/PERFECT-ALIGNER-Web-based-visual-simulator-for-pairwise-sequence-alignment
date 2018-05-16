@@ -17,13 +17,9 @@ class NwGridStubComponent {
 describe('NwalgoComponent', () => {
   let component: NwalgoComponent;
   let fixture: ComponentFixture<NwalgoComponent>;
-  // let sharingServiceStub: Partial<SharingService>;
 
   beforeEach(async(() => {
-    // stub SharingService for test purposes
-    /*sharingServiceStub = {
-      setVisibility(param) {},
-    };*/
+
     TestBed.configureTestingModule({
       declarations: [NwalgoComponent,
         NwFormStubComponent,
@@ -37,7 +33,6 @@ describe('NwalgoComponent', () => {
     component = fixture.componentInstance;
     // UserService from the root injector
     const sharingService = TestBed.get(SharingService);
-    // sharingServiceStub.setVisibility(false);
     fixture.detectChanges();
   }));
 

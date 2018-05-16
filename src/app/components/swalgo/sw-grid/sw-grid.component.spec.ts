@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SwGridComponent } from './sw-grid.component';
+import {Cell} from '../../../models/cell';
+import {SharingMock} from '../../../../mock';
+import {SharingService} from '../../../services/sharing.service';
 
 describe('SwGridComponent', () => {
   let component: SwGridComponent;
@@ -8,7 +11,9 @@ describe('SwGridComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SwGridComponent ]
+      imports:[],
+      declarations: [ SwGridComponent,Cell],
+      providers: [{provide: SharingService, useClass: SharingMock}]
     })
     .compileComponents();
   }));
@@ -19,7 +24,7 @@ describe('SwGridComponent', () => {
     fixture.detectChanges();
   });
 
-  /*it('should create', () => {
+  it('should create sw-grid component', () => {
     expect(component).toBeTruthy();
-  });*/
+  });
 });

@@ -29,6 +29,7 @@ export class DialignChartComponent implements OnInit {
 
   // events
   public chartClicked(e: any): void {
+
     console.log(e);
   }
 

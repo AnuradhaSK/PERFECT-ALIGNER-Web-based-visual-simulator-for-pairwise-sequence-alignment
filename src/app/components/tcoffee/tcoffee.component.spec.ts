@@ -9,6 +9,9 @@ class TcoffeeMenuStubComponent {}
 @Component({selector: 'app-tcoffee-panel', template: ''})
 class TcoffeePanelStubComponent {}
 
+@Component({selector: 'app-tcoffee-chart', template: ''})
+class TcoffeeChartStubComponent {}
+
 describe('TcoffeeComponent', () => {
   let component: TcoffeeComponent;
   let fixture: ComponentFixture<TcoffeeComponent>;
@@ -19,7 +22,8 @@ describe('TcoffeeComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ TcoffeeComponent,
         TcoffeeMenuStubComponent,
-        TcoffeePanelStubComponent
+        TcoffeePanelStubComponent,
+        TcoffeeChartStubComponent
       ],
       providers: [ MsaSharingService]
       // providers: [{provide: MsaSharingService, useValue: msasharingServiceStub}]
@@ -33,5 +37,10 @@ describe('TcoffeeComponent', () => {
 
   it('should create tcoffee component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render title in h2 tag', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h2').textContent).toContain('T-COFFEE');
   });
 });

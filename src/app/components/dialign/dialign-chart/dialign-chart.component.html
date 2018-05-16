@@ -2,8 +2,8 @@
 <br>
 <!--chart-->
 <div style="background: white;">
-  <!--<div style="display: block; height: 150px; overflow-x: auto;">-->
-    <canvas id="myAreaChart" width="100%" height="30"baseChart
+
+    <canvas id="myAreaChart" width="100%" height="30" baseChart
             [datasets]="barChartData"
             [labels]="barChartLabels"
             [options]="barChartOptions"
@@ -11,6 +11,6 @@
             [chartType]="barChartType"
             (chartHover)="chartHovered($event)"
             (chartClick)="chartClicked($event)"></canvas>
-  <!--</div>-->
+
 
 </div>

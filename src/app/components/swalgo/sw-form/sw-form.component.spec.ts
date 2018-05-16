@@ -37,4 +37,9 @@ describe('SwFormComponent', () => {
   it('should create SwForm Component', () => {
     expect(component).toBeTruthy();
   });
+  it('should have showGrid function', () => {
+    // let temp=fixture.debugElement.injector.get(SwFormComponent);
+    //expect(temp.showGrid()).toBeTruthy();
+    expect(component.showGrid).toBeTruthy();
+  });
 });

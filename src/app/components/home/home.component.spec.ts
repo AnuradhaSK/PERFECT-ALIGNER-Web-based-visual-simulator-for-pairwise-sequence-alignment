@@ -31,6 +31,11 @@ describe('HomeComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h3').textContent).toContain('Sequence Alignment Algorithms');
   });
+  it('should render algo name in h4 tag', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h4').textContent).toContain('Needleman-Wunsch');
+  });
+
 
   it('should have a link to Needleman-Wunch Algo', () => {
     const debugElements = fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));

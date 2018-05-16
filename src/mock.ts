@@ -10,21 +10,39 @@ export class SharingMock {
   match = '1';
   mismatch = '-1';
   gap = '-1';
+  visibility = true;
 
 
   public getStringOne(): any {
     return this.stringOne;
   }
+
   public getStringTwo(): any {
     return this.stringTwo;
   }
+
   public getMatch(): any {
     return this.match;
   }
+
   public getMismatch(): any {
     return this.mismatch;
   }
+
   public getGap(): any {
     return this.gap;
   }
+
+  public getVisibility(): any {
+    return this.visibility;
+  }
+}
+
+export class MsaSharingMock {
+  visibility = true;
+
+  public getVisibility(): any {
+    return this.visibility;
+  }
+
 }

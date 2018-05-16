@@ -5,6 +5,7 @@ import {NwFormComponent} from './nw-form.component';
 import {SharingService} from '../../../services/sharing.service';
 import {NwalgoService} from '../../../services/nwalgo.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {By} from '@angular/platform-browser';
 
 describe('NwFormComponent', () => {
   let component: NwFormComponent;
@@ -13,7 +14,7 @@ describe('NwFormComponent', () => {
   let nwalgoServiceStub: Partial<NwalgoService>;
   beforeEach(async(() => {
     // stub SharingService for test purposes
-   sharingServiceStub = {};
+    sharingServiceStub = {};
     // stub NwAlgoService for test purposes
     nwalgoServiceStub = {};
     TestBed.configureTestingModule({
@@ -21,7 +22,7 @@ describe('NwFormComponent', () => {
         HttpClientTestingModule],
       declarations: [NwFormComponent],
       providers: [{provide: SharingService, useValue: sharingServiceStub},
-        {provide: NwalgoService, useValue:  nwalgoServiceStub}
+        {provide: NwalgoService, useValue: nwalgoServiceStub}
       ]
     });
     fixture = TestBed.createComponent(NwFormComponent);
@@ -36,4 +37,9 @@ describe('NwFormComponent', () => {
   it('should create NwForm component', () => {
     expect(component).toBeTruthy();
   });
+  it('should have showGrid function', () => {
+    expect(component.showGrid).toBeTruthy();
+  });
+
+
 });

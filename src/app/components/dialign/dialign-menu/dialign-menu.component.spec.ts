@@ -33,4 +33,13 @@ describe('DialignMenuComponent', () => {
   it('should create DialignMenu Component', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have fileChanged function', () => {
+    expect(component.fileChanged).toBeTruthy();
+  });
+
+  it('should have uploadDocument function', () => {
+    expect(component.uploadDocument).toBeTruthy();
+  });
 });
+

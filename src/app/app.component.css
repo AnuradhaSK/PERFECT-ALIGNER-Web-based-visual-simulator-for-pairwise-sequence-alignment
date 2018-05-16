@@ -5,6 +5,7 @@
 
 .jumbotron{
   background-color: #0d1f42;
+  /*background-image: url('../assets/images/headerbg.jpg');*/
   height:auto;
   font-size: 50px;
   padding: 1px;

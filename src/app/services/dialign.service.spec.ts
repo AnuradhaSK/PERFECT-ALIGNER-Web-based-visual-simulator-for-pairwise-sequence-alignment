@@ -35,4 +35,13 @@ describe('DialignService', () => {
     expect(result).toContain('6');
     expect(result).toContain('5');
   });
+
+  it('should have getGeneArray function', () => {
+    expect(service.getGeneArray).toBeTruthy();
+  });
+
+  it('should have alignedCharCount function', () => {
+    expect(service.alignedCharCount).toBeTruthy();
+  });
+
 });

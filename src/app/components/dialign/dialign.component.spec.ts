@@ -9,6 +9,9 @@ class DialignMenuStubComponent {}
 @Component({selector: 'app-dialign-panel', template: ''})
 class DialignPanelStubComponent {}
 
+@Component({selector: 'app-dialign-chart', template: ''})
+class DialignChartStubComponent {}
+
 describe('DialignComponent', () => {
   let component: DialignComponent;
   let fixture: ComponentFixture<DialignComponent>;
@@ -16,7 +19,8 @@ describe('DialignComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ DialignComponent,
         DialignMenuStubComponent,
-        DialignPanelStubComponent
+        DialignPanelStubComponent,
+        DialignChartStubComponent
       ],
       providers: [ MsaSharingService]
     })
@@ -31,8 +35,8 @@ describe('DialignComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  /*it('should render title in h2 tag', () => {
+  it('should render title in h2 tag', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h2').textContent).toContain('DIALIGN');
-  });*/
+  });
 });

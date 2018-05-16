@@ -26,4 +26,8 @@ describe('NwalgoService', () => {
       expect(data).toEqual(dummyData);
     });
   });
+
+  it('should have _get function', () => {
+    expect(service._get).toBeTruthy();
+  });
 });

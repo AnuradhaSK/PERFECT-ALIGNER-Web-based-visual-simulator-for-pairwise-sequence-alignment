@@ -37,4 +37,12 @@ describe('TcoffeeService', () => {
     expect(result).toContain('7');
     expect(result).toContain('6');
   });
+
+  it('should have getGeneArray function', () => {
+    expect(service.getGeneArray).toBeTruthy();
+  });
+
+  it('should have alignedCharCount function', () => {
+    expect(service.alignedCharCount).toBeTruthy();
+  });
 });
