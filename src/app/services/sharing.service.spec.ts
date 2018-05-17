@@ -1,7 +1,6 @@
 import {TestBed, inject} from '@angular/core/testing';
 
 import {SharingService} from './sharing.service';
-import {SharingMock} from '../../mock';
 
 describe('SharingService', () => {
   let service: SharingService;

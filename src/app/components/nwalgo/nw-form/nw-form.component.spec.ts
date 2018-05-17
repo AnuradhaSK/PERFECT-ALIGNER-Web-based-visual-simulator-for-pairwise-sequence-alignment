@@ -40,6 +40,9 @@ describe('NwFormComponent', () => {
   it('should have showGrid function', () => {
     expect(component.showGrid).toBeTruthy();
   });
-
+  it('should render form name in h4 tag', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h4').textContent).toContain('Input for alignment');
+  });
 
 });

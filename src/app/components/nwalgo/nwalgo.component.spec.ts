@@ -26,7 +26,6 @@ describe('NwalgoComponent', () => {
         NwGridStubComponent
       ],
       providers: [ SharingService
-      /*providers: [{provide: SharingService, useValue: sharingServiceStub}*/
       ]
     });
     fixture = TestBed.createComponent(NwalgoComponent);
@@ -39,5 +38,10 @@ describe('NwalgoComponent', () => {
 
   it('should create nwalgo component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render algo name in h2 tag', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h2').textContent).toContain('NEEDLEMAN-WUNSCH');
   });
 });

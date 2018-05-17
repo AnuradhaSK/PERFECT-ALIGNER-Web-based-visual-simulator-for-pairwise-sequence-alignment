@@ -136,3 +136,7 @@ body {
 .in{
   display: block !important;
 }
+p{
+  font-size: 12px;
+  font-family: 'Open Sans', verdana, arial, sans-serif;
+}

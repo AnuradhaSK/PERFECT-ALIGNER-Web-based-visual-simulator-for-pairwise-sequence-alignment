@@ -36,4 +36,9 @@ describe('SwalgoComponent', () => {
   it('should create swalgo component', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render algo name in h2 tag', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h2').textContent).toContain('SMITH-WATERMAN');
+  });
 });

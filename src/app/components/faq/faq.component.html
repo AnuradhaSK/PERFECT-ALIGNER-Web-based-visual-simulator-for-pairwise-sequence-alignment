@@ -8,7 +8,6 @@
         <a href="#tab3" class="list-group-item" role="tab" data-toggle="tab"><i class="mdi mdi-account-settings"></i> Smith-Waterman</a>
         <a href="#tab4" class="list-group-item" role="tab" data-toggle="tab"><i class="mdi mdi-star"></i> T-Coffee</a>
         <a href="#tab5" class="list-group-item" role="tab" data-toggle="tab"><i class="mdi mdi-cart"></i> Dialign</a>
-        <a href="#tab6" class="list-group-item" role="tab" data-toggle="tab"><i class="mdi mdi-heart"></i> Bioinformatics</a>
       </div>
     </ul>
   </div>
@@ -17,70 +16,78 @@
       <div class="tab-pane active" id="tab1">
         <div class="panel-group" id="help-accordion-1">
           <div class="panel panel-default panel-help">
+            <a href="#opret-kampagne" data-toggle="collapse" data-parent="#help-accordion-1" role="button" aria-expanded="false" aria-controls="slet-produkt opret-kampagne opret-produkt rediger-produkt ret-pris">
+              <div class="panel-heading">
+                <h2>What is this website?</h2>
+              </div>
+            </a>
+            <div id="opret-kampagne" class="collapse">
+              <div class="panel-body">
+                <p>This is a web based visual simulator to simulate the alignments of gene sequences.
+                  Four algorithms are used for alignment and tqo of them are PSA and two of them are MSA.
+                  Needleman-Wunsch and Smith waterman algorithms are used for PSA. The dynamic programming steps and the final alignment
+                  are visualised for PSA.
+                  T-coffee and dialign algorithms are used for MSA. The final alignment is displayed on a pannel and the number of ligned characters are
+                  visualized on a chart.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default panel-help">
             <a href="#opret-produkt" data-toggle="collapse"  data-parent="#help-accordion-1" role="button" aria-expanded="false" aria-controls="slet-produkt opret-kampagne opret-produkt rediger-produkt ret-pris" >
               <div class="panel-heading">
-                <h2>What is this site?</h2>
+                <h2>What is Bioinformatics?</h2>
               </div>
             </a>
             <div id="opret-produkt" class="collapse" >
               <div class="panel-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus nesciunt ut officiis accusantium quisquam minima praesentium, beatae fugit illo nobis fugiat adipisci quia distinctio repellat culpa saepe, optio aperiam est!</p>
-                <p><strong>Example: </strong>Facere, id excepturi iusto aliquid beatae delectus nemo enim, ad saepe nam et.</p>
+                <p>Bioinformatics is an interdisciplinary field that develops methods and software tools for understanding biological data.</p>
+                <p><strong>More info: </strong><a href="https://en.wikipedia.org/wiki/Bioinformatics"><i>https://en.wikipedia.org/wiki/Bioinformatics</i></a></p>
               </div>
             </div>
           </div>
           <div class="panel panel-default panel-help">
             <a href="#rediger-produkt" data-toggle="collapse"  data-parent="#help-accordion-1" role="button" aria-expanded="false" aria-controls="slet-produkt opret-kampagne opret-produkt rediger-produkt ret-pris">
               <div class="panel-heading">
-                <h2>How do I upload a new profile picture?</h2>
+                <h2>What is sequence alignment?</h2>
               </div>
             </a>
             <div id="rediger-produkt" class="collapse"    >
               <div class="panel-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus nesciunt ut officiis accusantium quisquam minima praesentium, beatae fugit illo nobis fugiat adipisci quia distinctio repellat culpa saepe, optio aperiam est!</p>
-                <p><strong>Example: </strong>Facere, id excepturi iusto aliquid beatae delectus nemo enim, ad saepe nam et.</p>
+                <p>Sequence alignment is a way of arranging the sequences of DNA, RNA, or protein to identify regions of similarity that may be a consequence of functional, structural, or evolutionary relationships between the sequences.</p>
+                <p><strong>More info: </strong><a href="https://en.wikipedia.org/wiki/Sequence_alignment"><i>https://en.wikipedia.org/wiki/Sequence_alignment</i></a></p>
               </div>
             </div>
           </div>
           <div class="panel panel-default panel-help">
             <a href="#ret-pris" data-toggle="collapse"  data-parent="#help-accordion-1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="slet-produkt opret-kampagne opret-produkt rediger-produkt ret-pris">
               <div class="panel-heading">
-                <h2>Can I change my phone number?</h2>
+                <h2>What is PSA?</h2>
               </div>
             </a>
             <div id="ret-pris" class="collapse">
               <div class="panel-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus nesciunt ut officiis accusantium quisquam minima praesentium, beatae fugit illo nobis fugiat adipisci quia distinctio repellat culpa saepe, optio aperiam est!</p>
-                <p><strong>Example: </strong>Facere, id excepturi iusto aliquid beatae delectus nemo enim, ad saepe nam et.</p>
+                <p>PSA stands for Pairwise Sequence Alignment.Pairwise sequence alignment methods are used to find the best-matching piecewise (local or global) alignments of two query sequences. Pairwise alignments can only be used between two sequences at a time, but they are efficient to calculate and are often used for methods that do not require extreme precision (such as searching a database for sequences with high similarity to a query). The three primary methods of producing pairwise
+                  alignments are dot-matrix methods, dynamic programming, and word methods</p>
+                <p><strong>More info: </strong><a href="https://en.wikipedia.org/wiki/Sequence_alignment#Pairwise_alignment"><i>https://en.wikipedia.org/wiki/Sequence_alignment#Pairwise_alignment</i></a></p>
               </div>
             </div>
           </div>
           <div class="panel panel-default panel-help">
             <a href="#slet-produkt" data-toggle="collapse" data-parent="#help-accordion-1" role="button" aria-expanded="false" aria-controls="slet-produkt opret-kampagne opret-produkt rediger-produkt ret-pris">
               <div class="panel-heading">
-                <h2>Where do I change my privacy settings?</h2>
+                <h2>What is MSA?</h2>
               </div>
             </a>
             <div id="slet-produkt" class="collapse">
               <div class="panel-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus nesciunt ut officiis accusantium quisquam minima praesentium, beatae fugit illo nobis fugiat adipisci quia distinctio repellat culpa saepe, optio aperiam est!</p>
-                <p><strong>Example: </strong>Facere, id excepturi iusto aliquid beatae delectus nemo enim, ad saepe nam et.</p>
+                <p>MSA stands for Multiple Sequence Alignment.Multiple sequence alignment is an extension of pairwise alignment to incorporate more than two sequences at a time. Multiple alignment methods try to align all of the sequences in a given query set. Multiple alignments are often used in identifying conserved sequence
+                  regions across a group of sequences hypothesized to be evolutionarily related. </p>
+                <p><strong>More info: </strong><a href="https://en.wikipedia.org/wiki/Sequence_alignment#Multiple_sequence_alignment"><i></i></a></p>
               </div>
             </div>
           </div>
-          <div class="panel panel-default panel-help">
-            <a href="#opret-kampagne" data-toggle="collapse" data-parent="#help-accordion-1" role="button" aria-expanded="false" aria-controls="slet-produkt opret-kampagne opret-produkt rediger-produkt ret-pris">
-              <div class="panel-heading">
-                <h2>What is this?</h2>
-              </div>
-            </a>
-            <div id="opret-kampagne" class="collapse">
-              <div class="panel-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus nesciunt ut officiis accusantium quisquam minima praesentium, beatae fugit illo nobis fugiat adipisci quia distinctio repellat culpa saepe, optio aperiam est!</p>
-                <p><strong>Example: </strong>Facere, id excepturi iusto aliquid beatae delectus nemo enim, ad saepe nam et.</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
       <div class="tab-pane" id="tab2">
@@ -88,16 +95,180 @@
           <div class="panel panel-default panel-help">
             <a href="#help-three" data-toggle="collapse" data-parent="#help-accordion-2"  >
               <div class="panel-heading">
-                <h2>Lorem ipsum?</h2>
+                <h2>What is Needleman-Wunsch?</h2>
               </div>
             </a>
             <div id="help-three" class="collapse"     >
               <div class="panel-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus nesciunt ut officiis accusantium quisquam minima praesentium, beatae fugit illo nobis fugiat adipisci quia distinctio repellat culpa saepe, optio aperiam est!</p>
-                <p><strong>Example: </strong>Facere, id excepturi iusto aliquid beatae delectus nemo enim, ad saepe nam et.</p>
+                <p>The Needleman–Wunsch algorithm is an algorithm used in bioinformatics to align protein or nucleotide sequences. It was one of the first applications of dynamic programming to compare biological sequences.
+                  The algorithm was developed by Saul B. Needleman and Christian D. Wunsch and published in 1970.</p>
+                <p><strong>More info: </strong><a href="https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm"><i>https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm</i></a></p>
               </div>
             </div>
           </div>
+          <div class="panel panel-default panel-help">
+            <a href="#opret-kampagne-2" data-toggle="collapse" data-parent="#help-accordion-2" role="button" aria-expanded="false" aria-controls="slet-produkt opret-kampagne opret-produkt rediger-produkt ret-pris">
+              <div class="panel-heading">
+                <h2>The process of Needleman-Wunsch Component?</h2>
+              </div>
+            </a>
+            <div id="opret-kampagne-2" class="collapse">
+              <div class="panel-body">
+                <p>Select NEEDLEMAN-WUNSCH algorithm from Home</p>
+                <p>Complete the 'Inputs for alignment' form</p>
+                <p><strong>Example: </strong>String1 : GCAT, String2 : GGGTAG, Match Score :1 , Mismatch Score:-1 Gap : -1</p>
+                <p>Click <i>'ALIGN'</i> button</p>
+                <p>Cick <i>'NEXT STEP'</i> button to proceed step by step</p>
+                <p>Click <i>'PREVIOUS STEP' button to go to previous steps</i></p>
+                <p>Click <i>'FINAL ALIGNMENT'</i> button see the final alignment</p>
+                <p>Click <i>'CLEAR GRID'</i> button to clear the grid</p>
+                <p>Enter a required valid step and Click <i>'REQUEST'</i> button to go to the required step</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default panel-help">
+            <a href="#opret-kampagne-3" data-toggle="collapse" data-parent="#help-accordion-2" role="button" aria-expanded="false" aria-controls="slet-produkt opret-kampagne opret-produkt rediger-produkt ret-pris">
+              <div class="panel-heading">
+                <h2>Choosing a scoring systetm?</h2>
+              </div>
+            </a>
+            <div id="opret-kampagne-3" class="collapse">
+              <div class="panel-body">
+                <p>The letters may match, mismatch, or be matched to a gap (a deletion or insertion (indel):</p>
+                <p>Match: The two letters at the current index the same.</p>
+                <p>Mismatch: The two letters at the current index are different.</p>
+                  <p>Indel (INsertion or DELetion): The best alignment involves one letter aligning to a gap in the other string.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default panel-help">
+            <a href="#opret-kampagne-4" data-toggle="collapse" data-parent="#help-accordion-2" role="button" aria-expanded="false" aria-controls="slet-produkt opret-kampagne opret-produkt rediger-produkt ret-pris">
+              <div class="panel-heading">
+                <h2>The method of filling the table?</h2>
+              </div>
+            </a>
+            <div id="opret-kampagne-4" class="collapse">
+              <div class="panel-body">
+                <p>Start with a zero in the second row, second column. Move through the cells row by row, calculating the score for each cell.
+                  The score is calculated by comparing the scores of the cells neighboring to the left, top or top-left (diagonal) of the cell and adding the appropriate score for match, mismatch or indel. Calculate the candidate scores for each of the three possibilities:</p>
+
+                <p>The path from the top or left cell represents an indel pairing, so take the score of the left and the top cell, and add the score for indel to each of them.</p>
+                <p>The diagonal path represents a match/mismatch, so take the score of the top-left diagonal cell and add the score for match if the corresponding bases in the row and column are matching or the score for mismatch if they do not.</p>
+                  <p>The resulting score for the cell is the highest of the three candidate scores.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="tab3">
+        <div class="panel-group" id="help-accordion-3">
+          <div class="panel panel-default panel-help">
+            <a href="#help3" data-toggle="collapse" data-parent="#help-accordion-3"  >
+              <div class="panel-heading">
+                <h2>What is Smith-Waterman?</h2>
+              </div>
+            </a>
+            <div id="help3" class="collapse">
+              <div class="panel-body">
+                <p>The Smith–Waterman algorithm performs local sequence alignment; that is, for determining similar regions between two strings of nucleic acid sequences or protein sequences. Instead of looking at the entire sequence,
+                  the Smith–Waterman algorithm compares segments of all possible lengths and optimizes the similarity measure</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default panel-help">
+            <a href="#help4" data-toggle="collapse" data-parent="#help-accordion-3"  role="button" aria-expanded="false" aria-controls="slet-produkt opret-kampagne opret-produkt rediger-produkt ret-pris" >
+              <div class="panel-heading">
+                <h2>The process of Smith-Waterman Component?</h2>
+              </div>
+            </a>
+            <div id="help4" class="collapse">
+              <div class="panel-body">
+                <p>Select SMITH-WATERMAN algorithm from Home</p>
+                <p>Complete the 'Inputs for alignment' form</p>
+                <p><strong>Example: </strong>String1 : GCAT, String2 : GGGTAG, Match Score :1 , Mismatch Score:-1 Gap : -1</p>
+                <p>Click <i>'ALIGN'</i> button</p>
+                <p>Cick <i>'NEXT STEP'</i> button to proceed step by step</p>
+                <p>Click <i>'PREVIOUS STEP' button to go to previous steps</i></p>
+                <p>Click <i>'FINAL ALIGNMENT'</i> button see the final alignment</p>
+                <p>Click <i>'CLEAR GRID'</i> button to clear the grid</p>
+                <p>Enter a required valid step and Click <i>'REQUEST'</i> button to go to the required step</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="tab4">
+        <div class="panel-group" id="help-accordion4">
+          <div class="panel panel-default panel-help">
+            <a href="#help-three-1" data-toggle="collapse" data-parent="#help-accordion-4"  >
+              <div class="panel-heading">
+                <h2>What is T-cofee?</h2>
+              </div>
+            </a>
+            <div id="help-three-1" class="collapse"     >
+              <div class="panel-body">
+                <p>T-Coffee (Tree-based Consistency
+                  Objective Function for Alignment Evaluation) is a multiple sequence alignment software using a progressive approach.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default panel-help">
+            <a href="#opret-kampagne-6" data-toggle="collapse" data-parent="#help-accordion-4" role="button" aria-expanded="false" aria-controls="slet-produkt opret-kampagne opret-produkt rediger-produkt ret-pris">
+              <div class="panel-heading">
+                <h2>The process of T-Coffee Component?</h2>
+              </div>
+            </a>
+            <div id="opret-kampagne-6" class="collapse">
+              <div class="panel-body">
+                <p>Select T-COFFEE algorithm from Home</p>
+                <p>Choose a <i>fasta file</i> which contains aligned sequence file using T-coffe algorithm . Use<a href="http://tcoffee.crg.cat/apps/tcoffee/do:expresso">http://tcoffee.crg.cat/apps/tcoffee/do:expresso</a> (T-Cofee server) to get the aligned file</p>
+                <p>Upload the file by clicking <i>'Upload'</i> button.</p>
+                <p>Click <i>'Help'</i> button for more clarifications</p>
+                <p>Aligned sequences will display on the pannel</p>
+                <p>Cick <i>'Color scheme'</i> button to change the color scheme.</p>
+                <p>No. of aligned charaters of each row is displayed on the chart</p>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="tab-pane" id="tab5">
+        <div class="panel-group" id="help-accordion5">
+          <div class="panel panel-default panel-help">
+            <a href="#help-three-2" data-toggle="collapse" data-parent="#help-accordion-5"  >
+              <div class="panel-heading">
+                <h2>What is Dialign?</h2>
+              </div>
+            </a>
+            <div id="help-three-2" class="collapse"     >
+              <div class="panel-body">
+                <p>DIALIGN is an alignment program that relies on comparison of whole segments of the sequences instead of comparison of single residue. Several versions available are Anchored DIALIGN,
+                  CHAOS-DIALIGN, DIALIGN-TX, DIALIGN-PFAM</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default panel-help">
+            <a href="#opret-kampagne-7" data-toggle="collapse" data-parent="#help-accordion-5" role="button" aria-expanded="false" aria-controls="slet-produkt opret-kampagne opret-produkt rediger-produkt ret-pris">
+              <div class="panel-heading">
+                <h2>The process of Dialign Component?</h2>
+              </div>
+            </a>
+            <div id="opret-kampagne-7" class="collapse">
+              <div class="panel-body">
+                <p>Select DIALIGN algorithm from Home</p>
+                <p>Choose a <i>fasta file</i> which contains aligned sequence file using Dialign algorithm . Use<a href="http://dialign.gobics.de/">http://dialign.gobics.de/</a> (Dialign Home) to get the aligned file</p>
+                <p>Upload the file by clicking <i>'Upload'</i> button.</p>
+                <p>Click <i>'Help'</i> button for more clarification</p>
+                <p>Aligned sequences will display on the pannel</p>
+                <p>Cick <i>'Color scheme'</i> button to change the color scheme.</p>
+                <p>No. of aligned charaters of each row is displayed on the chart</p>
+
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

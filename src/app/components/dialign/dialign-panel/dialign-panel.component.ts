@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MsaSharingService} from '../../../services/msa-sharing.service';
 import { SCHEMES} from '../../../models/colorscheme';
+import swal from "sweetalert2";
 
 
 @Component({
@@ -23,6 +24,7 @@ export class DialignPanelComponent implements OnInit {
 
   ngOnInit() {
     this.geneArray = this.msasharingService.getPanelData();
+    swal.close();
   }
 
 
@@ -61,9 +63,6 @@ export class DialignPanelComponent implements OnInit {
 
   // return color for each character according to the color scheme
   getColor(character) {
-    //console.log(typeof(character));
-    // console.log(this.colorArray);
-    //console.log(this.colorArray[character]);
     return this.colorArray[character];
   }
 

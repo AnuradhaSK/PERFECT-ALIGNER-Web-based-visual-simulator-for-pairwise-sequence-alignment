@@ -1,43 +1,43 @@
 <!--menu-->
 <br>
-<div class="row">
+
   <div class="col-lg-6">
 
     <label id="lbl">Fasta File :</label>
     <input type='file' (change)="fileChanged($event)">
 
     <button type="button" class="btn btn-primary"
-            (click)="uploadDocument(file);">Upload File</button>
+            (click)="uploadDocument(file);">Upload File
+    </button>
 
     <button mat-fab color="primary" (click)="showHelpBox()">Help</button>
 
   </div>
- <!-- <div  class="col-lg-6">
+
+ <!-- <div class="col-lg-6">
 
     <div class='link' onclick="this.showSample()">Use the sample code</div>
     <div class="row" id="textarea" *ngIf="true">
       <div class="col-lg-6">
-      <textarea rows="4" cols="50" style="overflow: auto">
-     >seq1
-        MKLJMKLKIJ
+      <textarea  rows="4" cols="50" style="overflow: auto" readonly>
+        >seq1
+        ABCDEFGHIJ
         >seq2
-        NGHBJYLKMN
+        MKNLHJBYGH
         >seq3
-        FRDGTBHGDC
+        ASEFTGVCFD
       </textarea>
       </div>
       <div class="col-lg-6">
         <button type="button" class="btn btn-primary"
-                (click)="upload()">Submit</button>
+                (click)="upload()">Submit
+        </button>
         <div>
 
 
-    </div>
+        </div>
 
 
+      </div>-->
 
-  </div>-->
-
-
-</div>
 

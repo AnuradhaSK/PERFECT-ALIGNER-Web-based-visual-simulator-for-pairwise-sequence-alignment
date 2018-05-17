@@ -14,7 +14,8 @@ export class TcoffeeMenuComponent implements OnInit {
   chartDataArray: any;
   file: any;
   message = '';
-  isSample=false;
+  isSample = false;
+  sampleCode = ['>seq1', 'ABCDEFGHIJ', '>seq2', 'MKNLHJBYGH', '>seq3', 'ASEFTGVCFD'];
 
   constructor(protected tcoffeeService: TcoffeeService,
               protected msasharingService: MsaSharingService) {
@@ -58,12 +59,32 @@ export class TcoffeeMenuComponent implements OnInit {
 
   }
 
-  showSample(){
-    this.isSample=true;
+  showSample() {
+    this.isSample = true;
   }
-  upload(){
 
-  }
+ /* upload() {
+    this.msasharingService.setVisibility(false);
+    this.showLoading();
+    this.dataArray = this.sampleCode;
+    // generate gene array from data
+    this.geneArray = this.tcoffeeService.getGeneArray(this.dataArray);
+    // set data need to be shown on pannel
+    this.msasharingService.setPanelData(this.geneArray);
+    // set data need to be shown in chart
+    this.chartDataArray = this.tcoffeeService.alignedCharCount(this.geneArray);
+    this.msasharingService.setChartData(this.chartDataArray);
+    // if the input file is in correct format
+    if (!(this.msasharingService.getPanelData().length === 1 && this.msasharingService.getPanelData()[0].id === '')) {
+      // this.closeLoading();
+      this.msasharingService.setVisibility(true);
+
+    } else {
+      this.closeLoading();
+      this.showError();
+    }
+
+  }*/
 
   // waiting alert on
   showLoading() {
@@ -72,7 +93,8 @@ export class TcoffeeMenuComponent implements OnInit {
       text: 'your request is processing',
       onOpen: () => {
         swal.showLoading();
-      }});
+      }
+    });
   }
 
   // waiting alert close
@@ -111,7 +133,6 @@ export class TcoffeeMenuComponent implements OnInit {
       cancelButtonAriaLabel: 'Thumbs down',
     });
   }
-
 
 
 }

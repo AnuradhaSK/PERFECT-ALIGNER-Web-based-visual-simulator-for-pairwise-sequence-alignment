@@ -43,6 +43,8 @@ export class SwGridComponent implements OnInit {
   match = '';
   mismatch = '';
   gap = '';
+  note='Note: If all three scores (score from the above cell, score from the left cell and score from the diagonal cell) are negative,' +
+    'then the cell value will be 0';
 
   constructor(private sharingService: SharingService) {
   }

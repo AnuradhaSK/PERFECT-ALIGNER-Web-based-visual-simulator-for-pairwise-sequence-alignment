@@ -46,7 +46,7 @@ export class DialignMenuComponent implements OnInit {
       this.msasharingService.setChartData(this.chartDataArray);
       // visualize if the file is a fasta file
       if (!(this.msasharingService.getPanelData().length === 1 && this.msasharingService.getPanelData()[0].id === '')) {
-        this.closeLoading();
+
         this.msasharingService.setVisibility(true);
       }
       // show an error message if the file is not in fasta format
